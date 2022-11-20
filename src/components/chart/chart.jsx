@@ -7,28 +7,14 @@ import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip);
 
-export function Chart() {
-  // props: // categories, statisticsData {
-  // shareOfEachExpenseCategory
-  // totalExpenses
-  //   }
+export function Chart({ statistics }) {
+  const { totalExpenses, totalCategories } = statistics;
   const data = {
-    labels: [
-      'Main',
-      'Food',
-      'Auto',
-      'Development',
-      'Children',
-      'House',
-      'Education',
-      'Reset',
-      'Other expenses',
-    ],
+    labels: totalCategories.map(category => category.category),
     datasets: [
       {
         label: 'Statistics',
-        // data: [25, 25, 25, 25, 0, 0, 0, 0, 0],
-        data: [10, 5, 15, 10, 15, 5, 10, 10, 20],
+        data: totalCategories.map(category => category.total),
         backgroundColor: [
           '#FED057',
           '#FFD8D0',
@@ -55,7 +41,7 @@ export function Chart() {
       >
         <Doughnut data={data} />
       </div>
-      <p>TotalExpenses ₴ 24 000.00</p>
+      <p>{`TotalExpenses ₴ ${totalExpenses}`}</p>
     </>
   );
 }
