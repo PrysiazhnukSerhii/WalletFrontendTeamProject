@@ -4,11 +4,15 @@ import { App } from 'components/App';
 import './common/main.scss';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename="/WalletFrontendTeamProject">
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );
