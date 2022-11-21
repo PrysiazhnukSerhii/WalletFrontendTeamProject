@@ -4,15 +4,15 @@ export const transactionsApi = createApi({
   reducerPath: 'transactionsApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://wallet-backend-team-project.herokuapp.com/',
-    // prepareHeaders: (headers, { getState }) => {
-    //   const token = getState().userInformation.token;
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().userInformation.token;
 
-    //   if (token) {
-    //     headers.set('authorization', `Bearer ${token}`);
-    //   }
+      if (token) {
+        headers.set('authorization', `${token}`);
+      }
 
-    //   return headers;
-    // },
+      return headers;
+    },
   }),
   tagTypes: ['Transactions'],
   endpoints: builder => ({
@@ -31,8 +31,17 @@ export const transactionsApi = createApi({
     }),
 
     getCategories: builder.query({
-      query: () => ` /api/transactions`,
+      query: () => ` /api/transactions/categories`,
       providesTags: ['Transactions'],
+    }),
+
+    createStatistics: builder.mutation({
+      query: statistics => ({
+        url: `/api/transactions/statistics`,
+        method: 'POST',
+        body: statistics,
+      }),
+      invalidatesTags: ['Transactions'],
     }),
   }),
 });
