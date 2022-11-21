@@ -34,6 +34,15 @@ export const transactionsApi = createApi({
       query: () => ` /api/transactions/categories`,
       providesTags: ['Transactions'],
     }),
+
+    createStatistics: builder.mutation({
+      query: statistics => ({
+        url: `/api/transactions/statistics`,
+        method: 'POST',
+        body: statistics,
+      }),
+      invalidatesTags: ['Transactions'],
+    }),
   }),
 });
 
