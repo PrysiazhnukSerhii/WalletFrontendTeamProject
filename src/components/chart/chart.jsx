@@ -10,22 +10,14 @@ ChartJS.register(ArcElement, Tooltip);
 export function Chart({ statistics }) {
   const { totalExpenses, totalCategories } = statistics;
   const data = {
-    labels: totalCategories.map(category => category.category),
+    labels: totalCategories.map(category => category.title),
     datasets: [
       {
         label: 'Statistics',
-        data: totalCategories.map(category => category.total),
-        backgroundColor: [
-          '#FED057',
-          '#FFD8D0',
-          '#FD9498',
-          '#C5BAFF',
-          '#6E78E8',
-          '#4A56E2',
-          '#81E1FF',
-          '#24CCA7',
-          '#00AD84',
-        ],
+        data: totalCategories.map(category =>
+          category.total ? category.total : 0
+        ),
+        backgroundColor: totalCategories.map(category => category.color),
         borderWidth: 0,
       },
     ],

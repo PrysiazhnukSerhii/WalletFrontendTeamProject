@@ -8,35 +8,35 @@ import { useState } from 'react';
 const currentYear = new Date().getFullYear();
 const currentMonth = new Date().getMonth() + 1;
 
-console.log(currentYear);
-console.log(currentMonth);
-
 let yearOptions = [];
 for (let i = 2017; i <= currentYear; i += 1) {
   yearOptions.push(i);
 }
-console.log(yearOptions);
 
 const initialValues = {
   month: currentMonth,
   year: currentYear,
 };
 
-export function Table({ categories, statistics }) {
+export function Table({ statistics }) {
   const { totalExpenses, totalIncome, totalCategories } = statistics;
   const [month, setMonth] = useState(initialValues.month);
   const [year, setYear] = useState(initialValues.year);
 
-  function getSum(category) {
-    const sum = totalCategories.find(total => total.category === category.title)
-      ?.total;
-    if (sum) {
-      return sum;
-    }
-    return 0;
-  }
+  const handleMonthChange = e => {
+    // console.log(Number(e.currentTarget.value));
+    setMonth(Number(e.currentTarget.value));
+  };
+  const handleYearChange = e => {
+    // console.log(Number(e.currentTarget.value));
+    setYear(Number(e.currentTarget.value));
+  };
 
-  // onChange = { handleChange };
+  const selectPeriod = {
+    month,
+    year,
+  };
+  console.log(selectPeriod);
 
   return (
     <>
@@ -50,10 +50,7 @@ export function Table({ categories, statistics }) {
             as="select"
             placeholder="Month"
             value={month}
-            onChange={e => {
-              console.log(Number(e.currentTarget.value));
-              setMonth(e.currentTarget.value);
-            }}
+            onChange={handleMonthChange}
           >
             <option key="1" value="1">
               January
@@ -98,10 +95,7 @@ export function Table({ categories, statistics }) {
             as="select"
             placeholder="Year"
             value={year}
-            onChange={e => {
-              console.log(e.currentTarget.value);
-              setYear(e.currentTarget.value);
-            }}
+            onChange={handleYearChange}
           >
             {yearOptions.map(year => (
               <option key={year} value={year}>
@@ -119,10 +113,19 @@ export function Table({ categories, statistics }) {
           </tr>
         </thead>
         <tbody>
-          {categories.map(category => (
+          {totalCategories.map(category => (
             <tr key={category.id}>
+              <td>
+                <div
+                  style={{
+                    backgroundColor: category.color,
+                    width: '30px',
+                    height: '30px',
+                  }}
+                ></div>
+              </td>
               <td>{category.title}</td>
-              <td>{getSum(category)}</td>
+              <td>{category.total ? category.total : 0}</td>
             </tr>
           ))}
         </tbody>
