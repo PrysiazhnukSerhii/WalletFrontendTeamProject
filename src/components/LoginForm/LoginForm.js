@@ -1,33 +1,21 @@
 import { React } from 'react';
-import { useDispatch } from 'react-redux';
-// import { useState } from "react";
-import { authOperations } from '../../redux/auth';
+import { useLoginMutation } from '../../redux/authSlice';
+
 import { NavLink } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-// import { GoogleLogin } from "react-google-login";
-
-// import { BACK_END } from "../../assets/API/BACK_END";
 
 import MyTextInput from '../MyTextInput';
 import MainButton from '../MainButton';
 import Logo from '../Logo';
 import { ReactComponent as EmailIcon } from '../../icons/email.svg';
 import { ReactComponent as LockIcon } from '../../icons/lock.svg';
-// import { ReactComponent as GoogleIcon } from "../../images/googleSVG/google.svg";
 
 import './LoginForm.scss';
 import '../MainButton/MainButton.scss';
-// import "./GoogleAuth.scss";
 
 function LoginForm() {
-  const dispatch = useDispatch();
-
-  // const [loginData, setLoginData] = useState(
-  //   localStorage.getItem("loginData")
-  //     ? JSON.parse(localStorage.getItem("loginData"))
-  //     : null
-  // );
+  let [login] = useLoginMutation();
 
   const validationsSchema = Yup.object().shape({
     email: Yup.string('Введите e-mail')
@@ -40,25 +28,8 @@ function LoginForm() {
   });
 
   const handleLogin = ({ email, password }) => {
-    // evt.preventDefault();
-    dispatch(authOperations.logIn({ email, password }));
+    login({ email, password });
   };
-
-  // const responseGoogle = async (googleData) => {
-  //   const res = await fetch(`${BACK_END}/api/users/login`, {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       token: googleData.tokenId,
-  //     }),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-
-  //   const data = await res.json();
-  //   setLoginData(data);
-  //   localStorage.setItem("loginData", JSON.stringify(data));
-  // };
 
   return (
     <>
@@ -77,38 +48,6 @@ function LoginForm() {
               <Logo />
               <h1 className="Header__logo--text">Wallet</h1>
             </div>
-
-            {/* <div className="container_google">
-              <p className="text">
-                Вы можете авторизоваться с помощью <br />
-                Google Account:
-              </p>
-              {loginData ? (
-                <div>
-                  <h3 className="loggedIn">
-                    You logged in as {loginData.email}
-                  </h3>
-                </div>
-              ) : (
-                <GoogleLogin
-                  clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                  render={(renderProps) => (
-                    <button
-                      onClick={renderProps.onClick}
-                      disabled={renderProps.disabled}
-                      className="button_google"
-                    >
-                      <GoogleIcon className="googleSvg" />
-                      Google
-                    </button>
-                  )}
-                  buttonText="Login"
-                  onSuccess={responseGoogle}
-                  onFailure={responseGoogle}
-                  cookiePolicy={"single_host_origin"}
-                />
-              )}
-            </div> */}
 
             <div className="container_input">
               <p className="text">
