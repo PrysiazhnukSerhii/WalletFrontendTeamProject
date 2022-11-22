@@ -28,7 +28,11 @@ function LoginForm() {
   });
 
   const handleLogin = ({ email, password }) => {
-    login({ email, password });
+    login({ email, password }).then(e => {
+      if (e.error) {
+        return alert(`This user:${email} was not found `);
+      }
+    });
   };
 
   return (
