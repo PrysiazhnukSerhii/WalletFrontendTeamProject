@@ -18,13 +18,13 @@ function LoginForm() {
   let [login] = useLoginMutation();
 
   const validationsSchema = Yup.object().shape({
-    email: Yup.string('Введите e-mail')
-      .email('Введите корректный e-mail')
-      .required('Обязательное поле для заполнения!'),
-    password: Yup.string('Ввведите пароль')
-      .min(6, 'Пароль должен состоять минимум из 6 символов')
-      .max(14, 'Пароль должен состоять максимум из 14 символов')
-      .required('Обязательное поле для заполнения!'),
+    email: Yup.string('Enter e-mail')
+      .email('Please enter a valid e-mail')
+      .required('Mandatory field!'),
+    password: Yup.string('Enter password')
+      .min(6, 'Password must be at least 6 characters long')
+      .max(14, 'Password must be a maximum of 14 characters')
+      .required('Mandatory field!'),
   });
 
   const handleLogin = ({ email, password }) => {
@@ -55,8 +55,7 @@ function LoginForm() {
 
             <div className="container_input">
               <p className="text">
-                Зайти с помощью e-mail и пароля, предварительно
-                зарегистрировавшись:
+               Log in with email and password by registering:
               </p>
 
               <MyTextInput
@@ -77,7 +76,7 @@ function LoginForm() {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.password}
-                placeholder="Пароль"
+                placeholder="Password"
                 className="input"
               />
             </div>
@@ -85,7 +84,7 @@ function LoginForm() {
             <div className="button_container">
               <MainButton
                 type="submit"
-                text="Вход"
+                text="Log In"
                 disabled={!isValid && !dirty}
                 className="logo_btn"
                 disable="sd"
@@ -93,7 +92,7 @@ function LoginForm() {
 
               <div>
                 <NavLink to="/register" className="main_btn">
-                  Регистрация
+                  Registration
                 </NavLink>
               </div>
             </div>
