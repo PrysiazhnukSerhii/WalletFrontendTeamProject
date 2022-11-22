@@ -3,6 +3,8 @@ import {
   TableWrapper,
   TableHead,
   TableHeadItem,
+  Data,
+  DataItem,
 } from './transactionsTable.styled';
 
 export function TransactionsTable() {
@@ -11,25 +13,37 @@ export function TransactionsTable() {
   return (
     <>
       <TableWrapper>
-        <TableHead>
-          <tr>
-            <TableHeadItem>Date</TableHeadItem>
-            <TableHeadItem>Type</TableHeadItem>
-            <TableHeadItem>Category</TableHeadItem>
-            <TableHeadItem>Comment</TableHeadItem>
-            <TableHeadItem>Sum</TableHeadItem>
+        <thead>
+          <TableHead>
+            <TableHeadItem style={{ marginRight: '62px' }}>Date</TableHeadItem>
+            <TableHeadItem style={{ marginRight: '47px' }}>Type</TableHeadItem>
+            <TableHeadItem style={{ marginRight: '65px' }}>
+              Category
+            </TableHeadItem>
+            <TableHeadItem style={{ marginRight: '95px' }}>
+              Comment
+            </TableHeadItem>
+            <TableHeadItem style={{ marginRight: '49px' }}>Sum</TableHeadItem>
             <TableHeadItem>Balance</TableHeadItem>
-          </tr>
-        </TableHead>
+          </TableHead>
+        </thead>
         <tbody>
-          <tr>
-            <td>22.11.2022</td>
-            <td>+</td>
-            <td>Income</td>
-            <td>salary</td>
-            <td>5000.00</td>
-            <td>5000.00</td>
-          </tr>
+          <Data>
+            <DataItem>22.11.22</DataItem>
+            <DataItem>+</DataItem>
+            <DataItem>Income</DataItem>
+            <DataItem>salary</DataItem>
+            <DataItem>0</DataItem>
+            <DataItem>0</DataItem>
+          </Data>
+          <Data>
+            <DataItem>22.11.22</DataItem>
+            <DataItem>+</DataItem>
+            <DataItem>Income</DataItem>
+            <DataItem>salary</DataItem>
+            <DataItem>0</DataItem>
+            <DataItem>0</DataItem>
+          </Data>
         </tbody>
       </TableWrapper>
     </>
