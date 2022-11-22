@@ -35,7 +35,7 @@ export const transactionsApi = createApi({
       providesTags: ['Transactions'],
     }),
 
-    createStatistics: builder.mutation({
+    getStatistics: builder.mutation({
       query: statistics => ({
         url: `/api/transactions/statistics`,
         method: 'POST',
@@ -50,4 +50,5 @@ export const {
   useGetTransactionsQuery,
   useCreateTransactionMutation,
   useGetCategoriesQuery,
+  useGetStatisticsQuery,
 } = transactionsApi;
