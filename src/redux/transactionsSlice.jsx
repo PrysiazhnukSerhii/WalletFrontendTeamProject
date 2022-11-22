@@ -3,14 +3,12 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const transactionsApi = createApi({
   reducerPath: 'transactionsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://wallet-backend-team-project.herokuapp.com/',
+    baseUrl: 'https://wallet-backend-team-project.herokuapp.com',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().userInformation.token;
-
       if (token) {
-        headers.set('authorization', `${token}`);
+        headers.set('authorization', `Bearer ${token}`);
       }
-
       return headers;
     },
   }),
@@ -35,7 +33,7 @@ export const transactionsApi = createApi({
       providesTags: ['Transactions'],
     }),
 
-    createStatistics: builder.mutation({
+    getStatistics: builder.mutation({
       query: statistics => ({
         url: `/api/transactions/statistics`,
         method: 'POST',
@@ -50,4 +48,5 @@ export const {
   useGetTransactionsQuery,
   useCreateTransactionMutation,
   useGetCategoriesQuery,
+  useGetStatisticsMutation,
 } = transactionsApi;
