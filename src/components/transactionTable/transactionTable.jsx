@@ -1,10 +1,10 @@
 import { useGetTransactionsQuery } from '../../redux/transactionsSlice';
 import {
   TableWrapper,
-  TableHead,
   TableHeadItem,
-  Data,
   DataItem,
+  TableHead,
+  Data,
 } from './transactionsTable.styled';
 
 export function TransactionsTable() {
@@ -13,38 +13,30 @@ export function TransactionsTable() {
   return (
     <>
       <TableWrapper>
-        <thead>
-          <TableHead>
-            <TableHeadItem style={{ marginRight: '62px' }}>Date</TableHeadItem>
-            <TableHeadItem style={{ marginRight: '47px' }}>Type</TableHeadItem>
-            <TableHeadItem style={{ marginRight: '65px' }}>
-              Category
-            </TableHeadItem>
-            <TableHeadItem style={{ marginRight: '95px' }}>
-              Comment
-            </TableHeadItem>
-            <TableHeadItem style={{ marginRight: '49px' }}>Sum</TableHeadItem>
-            <TableHeadItem>Balance</TableHeadItem>
-          </TableHead>
-        </thead>
-        <tbody>
-          <Data>
-            <DataItem>22.11.22</DataItem>
-            <DataItem>+</DataItem>
-            <DataItem>Income</DataItem>
-            <DataItem>salary</DataItem>
-            <DataItem>0</DataItem>
-            <DataItem>0</DataItem>
-          </Data>
-          <Data>
-            <DataItem>22.11.22</DataItem>
-            <DataItem>+</DataItem>
-            <DataItem>Income</DataItem>
-            <DataItem>salary</DataItem>
-            <DataItem>0</DataItem>
-            <DataItem>0</DataItem>
-          </Data>
-        </tbody>
+        <TableHead>
+          <TableHeadItem>Date</TableHeadItem>
+          <TableHeadItem>Type</TableHeadItem>
+          <TableHeadItem>Category</TableHeadItem>
+          <TableHeadItem>Comment</TableHeadItem>
+          <TableHeadItem>Sum</TableHeadItem>
+          <TableHeadItem>Balance</TableHeadItem>
+        </TableHead>
+        <Data>
+          <DataItem>22.11.22</DataItem>
+          <DataItem>+</DataItem>
+          <DataItem style={{ textAlign: 'left' }}>Income</DataItem>
+          <DataItem style={{ textAlign: 'left' }}>salary</DataItem>
+          <DataItem style={{ textAlign: 'right' }}>0000000</DataItem>
+          <DataItem style={{ textAlign: 'right' }}>00000000</DataItem>
+        </Data>
+        <Data>
+          <DataItem>22.11.22</DataItem>
+          <DataItem>+</DataItem>
+          <DataItem style={{ textAlign: 'left' }}>Car</DataItem>
+          <DataItem style={{ textAlign: 'left' }}>premium</DataItem>
+          <DataItem style={{ textAlign: 'right' }}>000000000</DataItem>
+          <DataItem style={{ textAlign: 'right' }}>00000</DataItem>
+        </Data>
       </TableWrapper>
     </>
   );
