@@ -1,10 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import { authApi } from './authSlice';
+import { transactionsApi } from './transactionsSlice';
 
 const initialState = {
   user: { name: '', email: '', balance: '' },
   token: null,
   isLoggedIn: false,
+  financeData: null,
 };
 
 export const userSlice = createSlice({
@@ -37,14 +41,27 @@ export const userSlice = createSlice({
         state.isLoggedIn = false;
       }
     );
+    // взнати що буде приходить в пеілоад ций
     builder.addMatcher(
-      authApi.endpoints.getUserInformation.matchFulfilled,
+      transactionsApi.endpoints.getStatistics.matchFulfilled,
       (state, { payload }) => {
-        state.user = payload.user;
-        state.isLoggedIn = true;
+        return (state.financeData = payload[0]);
       }
     );
   },
 });
 
 export default userSlice.reducer;
+
+//------------------------persist-----------
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['token'],
+};
+
+export const persistedReducer = persistReducer(
+  persistConfig,
+  userSlice.reducer
+);
