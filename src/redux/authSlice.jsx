@@ -6,11 +6,9 @@ export const authApi = createApi({
     baseUrl: 'https://wallet-backend-team-project.herokuapp.com',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().userInformation.token;
-
       if (token) {
-        headers.set('authorization', `${token}`);
+        headers.set('authorization', `Bearer ${token}`);
       }
-
       return headers;
     },
   }),
