@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
 export const TableWrapper = styled.table`
+  width: 100%;
+  max-width: 320px;
+  overflow: hidden scroll;
+  margin: 0 auto;
   background: blue;
   text-align: center;
-  margin-top: 46px;
-  margin-left: 69px;
-  @media screen and (max-width: 767px) {
-    margin: 20px 32px 0;
+  @media screen and (min-width: 768px) {
+    margin-top: 46px;
+    margin-left: 69px;
   }
 `;
 
@@ -52,8 +55,7 @@ position: relative;
   padding: 0px 7.5px;
   font-size: 16px;
   height: 52px;
-  background-color: rgba(255, 255, 255, 0.4);
-  @media screen and (min-width: 768px) {
+  background-color: rgba(255, 255, 255, 0.4);  
     &:not(:last-child) {
       &::after {
         content: '';
@@ -65,7 +67,7 @@ position: relative;
         border: 1px solid #dcdcdf;
         box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
       }
-    }
+    
 `;
 
 export const DataItem = styled.td`
@@ -73,7 +75,7 @@ export const DataItem = styled.td`
   color: black;
   font-weight: 400;  
   font-size: 16px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 320px) {
     &:nth-child(1) {
       width: 50px;
       margin-right: 30px;
