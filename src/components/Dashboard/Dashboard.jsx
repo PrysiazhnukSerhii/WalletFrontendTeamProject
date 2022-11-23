@@ -1,6 +1,6 @@
-import Navigation from 'components/Navigation/Navigation';
+import Navigation from 'components/navigation/Navigation';
 import Media from 'react-media';
-import Balance from 'components/Balance/Balance';
+import Balance from 'components/balance/Balance';
 import { DashboardContainer, Wrap } from './Dashboard.styled';
 
 const Dashboard = () => {

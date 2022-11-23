@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { DashboardPage } from '../pages/DashboardPage/DashboardPage';
+import { DashboardPage } from '../pages/dashboardPage/DashboardPage';
 import LoginPage from '../pages/LoginPage';
 import { RegistrationPage } from '../pages/registrationPage/registrationPage';
 import { DiagramTab } from './diagramTab/diagramTab';
