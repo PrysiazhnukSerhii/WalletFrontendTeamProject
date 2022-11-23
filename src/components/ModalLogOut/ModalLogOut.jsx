@@ -1,0 +1,44 @@
+import { createPortal } from 'react-dom';
+import { useEffect } from 'react';
+import { VscChromeClose } from 'react-icons/vsc';
+import {
+  Backdrop,
+  Modal,
+  CloseButton,
+  TextModal,
+  ModalButton,
+} from './ModalLogOut.styled';
+import { Box } from 'components/Box';
+
+const modalRoot = document.querySelector('#modal-root');
+
+function ModalLogOut({ onClickClose }) {
+  const onEscapePress = e => {
+    return e.code === 'Escape' && onClickClose();
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', onEscapePress);
+    return () => window.removeEventListener('keydown', onEscapePress);
+  });
+
+  return createPortal(
+    <Backdrop onClick={onClickClose}>
+      <Modal>
+        <CloseButton type="button" onClick={onClickClose}>
+          <VscChromeClose style={{ width: '16px', height: '16px' }} />
+        </CloseButton>
+        <TextModal>Are you want to log out?</TextModal>
+        <Box display="flex">
+          <ModalButton type="button">Yes</ModalButton>
+          <ModalButton type="button" onClick={onClickClose}>
+            No
+          </ModalButton>
+        </Box>
+      </Modal>
+    </Backdrop>,
+    modalRoot
+  );
+}
+
+export default ModalLogOut;
