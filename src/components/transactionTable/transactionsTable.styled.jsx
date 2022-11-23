@@ -4,17 +4,17 @@ export const TableWrapper = styled.table`
   width: 100%;
   max-width: 320px;
   overflow: hidden scroll;
-  margin: 0 16px;
+  margin: 0 auto;
   text-align: center;
   background: blue;
   @media screen and (min-width: 768px) {
     max-width: 704px;
-    margin-top: 46px;
-    margin-left: 69px;
   }
   @media screen and (min-width: 1280px) {
     max-width: 715px;
     max-height: 65vh;
+    margin-top: 46px;
+    margin-left: 69px;
   }
 `;
 
@@ -24,13 +24,10 @@ export const TableHead = styled.tr`
   font-size: 18px;
   line-height: 27px;
   height: 58px;
-  width: 700px;
+
   padding: 0px 7.5px;
   border-radius: 30px;
   background-color: white;
-  @media screen and (max-width: 767px) {
-    width: 685px;
-  }
 `;
 
 export const TableHeadItem = styled.th`   
@@ -80,8 +77,7 @@ export const DataItem = styled.td`
   padding: 8px 10px;
   color: black;
   font-weight: 400;  
-  font-size: 16px;
-  @media screen and (min-width: 320px) {
+  font-size: 16px;  
     &:nth-child(1) {
       width: 50px;
       margin-right: 30px;
@@ -105,5 +101,5 @@ export const DataItem = styled.td`
     width: 90px;    
   }
   }
-  }
+  
 `;
