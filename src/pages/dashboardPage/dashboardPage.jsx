@@ -1,10 +1,11 @@
 import { Outlet } from 'react-router-dom';
 import Dashboard from 'components/dashboard/Dashboard';
 import Media from 'react-media';
+import { Wrapper } from './DashboardPage.styled';
 
 export function DashboardPage() {
   return (
-    <div>
+    <Wrapper>
       <h2> DashboardPage</h2>
       <Media
         query="(max-width: 1279px)"
@@ -24,6 +25,6 @@ export function DashboardPage() {
           </div>
         )}
       />
-    </div>
+    </Wrapper>
   );
 }

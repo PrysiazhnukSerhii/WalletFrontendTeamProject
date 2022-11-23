@@ -11,7 +11,7 @@ const Navigation = () => {
     <NavStyled>
       <NavList>
         <li>
-          <StyledNavLink to="/" aria-label="home">
+          <StyledNavLink to="homeTab" aria-label="home">
             <HomeIcon />
             <Media query="(min-width: 768px)" render={() => <p>Home</p>} />
           </StyledNavLink>
@@ -29,7 +29,11 @@ const Navigation = () => {
           <Media
             query="(max-width: 767px)"
             render={() => (
-              <StyledNavLink to="currency" aria-label="currency">
+              <StyledNavLink
+                to="currency"
+                aria-label="currency"
+                aria-current="page"
+              >
                 <CurrencyIcon />
               </StyledNavLink>
             )}
