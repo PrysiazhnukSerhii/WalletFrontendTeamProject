@@ -5,7 +5,6 @@ export const TableWrapper = styled.table`
   max-width: 320px;
   overflow: hidden scroll;
   margin: 0 auto;
-  background: blue;
   text-align: center;
   @media screen and (min-width: 768px) {
     margin-top: 46px;
@@ -54,8 +53,7 @@ position: relative;
   align-items: center;
   padding: 0px 7.5px;
   font-size: 16px;
-  height: 52px;
-  background-color: rgba(255, 255, 255, 0.4);  
+  height: 52px;  
     &:not(:last-child) {
       &::after {
         content: '';
@@ -101,58 +99,3 @@ export const DataItem = styled.td`
   }
   }
 `;
-
-/* export const Data = styled.tr`
-  display: flex;
-  align-items: center;
-  height: 54px;
-  width: 700px;
-  @media screen and (max-width: 767px) {
-    display: flex;
-    flex-direction: column;
-    &:not(:last-child) {
-      margin-bottom: 8px;
-    }
-    background-color: white;
-    border-radius: 10px;
-    border-left: 5px solid #dcdcdf;
-  }  
-  }
-`; */
-
-/* export const DataItem = styled.td`
-  @media screen and (max-width: 767px) {
-    display: flex;
-    flex-grow: 1;
-    width: 100%;
-    align-items: center;
-    &:not(:last-child) {
-      border-bottom: 1px solid #dcdcdf;
-    }
-  }
-
-  padding: 8px 10px;
-  color: black;
-  font-weight: 400;
-  text-align: center;
-  font-size: 16px;
-  @media screen and (min-width: 768px) {
-    &:nth-child(1) {
-      width: 75px;
-    }
-    &:nth-child(2) {
-      width: 70px;
-    }
-    &:nth-child(3) {
-      width: 135px;
-    }
-    &:nth-child(4) {
-      width: 130px;
-    }
-    &:last-child {
-      width: 40px;
-      padding-right: 5px;
-    }
-  }
-`;
- */
