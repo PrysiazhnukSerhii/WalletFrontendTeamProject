@@ -14,8 +14,9 @@ export const Modal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: 0;
-  left: 0;
+  right: 8px;
+  bottom: 83px;
+
   background-color: var(--primary-background-color);
   z-index: 10;
   @media screen and (max-width: 767px) {

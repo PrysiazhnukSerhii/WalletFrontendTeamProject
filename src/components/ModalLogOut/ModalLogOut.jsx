@@ -1,5 +1,8 @@
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useLogOutMutation } from '../../redux/authSlice';
+import { authApi } from '../../redux/authSlice';
 import { VscChromeClose } from 'react-icons/vsc';
 import {
   Backdrop,
@@ -22,6 +25,17 @@ function ModalLogOut({ onClickClose }) {
     return () => window.removeEventListener('keydown', onEscapePress);
   });
 
+  const token = useSelector(state => state.userInformation.token);
+  const [logOut] = useLogOutMutation();
+
+  const dispatch = useDispatch();
+
+  const onClickLodOut = async () => {
+    await logOut(token);
+
+    dispatch(authApi.util.resetApiState());
+  };
+
   return createPortal(
     <Backdrop onClick={onClickClose}>
       <Modal>
@@ -30,7 +44,9 @@ function ModalLogOut({ onClickClose }) {
         </CloseButton>
         <TextModal>Are you want to log out?</TextModal>
         <Box display="flex">
-          <ModalButton type="button">Yes</ModalButton>
+          <ModalButton type="button" onClick={onClickLodOut}>
+            Yes
+          </ModalButton>
           <ModalButton type="button" onClick={onClickClose}>
             No
           </ModalButton>

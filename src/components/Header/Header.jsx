@@ -19,8 +19,6 @@ import {
   Link,
 } from './Header.styled';
 
-// import { openModalLogout } from 'redux/index';
-
 export const Header = () => {
   // const dispatch = useDispatch();
   // const name = useSelector(authSelectors.selectUser);
@@ -29,7 +27,6 @@ export const Header = () => {
     setIsModalOpen(true);
   };
   const closeModal = () => {
-    console.log(144);
     setIsModalOpen(false);
   };
 
