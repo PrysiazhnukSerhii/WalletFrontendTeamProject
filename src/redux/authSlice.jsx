@@ -36,7 +36,7 @@ export const authApi = createApi({
       }),
     }),
     getUserInformation: builder.query({
-      query: () => `/api/auth/curren`,
+      query: () => `/api/auth/current`,
     }),
   }),
 });

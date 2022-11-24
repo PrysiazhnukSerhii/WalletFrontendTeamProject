@@ -41,7 +41,13 @@ export const userSlice = createSlice({
         state.isLoggedIn = false;
       }
     );
-    // взнати що буде приходить в пеілоад ций
+    builder.addMatcher(
+      authApi.endpoints.getUserInformation.matchFulfilled,
+      (state, { payload }) => {
+        state.user = payload.user;
+        state.isLoggedIn = true;
+      }
+    );
     builder.addMatcher(
       transactionsApi.endpoints.getStatistics.matchFulfilled,
       (state, { payload }) => {
