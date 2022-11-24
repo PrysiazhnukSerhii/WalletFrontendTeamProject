@@ -55,7 +55,7 @@ function LoginForm() {
 
             <div className="container_input">
               <p className="text">
-               Log in with email and password by registering:
+                Log in with email and password by registering:
               </p>
 
               <MyTextInput
