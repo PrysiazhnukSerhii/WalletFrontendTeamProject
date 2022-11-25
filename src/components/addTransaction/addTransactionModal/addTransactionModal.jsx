@@ -14,9 +14,11 @@ const AddTransactionModal = ({ onCloseModal }) => {
     return () => {
       window.removeEventListener('keydown', onEscapeClose);
     };
-  }, []);
+  });
 
   const onEscapeClose = e => {
+    console.log('press');
+
     if (e.code === 'Escape') {
       onCloseModal();
     }
