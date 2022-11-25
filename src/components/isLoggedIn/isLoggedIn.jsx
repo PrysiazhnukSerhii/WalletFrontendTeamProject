@@ -1,5 +1,5 @@
 import { useGetUserInformationQuery } from '../../redux/authSlice';
 
-export function TakeInfUser() {
+export function IsLoggedIn() {
   useGetUserInformationQuery();
 }
