@@ -29,11 +29,7 @@ const Navigation = () => {
           <Media
             query="(max-width: 767px)"
             render={() => (
-              <StyledNavLink
-                to="currency"
-                aria-label="currency"
-                aria-current="page"
-              >
+              <StyledNavLink to="currency" aria-label="currency">
                 <CurrencyIcon />
               </StyledNavLink>
             )}

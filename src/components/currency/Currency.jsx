@@ -1,5 +1,5 @@
 const Currency = () => {
-  return <>Currency</>;
+  return <h1>Currency</h1>;
 };
 
 export default Currency;

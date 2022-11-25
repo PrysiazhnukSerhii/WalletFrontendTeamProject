@@ -5,7 +5,7 @@ const Balance = () => {
     <BalanceContainer>
       <BalanceText>your balance</BalanceText>
       <BalanceStyled>
-        &#8372; <b></b>
+        &#8372; <p>0</p>
       </BalanceStyled>
     </BalanceContainer>
   );

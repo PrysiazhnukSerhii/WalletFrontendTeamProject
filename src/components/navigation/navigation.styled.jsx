@@ -48,7 +48,7 @@ export const NavStyled = styled.nav`
     // backdrop-filter: blur(25px);
     left: 0;
     right: 0;
-    // z-index: 5;
+   
     top: 72px;
   }
 `;
