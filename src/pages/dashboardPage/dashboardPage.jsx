@@ -1,17 +1,21 @@
 import { Outlet } from 'react-router-dom';
 import Dashboard from 'components/dashboard/Dashboard';
 import Media from 'react-media';
-import { Wrapper } from './DashboardPage.styled';
+import { Section, Container } from './DashboardPage.styled';
 
 export function DashboardPage() {
   return (
-    <Wrapper>
+    <>
       <h2> DashboardPage</h2>
       <Media
         query="(max-width: 1279px)"
         render={() => (
           <>
-            <Dashboard />
+            <Section>
+              <Container>
+                <Dashboard />
+              </Container>
+            </Section>
             <Outlet />
           </>
         )}
@@ -19,12 +23,14 @@ export function DashboardPage() {
       <Media
         query="(min-width: 1280px)"
         render={() => (
-          <div style={{ display: 'flex', paddingBottom: '47px' }}>
-            <Dashboard />
-            <Outlet />
-          </div>
+          <Section>
+            <Container style={{ display: 'flex', paddingBottom: '47px' }}>
+              <Dashboard />
+              <Outlet />
+            </Container>
+          </Section>
         )}
       />
-    </Wrapper>
+    </>
   );
 }

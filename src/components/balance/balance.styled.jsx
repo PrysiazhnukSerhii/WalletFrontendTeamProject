@@ -8,11 +8,19 @@ export const BalanceContainer = styled.div`
   background-color: #ffffff;
   border-radius: 30px;
 
+  @media screen and (min-width: 376px) {
+    width: 336px;
+  }
+
   @media screen and (min-width: 767px) {
     margin-top: 28px;
     margin-bottom: 0;
     padding-left: 40px;
     padding-right: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 395px;
   }
 `;
 
