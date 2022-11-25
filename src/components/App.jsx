@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useGetUserInformationQuery } from '../redux/authSlice';
 
 import PrivatRoutes from './protectedRoutes/privatRoutes';
 import PublicRoutes from './protectedRoutes/publicRoutes';
@@ -10,9 +11,19 @@ import { RegistrationPage } from '../pages/registrationPage/registrationPage';
 import { DiagramTab } from './diagramTab/diagramTab';
 import { HomeTab } from './homeTab/homeTab';
 
+import { TakeInfUser } from './takeInfUser/takeInfUser';
+
+import React from 'react';
+
 export const App = () => {
+  let token = useSelector(state => state.userInformation.token);
+
+  if (token) {
+    useGetUserInformationQuery();
+  }
   return (
     <>
+      {token ? <TakeInfUser /> : <></>}
       <Routes>
         <Route element={<PublicRoutes />}>
           <Route path="/register" element={<RegistrationPage />} />
