@@ -15,13 +15,13 @@ export const transactionsApi = createApi({
   tagTypes: ['Transactions'],
   endpoints: builder => ({
     getTransactions: builder.query({
-      query: () => ` /api/transactions`,
+      query: () => `/api/transactions`,
       providesTags: ['Transactions'],
     }),
 
     createTransaction: builder.mutation({
       query: transaction => ({
-        url: ` /api/transactions`,
+        url: `/api/transactions`,
         method: 'POST',
         body: transaction,
       }),
@@ -29,7 +29,7 @@ export const transactionsApi = createApi({
     }),
 
     getCategories: builder.query({
-      query: () => ` /api/transactions/categories`,
+      query: () => `/api/transactions/categories`,
       providesTags: ['Transactions'],
     }),
 
