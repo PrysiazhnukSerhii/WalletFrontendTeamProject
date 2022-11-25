@@ -33,14 +33,14 @@ const TransactionSchema = Yup.object().shape({
     .min(0)
     .max(200, 'Try to make your comment a bit shorter'),
   category: Yup.string().oneOf([
-    'main',
-    'food',
-    'auto',
-    'development',
-    'children',
-    'house',
-    'education',
-    'other',
+    'Main',
+    'Food',
+    'Auto',
+    'Development',
+    'Children',
+    'House',
+    'Education',
+    'Other',
   ]),
 });
 
@@ -63,17 +63,18 @@ const AddTransactionForm = ({ onCancel }) => {
         initialValues={initialValues}
         validationSchema={TransactionSchema}
         onSubmit={async values => {
+          const { category, sum, comment, date } = values;
           // console.log(values);
           const newTransaction = {
             type: transactionType,
-            category: values.category,
-            sum: values.sum,
-            date: values.date.getDate(),
-            month: values.date.getMonth() + 1,
-            year: values.date.getFullYear(),
-            comment: values.comment,
+            category: category === '' ? 'Other' : category,
+            sum: Number(sum),
+            date: Number(date.getDate()),
+            month: Number(date.getMonth()) + 1,
+            year: Number(date.getFullYear()),
+            comment: comment,
           };
-          // console.log(newTransaction);
+          console.log(newTransaction);
           addTransaction(newTransaction);
           onCancel();
         }}
@@ -101,7 +102,7 @@ const AddTransactionForm = ({ onCancel }) => {
               />
             )}
             <SumAndDateWrapp>
-              <SumField id="sum" name="sum" placeholder="0.00" />
+              <SumField type="number" id="sum" name="sum" placeholder="0.00" />
               <Datetime
                 renderInput={props => <DatetimeInput {...props} />}
                 id="date"
