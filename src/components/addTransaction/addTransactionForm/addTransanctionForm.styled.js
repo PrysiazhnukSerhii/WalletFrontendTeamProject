@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
-import { FiPlus, FiMinus } from 'react-icons/fi';
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import sprite from '../../../images/svg/symbol-defs.svg';
-import cross from '../../../images/svg/cross.svg';
-import minus from '../../../images/svg/minus.svg';
 //import { colors } from 'react-select/dist/declarations/src/theme';
 
 const reactSvgComponentToMarkupString = (Component) =>
