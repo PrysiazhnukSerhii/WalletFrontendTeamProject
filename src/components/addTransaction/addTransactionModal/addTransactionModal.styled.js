@@ -45,7 +45,9 @@ export const Modal = styled.div`
 `;
 
 export const TransactionFormButton = styled.button`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto 0 auto;
   min-width: 300px;
   min-height: 50px;
@@ -64,8 +66,7 @@ export const TransactionFormButton = styled.button`
     props.primary ? 'var(--secondary-text-color)' : 'var(--accent-color-blue)'};
   transition: background-color 250ms linear;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: ${props =>
       props.primary ? '#20b091' : 'var(--secondary-background-color)'};
   }
