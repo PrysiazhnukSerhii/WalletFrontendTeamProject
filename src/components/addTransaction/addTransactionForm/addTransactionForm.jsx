@@ -9,9 +9,11 @@ import {
   CheckboxInput,
   CheckboxTextExpense,
   CheckboxSlider,
+  CheckboxPoint,
   CheckboxTextIncome,
   Title,
   SumAndDateWrapp,
+  CalendarWrap,
   DateWrap,
   SumField,
   Textarea,
@@ -23,7 +25,7 @@ import { TransactionForm } from './addTransanctionForm.styled';
 import { useCreateTransactionMutation } from 'redux/transactionsSlice';
 import Notiflix from 'notiflix';
 import sprite from '../../../images/svg/symbol-defs.svg';
-// import { FiPlus, FiMinus } from 'react-icons/fi';
+import { FiPlus, FiMinus } from 'react-icons/fi';
 
 const notiflixOptions = Notiflix.Notify.init({
   width: '400px',
@@ -81,16 +83,18 @@ const AddTransactionForm = ({ onCancel }) => {
         validationSchema={TransactionSchema}
         onSubmit={async values => {
           const { category, sum, comment, date } = values;
-          console.log("Values",values);
+          console.log("Values", values);
+          
           const newTransaction = {
             type: transactionType,
             category: category === '' ? 'Other' : category,
             sum: Number(sum),
-            date: Number(date.getDate()),
+            date: date,
             month: Number(date.getMonth()) + 1,
             year: Number(date.getFullYear()),
-            comment: comment,
+            comment: comment === '' ? 'No comment' : comment,
           };
+          console.log("newTransaction", newTransaction); 
           console.log(newTransaction);
           addTransaction(newTransaction);
           onCancel();
@@ -107,8 +111,22 @@ const AddTransactionForm = ({ onCancel }) => {
                   setTransactionType(!transactionType);
                 }}
                 checked={transactionType}
-              />
-              <CheckboxSlider/>              
+              /> 
+
+              <CheckboxSlider>
+                <CheckboxPoint isChecked={transactionType}>
+                  {transactionType ? (
+                    <FiPlus
+                      style={{ color: 'white', width: '30px', height: '30px' }}
+                    />
+                  ) : (
+                    <FiMinus
+                      style={{ color: 'white', width: '30px', height: '30px' }}
+                    />
+                  )}
+                </CheckboxPoint>
+              </CheckboxSlider>
+
               <CheckboxTextIncome>Income</CheckboxTextIncome>
               <CheckboxTextExpense>Expense</CheckboxTextExpense>
             </CheckboxWrapp>
@@ -139,10 +157,11 @@ const AddTransactionForm = ({ onCancel }) => {
                         },
                       }}
                 />
-                  {/* <img src='../../../images/svg/calendar.svg' width='18px' height='20px'/> */}
+                  <CalendarWrap>
                     <svg width='18px' height='20px'>
                       <use href={`${sprite}#icon-calendar`}/>
                     </svg>
+                  </CalendarWrap>
                 </DateWrap>
             </SumAndDateWrapp>
             <Textarea
