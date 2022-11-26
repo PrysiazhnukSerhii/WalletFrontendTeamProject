@@ -4,6 +4,12 @@
 
 import { Chart } from 'components/chart/chart';
 import { Table } from 'components/table/table';
+import { useState } from 'react';
+
+const initialValues = {
+  month: new Date().getMonth() + 1,
+  year: new Date().getFullYear(),
+};
 
 export function DiagramTab() {
   // забираємо з redux store statistics
@@ -64,11 +70,33 @@ export function DiagramTab() {
     ],
   };
 
+  const [month, setMonth] = useState(initialValues.month);
+  const [year, setYear] = useState(initialValues.year);
+
+  const handleMonthChange = e => {
+    setMonth(Number(e.currentTarget.value));
+  };
+  const handleYearChange = e => {
+    setYear(Number(e.currentTarget.value));
+  };
+  const selectedPeriod = {
+    month,
+    year,
+  };
+
+  console.log(selectedPeriod);
   return (
     <>
       <h2>Statistics</h2>
       <Chart statistics={statistics} />
-      <Table statistics={statistics} />
+      <Table
+        month={month}
+        year={year}
+        initialValues={initialValues}
+        statistics={statistics}
+        onMonthChange={handleMonthChange}
+        onYearChange={handleYearChange}
+      />
     </>
   );
 }

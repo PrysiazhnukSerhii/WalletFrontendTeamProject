@@ -3,54 +3,29 @@
 // методы для фильтрации на селекты
 import { Form, Field } from 'formik';
 import { Formik, ErrorMessage } from 'formik';
-import { useState } from 'react';
 
-const currentYear = new Date().getFullYear();
-const currentMonth = new Date().getMonth() + 1;
-
-let yearOptions = [];
-for (let i = 2017; i <= currentYear; i += 1) {
-  yearOptions.push(i);
-}
-
-const initialValues = {
-  month: currentMonth,
-  year: currentYear,
-};
-
-export function Table({ statistics }) {
+export function Table({
+  month,
+  year,
+  initialValues,
+  statistics,
+  onMonthChange,
+  onYearChange,
+}) {
   const { totalExpenses, totalIncome, totalCategories } = statistics;
-  const [month, setMonth] = useState(initialValues.month);
-  const [year, setYear] = useState(initialValues.year);
 
-  const handleMonthChange = e => {
-    // console.log(Number(e.currentTarget.value));
-    setMonth(Number(e.currentTarget.value));
-  };
-  const handleYearChange = e => {
-    // console.log(Number(e.currentTarget.value));
-    setYear(Number(e.currentTarget.value));
-  };
-
-  const selectPeriod = {
-    month,
-    year,
-  };
-  console.log(selectPeriod);
+  const yearOptions = generateYearOptions(initialValues.year);
 
   return (
     <>
-      <Formik
-        initialValues={initialValues}
-        // onSubmit={values => console.log(values)}
-      >
+      <Formik initialValues={initialValues}>
         <Form>
           <Field
             name="month"
             as="select"
             placeholder="Month"
             value={month}
-            onChange={handleMonthChange}
+            onChange={onMonthChange}
           >
             <option key="1" value="1">
               January
@@ -95,7 +70,7 @@ export function Table({ statistics }) {
             as="select"
             placeholder="Year"
             value={year}
-            onChange={handleYearChange}
+            onChange={onYearChange}
           >
             {yearOptions.map(year => (
               <option key={year} value={year}>
@@ -134,4 +109,12 @@ export function Table({ statistics }) {
       <p>{`Income: ${totalIncome}`}</p>
     </>
   );
+}
+
+function generateYearOptions(currentYear) {
+  let yearOptions = [];
+  for (let i = 2017; i <= currentYear; i += 1) {
+    yearOptions.push(i);
+  }
+  return yearOptions;
 }
