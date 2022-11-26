@@ -1,5 +1,17 @@
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
+import { FiPlus, FiMinus } from 'react-icons/fi';
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import sprite from '../../../images/svg/symbol-defs.svg';
+import cross from '../../../images/svg/cross.svg';
+import minus from '../../../images/svg/minus.svg';
+//import { colors } from 'react-select/dist/declarations/src/theme';
+
+const reactSvgComponentToMarkupString = (Component) =>
+  `data:image/svg+xml,${encodeURIComponent(
+    renderToStaticMarkup(createElement(Component))
+  )}`;
 
 export const Title = styled.h2`
   margin-bottom: 40px;
@@ -75,7 +87,6 @@ export const CheckboxSlider = styled.span`
   height: 40px;
   border: 1px solid #e0e0e0;
   border-radius: 30px;
-
   &:before {
     position: absolute;
     content: '';
@@ -86,11 +97,22 @@ export const CheckboxSlider = styled.span`
     bottom: -2px;
     background-color: var(--accent-color-red);
     transition: 0.4s;
+    background-image: url(${reactSvgComponentToMarkupString(FiMinus)});
+    //background-image: url(${minus});
+    background-size: contain;
+    background-repeat: no-repeat;
+    box-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
   }
 
   ${CheckboxInput}:checked + &:before {
     transform: translateX(-38px);
     background-color: var(--accent-color-grean);
+    background-image: url(${reactSvgComponentToMarkupString(FiPlus)});
+    // background-image: url(${sprite}#icon-wallet);
+    //background-image: url(${cross});
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
   }
 `;
 
@@ -126,6 +148,13 @@ export const SumAndDateWrapp = styled.div`
     width: 100%;
   }
 `;
+
+export const DateWrap = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`;
+
 export const SumField = styled(Field)`
   ${InputStyle}
   display:block;
