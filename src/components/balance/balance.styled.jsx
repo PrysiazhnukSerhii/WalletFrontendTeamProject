@@ -1,26 +1,33 @@
 import styled from 'styled-components';
 
 export const BalanceContainer = styled.div`
+  background-color: var(--secondary-text-color);
+  border-radius: 30px;
   margin-top: 12px;
   margin-bottom: 32px;
-  padding: 8px 32px 11px;
-  width: 100%;
-  background-color: #ffffff;
-  border-radius: 30px;
+  padding: 11px 32px;
+
+  font-family: 'Circe;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    text-transform: uppercase;
+
+  // color: #A6A6A6;
 
   @media screen and (min-width: 376px) {
     width: 336px;
   }
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 768px) {
     margin-top: 28px;
     margin-bottom: 0;
-    padding-left: 40px;
-    padding-right: 40px;
+    width: 256px;
+    padding: 0px 40px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 300px;
+    width: 315px;
   }
 `;
 
@@ -35,8 +42,8 @@ export const BalanceText = styled.p`
 
 export const BalanceStyled = styled.p`
   margin-top: 12px;
-  color: #000000;
+  color: var(--primary-text-color);
   font-size: 30px;
 
-  //   line-height: calc(36 / 30);
+  line-height: 1.5;
 `;

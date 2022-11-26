@@ -7,8 +7,6 @@ export const DashboardContainer = styled.div`
   @media screen and (min-width: 1280px) {
     margin-bottom: 32px;
     padding-top: 0;
-
-    
   }
 `;
 
