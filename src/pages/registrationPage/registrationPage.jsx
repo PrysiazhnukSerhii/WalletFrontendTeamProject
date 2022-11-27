@@ -1,9 +1,3 @@
-import { Header } from 'components/Header/Header';
-
 export function RegistrationPage() {
-  return (
-    <>
-      <Header></Header>
-    </>
-  );
+  return <h2> RegistrationPage</h2>;
 }
