@@ -1,4 +1,4 @@
-import { BalanceContainer, BalanceText, BalanceStyled } from './Balance.styled';
+import { BalanceContainer, BalanceText, BalanceStyled } from './balance.styled';
 
 const Balance = () => {
   return (

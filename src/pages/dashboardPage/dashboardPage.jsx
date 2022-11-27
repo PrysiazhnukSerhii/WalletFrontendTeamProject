@@ -7,8 +7,8 @@ import {
   ContainerDashboard,
   Container,
   MainPage,
-} from './DashboardPage.styled';
-import Dashboard from 'components/dashboard/Dashboard';
+} from './dashboardPage.styled';
+import Dashboard from 'components/dashboard/dashboard';
 
 export function DashboardPage() {
   return (
@@ -18,14 +18,12 @@ export function DashboardPage() {
         <Media
           query="(max-width: 767px)"
           render={() => (
-            // <Section>
             <Container>
               <ContainerDashboard>
                 <Dashboard />
               </ContainerDashboard>
               <Outlet />
             </Container>
-            // </Section>
           )}
         />
         <Media
@@ -43,9 +41,8 @@ export function DashboardPage() {
         />
       </MainPage>
     </>
-  )
+  );
 }
-
 
 // export function DashboardPage() {
 //   return (

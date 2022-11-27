@@ -1,4 +1,4 @@
-import { StyledNavLink, NavList, NavStyled } from './Navigation.styled';
+import { StyledNavLink, NavList, NavStyled } from './navigation.styled';
 
 import Media from 'react-media';
 

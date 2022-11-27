@@ -1,6 +1,6 @@
 import AddTransactionButton from 'components/addTransaction/addTransactionButton/addTransactionButton';
 import { TransactionsTable } from 'components/transactionTable/transactionTable';
-import Balance from 'components/balance/Balance';
+import Balance from 'components/balance/balance';
 import Media from 'react-media';
 
 export const HomeTab = () => {

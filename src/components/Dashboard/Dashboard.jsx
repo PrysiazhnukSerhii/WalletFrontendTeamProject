@@ -1,7 +1,7 @@
-import Navigation from 'components/navigation/Navigation';
+import Navigation from 'components/navigation/navigation';
 import Media from 'react-media';
-import Balance from 'components/balance/Balance';
-import { DashboardContainer, Wrapper } from './Dashboard.styled';
+import Balance from 'components/balance/balance';
+import { DashboardContainer, Wrapper } from './dashboard.styled';
 import Currency from 'components/currency/Currency';
 
 const Dashboard = () => {
