@@ -45,9 +45,13 @@ export const Modal = styled.div`
 `;
 
 export const TransactionFormButton = styled.button`
+<<<<<<< HEAD
   display: flex;
   align-items: center;
   justify-content: center;
+=======
+  display: block;
+>>>>>>> main
   margin: 0 auto 0 auto;
   min-width: 300px;
   min-height: 50px;
@@ -66,6 +70,7 @@ export const TransactionFormButton = styled.button`
     props.primary ? 'var(--secondary-text-color)' : 'var(--accent-color-blue)'};
   transition: background-color 250ms linear;
 
+<<<<<<< HEAD
   &:hover {
     background-color: ${props =>
       props.primary ? '#20b091' : 'var(--secondary-background-color)'};
@@ -73,6 +78,13 @@ export const TransactionFormButton = styled.button`
   &:disabled {
     background-color: var(--disabled-grey-text-color);
   }
+=======
+  &:hover,
+  &:focus {
+    background-color: ${props =>
+      props.primary ? '#20b091' : 'var(--secondary-background-color)'};
+  }
+>>>>>>> main
 `;
 
 export const CloseButton = styled.button`

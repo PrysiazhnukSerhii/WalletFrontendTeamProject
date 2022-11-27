@@ -4,7 +4,10 @@ import { useState } from 'react';
 import * as Yup from 'yup';
 import 'react-datetime/css/react-datetime.css';
 import Datetime from 'react-datetime';
+<<<<<<< HEAD
 import { Oval } from 'react-loader-spinner';
+=======
+>>>>>>> main
 import {
   CheckboxWrapp,
   CheckboxInput,
@@ -21,7 +24,10 @@ import {
   DatetimeInput,
 } from './addTransanctionForm.styled';
 import { MySelect } from './addTransactionFormSelect/addTransactionFormSelect';
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 import { TransactionFormButton } from '../addTransactionModal/addTransactionModal.styled';
 import { TransactionForm } from './addTransanctionForm.styled';
 import { useCreateTransactionMutation } from 'redux/transactionsSlice';
@@ -29,7 +35,11 @@ import Notiflix from 'notiflix';
 import sprite from '../../../images/svg/symbol-defs.svg';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 
+<<<<<<< HEAD
 Notiflix.Notify.init({
+=======
+const notiflixOptions = Notiflix.Notify.init({
+>>>>>>> main
   width: '400px',
   position: 'top-right',
   distance: '50px',
@@ -49,10 +59,17 @@ const TransactionSchema = Yup.object().shape({
     .required('This field is requried'),
   date: Yup.date().max(new Date(), "You can't make a transaction in future"),
   comment: Yup.string()
+<<<<<<< HEAD
     .typeError('Should be a string')
     .min(0)
     .max(200, 'Try to make your comment a bit shorter'),
 
+=======
+    .typeError("Should be a string")
+    .min(0)
+    .max(200, 'Try to make your comment a bit shorter'),
+    
+>>>>>>> main
   category: Yup.string().oneOf([
     'Main',
     'Food',
@@ -75,7 +92,11 @@ const initialValues = {
 
 const AddTransactionForm = ({ onCancel }) => {
   const [transactionType, setTransactionType] = useState(false);
+<<<<<<< HEAD
   const [addTransaction, { isLoading }] = useCreateTransactionMutation();
+=======
+  const [addTransaction] = useCreateTransactionMutation();
+>>>>>>> main
 
   return (
     <div>
@@ -85,8 +106,13 @@ const AddTransactionForm = ({ onCancel }) => {
         validationSchema={TransactionSchema}
         onSubmit={async values => {
           const { category, sum, comment, date } = values;
+<<<<<<< HEAD
           // console.log('Values', values);
 
+=======
+          console.log("Values", values);
+          
+>>>>>>> main
           const newTransaction = {
             type: transactionType,
             category: category === '' ? 'Other' : category,
@@ -96,6 +122,7 @@ const AddTransactionForm = ({ onCancel }) => {
             year: Number(date.getFullYear()),
             comment: comment === '' ? 'No comment' : comment,
           };
+<<<<<<< HEAD
           // console.log('newTransaction', newTransaction);
           try {
             await addTransaction(newTransaction);
@@ -118,6 +145,15 @@ const AddTransactionForm = ({ onCancel }) => {
           isValid,
           dirty,
         }) => (
+=======
+          console.log("newTransaction", newTransaction); 
+          console.log(newTransaction);
+          addTransaction(newTransaction);
+          onCancel();
+        }}
+      >
+        {({ handleSubmit, handleChange, setFieldValue, values, errors, touched, isValid, dirty }) => (
+>>>>>>> main
           <TransactionForm autoComplete="off">
             <CheckboxWrapp>
               <CheckboxInput
@@ -128,7 +164,11 @@ const AddTransactionForm = ({ onCancel }) => {
                   setTransactionType(!transactionType);
                 }}
                 checked={transactionType}
+<<<<<<< HEAD
               />
+=======
+              /> 
+>>>>>>> main
 
               <CheckboxSlider>
                 <CheckboxPoint isChecked={transactionType}>
@@ -155,6 +195,7 @@ const AddTransactionForm = ({ onCancel }) => {
             )}
             <SumAndDateWrapp>
               {touched.sum && errors.sum && Notiflix.Notify.warning(errors.sum)}
+<<<<<<< HEAD
               <SumField
                 type="number"
                 id="sum"
@@ -185,6 +226,33 @@ const AddTransactionForm = ({ onCancel }) => {
                   </svg>
                 </CalendarWrap>
               </DateWrap>
+=======
+              <SumField type="number" id="sum" name="sum" placeholder="Sum: 0.00"/>
+              
+              <DateWrap>
+                    <Datetime
+                      renderInput={props => <DatetimeInput {...props} />}
+                      id="date"
+                      closeOnSelect={true}
+                      closeOnClickOutside={true}
+                      name="date"
+                      initialValue={initialValues.date}
+                      dateFormat="DD-MM-YYYY"
+                      timeFormat={false}
+                      onChange={e => setFieldValue('date', new Date(e))}
+                      inputProps={{
+                        onKeyDown: e => {
+                          e.preventDefault();
+                        },
+                      }}
+                />
+                  <CalendarWrap>
+                    <svg width='18px' height='20px'>
+                      <use href={`${sprite}#icon-calendar`}/>
+                    </svg>
+                  </CalendarWrap>
+                </DateWrap>
+>>>>>>> main
             </SumAndDateWrapp>
             <Textarea
               id="comment"
@@ -192,6 +260,7 @@ const AddTransactionForm = ({ onCancel }) => {
               placeholder="Comment"
               onChange={handleChange}
             />
+<<<<<<< HEAD
             <TransactionFormButton
               primary
               type="submit"
@@ -208,6 +277,10 @@ const AddTransactionForm = ({ onCancel }) => {
               ) : (
                 <span>ADD</span>
               )}
+=======
+            <TransactionFormButton primary type="submit">
+              ADD
+>>>>>>> main
             </TransactionFormButton>
           </TransactionForm>
         )}
