@@ -1,5 +1,9 @@
 import { useGetUserInformationQuery } from '../../redux/authSlice';
 
 export function IsLoggedIn() {
-  useGetUserInformationQuery();
+  const { data } = useGetUserInformationQuery();
+
+  if (!data) {
+    return;
+  }
 }
