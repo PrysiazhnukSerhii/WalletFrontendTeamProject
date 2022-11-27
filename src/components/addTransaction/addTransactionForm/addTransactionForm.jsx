@@ -4,6 +4,7 @@ import { useState } from 'react';
 import * as Yup from 'yup';
 import 'react-datetime/css/react-datetime.css';
 import Datetime from 'react-datetime';
+import { Oval } from 'react-loader-spinner';
 import {
   CheckboxWrapp,
   CheckboxInput,
@@ -27,7 +28,7 @@ import Notiflix from 'notiflix';
 import sprite from '../../../images/svg/symbol-defs.svg';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 
-const notiflixOptions = Notiflix.Notify.init({
+Notiflix.Notify.init({
   width: '400px',
   position: 'top-right',
   distance: '50px',
@@ -47,10 +48,10 @@ const TransactionSchema = Yup.object().shape({
     .required('This field is requried'),
   date: Yup.date().max(new Date(), "You can't make a transaction in future"),
   comment: Yup.string()
-    .typeError("Should be a string")
+    .typeError('Should be a string')
     .min(0)
     .max(200, 'Try to make your comment a bit shorter'),
-    
+
   category: Yup.string().oneOf([
     'Main',
     'Food',
@@ -73,7 +74,7 @@ const initialValues = {
 
 const AddTransactionForm = ({ onCancel }) => {
   const [transactionType, setTransactionType] = useState(false);
-  const [addTransaction] = useCreateTransactionMutation();
+  const [addTransaction, { isLoading }] = useCreateTransactionMutation();
 
   return (
     <div>
@@ -83,8 +84,8 @@ const AddTransactionForm = ({ onCancel }) => {
         validationSchema={TransactionSchema}
         onSubmit={async values => {
           const { category, sum, comment, date } = values;
-          console.log("Values", values);
-          
+          // console.log('Values', values);
+
           const newTransaction = {
             type: transactionType,
             category: category === '' ? 'Other' : category,
@@ -94,13 +95,28 @@ const AddTransactionForm = ({ onCancel }) => {
             year: Number(date.getFullYear()),
             comment: comment === '' ? 'No comment' : comment,
           };
-          console.log("newTransaction", newTransaction); 
-          console.log(newTransaction);
-          addTransaction(newTransaction);
-          onCancel();
+          // console.log('newTransaction', newTransaction);
+          try {
+            await addTransaction(newTransaction);
+            onCancel();
+            Notiflix.Notify.success('New transaction added success');
+          } catch (error) {
+            onCancel();
+            Notiflix.Notify.failure('Something went wrong');
+            console.log(error.message);
+          }
         }}
       >
-        {({ handleSubmit, handleChange, setFieldValue, values, errors, touched, isValid, dirty }) => (
+        {({
+          handleSubmit,
+          handleChange,
+          setFieldValue,
+          values,
+          errors,
+          touched,
+          isValid,
+          dirty,
+        }) => (
           <TransactionForm autoComplete="off">
             <CheckboxWrapp>
               <CheckboxInput
@@ -111,7 +127,7 @@ const AddTransactionForm = ({ onCancel }) => {
                   setTransactionType(!transactionType);
                 }}
                 checked={transactionType}
-              /> 
+              />
 
               <CheckboxSlider>
                 <CheckboxPoint isChecked={transactionType}>
@@ -138,31 +154,36 @@ const AddTransactionForm = ({ onCancel }) => {
             )}
             <SumAndDateWrapp>
               {touched.sum && errors.sum && Notiflix.Notify.warning(errors.sum)}
-              <SumField type="number" id="sum" name="sum" placeholder="Sum: 0.00"/>
-              
+              <SumField
+                type="number"
+                id="sum"
+                name="sum"
+                placeholder="Sum: 0.00"
+              />
+
               <DateWrap>
-                    <Datetime
-                      renderInput={props => <DatetimeInput {...props} />}
-                      id="date"
-                      closeOnSelect={true}
-                      closeOnClickOutside={true}
-                      name="date"
-                      initialValue={initialValues.date}
-                      dateFormat="DD-MM-YYYY"
-                      timeFormat={false}
-                      onChange={e => setFieldValue('date', new Date(e))}
-                      inputProps={{
-                        onKeyDown: e => {
-                          e.preventDefault();
-                        },
-                      }}
+                <Datetime
+                  renderInput={props => <DatetimeInput {...props} />}
+                  id="date"
+                  closeOnSelect={true}
+                  closeOnClickOutside={true}
+                  name="date"
+                  initialValue={initialValues.date}
+                  dateFormat="DD-MM-YYYY"
+                  timeFormat={false}
+                  onChange={e => setFieldValue('date', new Date(e))}
+                  inputProps={{
+                    onKeyDown: e => {
+                      e.preventDefault();
+                    },
+                  }}
                 />
-                  <CalendarWrap>
-                    <svg width='18px' height='20px'>
-                      <use href={`${sprite}#icon-calendar`}/>
-                    </svg>
-                  </CalendarWrap>
-                </DateWrap>
+                <CalendarWrap>
+                  <svg width="18px" height="20px">
+                    <use href={`${sprite}#icon-calendar`} />
+                  </svg>
+                </CalendarWrap>
+              </DateWrap>
             </SumAndDateWrapp>
             <Textarea
               id="comment"
@@ -170,8 +191,22 @@ const AddTransactionForm = ({ onCancel }) => {
               placeholder="Comment"
               onChange={handleChange}
             />
-            <TransactionFormButton primary type="submit">
-              ADD
+            <TransactionFormButton
+              primary
+              type="submit"
+              disabled={isLoading ? true : false}
+            >
+              {isLoading ? (
+                <Oval
+                  width={30}
+                  height={30}
+                  color="white"
+                  ariaLabel="oval-loading"
+                  secondaryColor="#000000"
+                />
+              ) : (
+                <span>ADD</span>
+              )}
             </TransactionFormButton>
           </TransactionForm>
         )}
