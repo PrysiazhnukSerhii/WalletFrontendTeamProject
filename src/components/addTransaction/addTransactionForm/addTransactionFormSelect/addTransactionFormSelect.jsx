@@ -2,14 +2,14 @@ import Select from 'react-select';
 import { selectStyles } from './addTransactionFormSelect.styled';
 
 const options = [
-  { value: 'main', label: 'Main' },
-  { value: 'food', label: 'Food' },
-  { value: 'auto', label: 'Auto' },
-  { value: 'development', label: 'Development' },
-  { value: 'children', label: 'Children' },
-  { value: 'house', label: 'House' },
-  { value: 'education', label: 'Education' },
-  { value: 'other', label: 'Other' },
+  { value: 'Main', label: 'Main' },
+  { value: 'Food', label: 'Food' },
+  { value: 'Auto', label: 'Auto' },
+  { value: 'Development', label: 'Development' },
+  { value: 'Children', label: 'Children' },
+  { value: 'House', label: 'House' },
+  { value: 'Education', label: 'Education' },
+  { value: 'Other', label: 'Other' },
 ];
 
 export const MySelect = props => (

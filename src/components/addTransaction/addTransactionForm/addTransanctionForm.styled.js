@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+//import { colors } from 'react-select/dist/declarations/src/theme';
+
+const reactSvgComponentToMarkupString = (Component) =>
+  `data:image/svg+xml,${encodeURIComponent(
+    renderToStaticMarkup(createElement(Component))
+  )}`;
 
 export const Title = styled.h2`
   margin-bottom: 40px;
@@ -75,23 +83,27 @@ export const CheckboxSlider = styled.span`
   height: 40px;
   border: 1px solid #e0e0e0;
   border-radius: 30px;
+`;
 
-  &:before {
-    position: absolute;
-    content: '';
-    width: 44px;
-    height: 44px;
-    border-radius: 100%;
-    right: -1px;
-    bottom: -2px;
-    background-color: var(--accent-color-red);
-    transition: 0.4s;
-  }
-
-  ${CheckboxInput}:checked + &:before {
-    transform: translateX(-38px);
-    background-color: var(--accent-color-grean);
-  }
+export const CheckboxPoint = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  content: '';
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  right: -1px;
+  bottom: -2px;
+  background-color: ${prop =>
+    prop.isChecked ? 'var(--accent-color-grean)' : 'var(--accent-color-red)'};
+  transform: ${prop => (prop.isChecked ? 'translateX(-38px)' : '')};
+  transition: 0.4s;
+  box-shadow: ${prop =>
+    prop.isChecked
+      ? '0px 6px 15px rgba(36, 204, 167, 0.5)'
+      : '0px 6px 15px rgba(255, 101, 150, 0.5)'};
 `;
 
 export const CheckboxText = styled.span`
@@ -121,11 +133,41 @@ export const SumAndDateWrapp = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin-bottom: 40px;
     width: 100%;
   }
 `;
+
+export const DateWrap = styled.div`
+    //width: 100%;
+    //height: 32px;
+    padding: 0 20px 0 20px;
+    display: flex;
+    flex-direction: row;
+    //justify-content: space-between;
+    border-bottom: 1px solid var(--disabled-grey-text-color);
+`;
+
+
+export const DatetimeInput = styled.input`
+  ${InputStyle}
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  // padding-left: 20px;
+  outline: none;
+  font-size: 18px;
+  line-height: 1.47;
+  border: 0;
+`;
+
+export const CalendarWrap = styled.div`
+width: 24px;
+height: 24px;
+    //border-bottom: 1px solid var(--disabled-grey-text-color);
+`;
+
 export const SumField = styled(Field)`
   ${InputStyle}
   display:block;
@@ -141,20 +183,19 @@ export const SumField = styled(Field)`
     margin-right: 30px;
     padding: 0 0 0 5px;
   }
-`;
-
-export const DatetimeInput = styled.input`
-  ${InputStyle}
-  width: 100%;
-  padding: 0;
-  text-align: center;
-  outline: none;
-  font-size: 18px;
-  line-height: 1.47;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
 `;
 
 export const Textarea = styled.textarea`
   ${InputStyle}
+  box-sizing: border-box;
   margin-bottom: 40px;
   resize: none;
   font-size: 18px;

@@ -17,8 +17,6 @@ const AddTransactionModal = ({ onCloseModal }) => {
   });
 
   const onEscapeClose = e => {
-    console.log('press');
-
     if (e.code === 'Escape') {
       onCloseModal();
     }
