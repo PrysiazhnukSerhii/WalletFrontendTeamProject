@@ -1,19 +1,7 @@
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
-<<<<<<< HEAD
 //import { colors } from 'react-select/dist/declarations/src/theme';
 
-=======
-import { createElement } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
-//import { colors } from 'react-select/dist/declarations/src/theme';
-
-const reactSvgComponentToMarkupString = (Component) =>
-  `data:image/svg+xml,${encodeURIComponent(
-    renderToStaticMarkup(createElement(Component))
-  )}`;
-
->>>>>>> main
 export const Title = styled.h2`
   margin-bottom: 40px;
   font-weight: 400;
@@ -145,34 +133,17 @@ export const SumAndDateWrapp = styled.div`
 `;
 
 export const DateWrap = styled.div`
-<<<<<<< HEAD
   padding: 0 20px 0 20px;
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid var(--disabled-grey-text-color);
 `;
 
-=======
-    //width: 100%;
-    //height: 32px;
-    padding: 0 20px 0 20px;
-    display: flex;
-    flex-direction: row;
-    //justify-content: space-between;
-    border-bottom: 1px solid var(--disabled-grey-text-color);
-`;
-
-
->>>>>>> main
 export const DatetimeInput = styled.input`
   ${InputStyle}
   width: 100%;
   padding: 0;
   text-align: left;
-<<<<<<< HEAD
-=======
-  // padding-left: 20px;
->>>>>>> main
   outline: none;
   font-size: 18px;
   line-height: 1.47;
@@ -180,15 +151,9 @@ export const DatetimeInput = styled.input`
 `;
 
 export const CalendarWrap = styled.div`
-<<<<<<< HEAD
   width: 24px;
   height: 24px;
   //border-bottom: 1px solid var(--disabled-grey-text-color);
-=======
-width: 24px;
-height: 24px;
-    //border-bottom: 1px solid var(--disabled-grey-text-color);
->>>>>>> main
 `;
 
 export const SumField = styled(Field)`
