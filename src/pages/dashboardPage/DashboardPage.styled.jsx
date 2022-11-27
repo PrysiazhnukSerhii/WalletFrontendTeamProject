@@ -9,67 +9,6 @@ import ellipseUpDesktop from '../../images/bg-desktop-login/ellipse-up-desktop.p
 import ellipseDownDesktopX from '../../images/bg-desktop-login/ellipse@2x.png';
 import ellipseUpDesktopX from '../../images/bg-desktop-login/ellipse-up-desktop@2x.png';
 
-export const Section = styled.section`
-background-color:  rgb(231, 234, 242);
-min-height: calc(100vh - 85px);
-
-  @media screen and (min-width: 768px) {
-    // width: 768px;
-    // height: 1024px;
-    
-    background-repeat: no-repeat;
-
-    background-image: url(${ellipseDown}), url(${ellipseUp});
-
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      .main {
-        background-image: url(${ellipseDownX}), url(${ellipseUpX});
-      }
-    }
-      background-position: bottom 0 left 0, top 0 right 0, top 60px left 114px;
-    }
-
-    @media screen and (min-width: 1280px) {
-      // width: 1280px;
-      // height: 720px;
-      &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 0px;
-      height: calc(100vh - 85px);
-      left: 480px;
-      top: 0;
-     
-      border: 1px solid #e7e5f2;
-      box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
-        1px 0px 0px rgba(255, 255, 255, 0.6);
-    }
-
-        url(${ellipseDownDesktop}),
-        url(${ellipseUpDesktop});
-
-      @media screen and (min-device-pixel-ratio: 2),
-        screen and (min-resolution: 192dpi),
-        screen and (min-resolution: 2dppx) {
-        .main {
-            url(${ellipseDownDesktopX}),
-            url(${ellipseUpDesktopX});
-        }
-      }
-     
-      
-    
-  }
-  // background-image: linear-gradient(
-  //   rgba(255, 255, 255, 0.4),
-  //   rgba(255, 255, 255, 0.4)
-  // );
-  // backdrop-filter: blur(25px);
-`;
-
 export const ContainerDashboard = styled.div`
   @media screen and (min-width: 1280px) {
     display: flex;
@@ -98,3 +37,61 @@ export const Container = styled.div`
            }
          }
        `;
+
+export const MainPage = styled.main`
+background-color: var(--secondary-background-color);
+
+min-height: calc(100vh - 85px);
+
+  @media screen and (min-width: 768px) {
+    background-repeat: no-repeat;
+
+    background-image:  url(${ellipseDown}), url(${ellipseUp});
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      .main {
+        background-image: url(${ellipseDownX}), url(${ellipseUpX});
+      }
+    }
+      background-position: bottom 0 left 0, top 0 right 0, top 60px left 114px;
+    }
+
+    @media screen and (min-width: 1280px) {
+     
+      &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0px;
+      height: calc(100vh - 85px);
+      left: 480px;
+      top: 0;
+     
+      border: 1px solid #e7e5f2;
+      box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
+        1px 0px 0px rgba(255, 255, 255, 0.6);
+    }
+
+        url(${ellipseDownDesktop}),
+        url(${ellipseUpDesktop});
+
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        .main {
+            url(${ellipseDownDesktopX}),
+            url(${ellipseUpDesktopX});
+        }
+      }
+     `;
+
+export const Section = styled.section`
+  min-height: calc(100vh - 85px);
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.4)
+  );
+  backdrop-filter: blur(25px);
+`;
