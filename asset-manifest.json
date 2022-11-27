@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/WalletFrontendTeamProject/static/css/main.644707ad.css",
-    "main.js": "/WalletFrontendTeamProject/static/js/main.1bee3314.js",
+    "main.css": "/WalletFrontendTeamProject/static/css/main.6e95bf1f.css",
+    "main.js": "/WalletFrontendTeamProject/static/js/main.9da4c1e1.js",
     "static/media/rectangle@2x.png": "/WalletFrontendTeamProject/static/media/rectangle@2x.626f9fa321c18fbc683b.png",
     "static/media/rectangle.png": "/WalletFrontendTeamProject/static/media/rectangle.41d8a106947060338199.png",
     "static/media/frame-desctop@2x.png": "/WalletFrontendTeamProject/static/media/frame-desctop@2x.2ca36b55710b68ed178b.png",
     "static/media/frame-tablet@2x.png": "/WalletFrontendTeamProject/static/media/frame-tablet@2x.c2ae6419c4721c0a5b97.png",
     "static/media/frame-desctop.png": "/WalletFrontendTeamProject/static/media/frame-desctop.9ba04be8971316586062.png",
     "static/media/frame-tablet.png": "/WalletFrontendTeamProject/static/media/frame-tablet.fa07888e831f6341be4d.png",
-    "static/media/symbol-defs.svg": "/WalletFrontendTeamProject/static/media/symbol-defs.ed39977080ac2c69023127bfde6a21d1.svg",
+    "static/media/symbol-defs.svg": "/WalletFrontendTeamProject/static/media/symbol-defs.b18d5d6435f780763692876f6910932e.svg",
     "index.html": "/WalletFrontendTeamProject/index.html",
     "static/media/lock.svg": "/WalletFrontendTeamProject/static/media/lock.3bbe02c58716c58be67c1037139f3eed.svg",
     "static/media/email.svg": "/WalletFrontendTeamProject/static/media/email.45f45e31938998f0163862f776a809a2.svg",
-    "main.644707ad.css.map": "/WalletFrontendTeamProject/static/css/main.644707ad.css.map",
-    "main.1bee3314.js.map": "/WalletFrontendTeamProject/static/js/main.1bee3314.js.map"
+    "main.6e95bf1f.css.map": "/WalletFrontendTeamProject/static/css/main.6e95bf1f.css.map",
+    "main.9da4c1e1.js.map": "/WalletFrontendTeamProject/static/js/main.9da4c1e1.js.map"
   },
   "entrypoints": [
-    "static/css/main.644707ad.css",
-    "static/js/main.1bee3314.js"
+    "static/css/main.6e95bf1f.css",
+    "static/js/main.9da4c1e1.js"
   ]
 }
