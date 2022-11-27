@@ -10,9 +10,16 @@ import { RegistrationPage } from '../pages/registrationPage/registrationPage';
 import { DiagramTab } from './diagramTab/diagramTab';
 import { HomeTab } from './homeTab/homeTab';
 
+import { IsLoggedIn } from './isLoggedIn/isLoggedIn';
+
+import React from 'react';
+
 export const App = () => {
+  let token = useSelector(state => state.userInformation.token);
+
   return (
     <>
+      {token ? <IsLoggedIn /> : <></>}
       <Routes>
         <Route element={<PublicRoutes />}>
           <Route path="/register" element={<RegistrationPage />} />
