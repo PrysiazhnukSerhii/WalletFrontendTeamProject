@@ -1,14 +1,23 @@
 import styled from 'styled-components';
 
 export const Backdrop = styled.div`
-  position: relative;
-  z-index: 1;
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+`;
+export const Overlay = styled.div`
+  position: absolute;
+  z-index: -1;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.25);
 `;
+
 export const Modal = styled.div`
   position: absolute;
   display: flex;

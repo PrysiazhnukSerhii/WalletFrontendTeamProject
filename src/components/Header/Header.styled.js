@@ -35,20 +35,18 @@ export const UserMenuWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
-
-export const UserName = styled.p`
+export const Divider = styled.div`
+  width: 1px;
+  height: 30px;
+  margin: 0 12px;
+  background-color: #bdbdbd;
+`;
+export const UserName = styled.span`
   display: flex;
   align-items: center;
-  padding: 3px 12px;
-  border-right: 2px solid #bdbdbd;
   font-family: 'Circe';
   font-size: 18px;
   color: #bdbdbd;
-
-  @media screen and (max-width: 767px) {
-    border-right: none;
-    padding-right: 0px;
-  }
 `;
 
 export const LogoExit = styled.svg`
@@ -66,8 +64,8 @@ export const LogoutBtn = styled.button`
   font-size: 18px;
   color: #bdbdbd;
   display: flex;
-  align-items: stretch;
-  padding: 4px 12px;
+  align-items: center;
+  padding: 4px 0;
   border-color: transparent;
   background-color: transparent;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -84,7 +82,7 @@ export const LogoutBtn = styled.button`
   }
 `;
 
-export const LogoText = styled.p`
+export const LogoText = styled.span`
   font-family: 'Poppins';
   font-weight: 700;
   font-size: 30px;

@@ -4,10 +4,9 @@ import Logo from '../Logo/Logo';
 import sprite from '../../images/svg/symbol-defs.svg';
 import ModalLogOut from '../../components/ModalLogOut/ModalLogOut';
 
-// import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Media from 'react-media';
-// import { authSelectors } from 'redux/auth';
 
 import {
   HeaderStyled,
@@ -17,11 +16,12 @@ import {
   LogoText,
   LogoutBtn,
   Link,
+  Divider,
 } from './Header.styled';
 
 export const Header = () => {
-  // const dispatch = useDispatch();
-  // const name = useSelector(authSelectors.selectUser);
+  const userName = useSelector(state => state.userInformation.user.name);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
     setIsModalOpen(true);
@@ -38,7 +38,8 @@ export const Header = () => {
       </Link>
 
       <UserMenuWrapper>
-        <UserName>Name</UserName>
+        <UserName>{userName} name</UserName>
+        <Divider></Divider>
         <LogoutBtn type="button" onClick={openModal}>
           <LogoExit>
             <use href={`${sprite}#icon-logout`} />

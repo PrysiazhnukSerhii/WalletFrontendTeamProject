@@ -10,6 +10,7 @@ import {
   CloseButton,
   TextModal,
   ModalButton,
+  Overlay,
 } from './ModalLogOut.styled';
 import { Box } from 'components/Box';
 
@@ -30,21 +31,22 @@ function ModalLogOut({ onClickClose }) {
 
   const dispatch = useDispatch();
 
-  const onClickLodOut = async () => {
+  const onClickLogOut = async () => {
     await logOut(token);
 
     dispatch(authApi.util.resetApiState());
   };
 
   return createPortal(
-    <Backdrop onClick={onClickClose}>
+    <Backdrop>
+      <Overlay className="overlay" onClick={onClickClose}></Overlay>
       <Modal>
         <CloseButton type="button" onClick={onClickClose}>
           <VscChromeClose style={{ width: '16px', height: '16px' }} />
         </CloseButton>
         <TextModal>Are you want to log out?</TextModal>
         <Box display="flex">
-          <ModalButton type="button" onClick={onClickLodOut}>
+          <ModalButton type="button" onClick={onClickLogOut}>
             Yes
           </ModalButton>
           <ModalButton type="button" onClick={onClickClose}>
