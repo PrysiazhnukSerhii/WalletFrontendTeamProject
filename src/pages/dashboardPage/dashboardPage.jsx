@@ -1,4 +1,6 @@
+import { Header } from 'components/Header/Header';
 import { Outlet } from 'react-router-dom';
+
 import Media from 'react-media';
 import {
   Section,
@@ -11,6 +13,7 @@ import Dashboard from 'components/dashboard/Dashboard';
 export function DashboardPage() {
   return (
     <>
+      <Header />
       <MainPage>
         <Media
           query="(max-width: 767px)"
@@ -40,5 +43,15 @@ export function DashboardPage() {
         />
       </MainPage>
     </>
-  );
+  )
 }
+
+
+// export function DashboardPage() {
+//   return (
+//     <div>
+//       <Header />
+//       <Outlet />
+//     </div>
+//   );
+// }
