@@ -29,7 +29,7 @@ import Notiflix from 'notiflix';
 import sprite from '../../../images/svg/symbol-defs.svg';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 
-const notiflixOptions = Notiflix.Notify.init({
+Notiflix.Notify.init({
   width: '400px',
   position: 'top-right',
   distance: '50px',
@@ -104,7 +104,7 @@ const AddTransactionForm = ({ onCancel }) => {
           } catch (error) {
             onCancel();
             Notiflix.Notify.failure('Something went wrong');
-            console.log(error);
+            console.log(error.message);
           }
         }}
       >
@@ -192,7 +192,11 @@ const AddTransactionForm = ({ onCancel }) => {
               placeholder="Comment"
               onChange={handleChange}
             />
-            <TransactionFormButton primary type="submit">
+            <TransactionFormButton
+              primary
+              type="submit"
+              disabled={isLoading ? true : false}
+            >
               {isLoading ? (
                 <Oval
                   width={30}

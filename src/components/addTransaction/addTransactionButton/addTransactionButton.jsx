@@ -1,23 +1,23 @@
 import React from 'react';
 import AddTransactionModal from '../addTransactionModal/addTransactionModal';
-import { useState } from 'react';
 import { TransactionButton } from './addTransactionButton.styled';
 import { FiPlus } from 'react-icons/fi';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleModalOpen } from '../../../redux/userSlice';
 
 const AddTransactionButton = () => {
-  const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
+  const { isModalOpen } = useSelector(state => state.userInformation);
 
-  const onToggleModal = () => {
-    setShowModal(!showModal);
+  const handleClick = () => {
+    dispatch(toggleModalOpen(true));
   };
   return (
     <>
-      <TransactionButton type="button" onClick={onToggleModal}>
+      <TransactionButton type="button" onClick={handleClick}>
         <FiPlus style={{ width: '20px', height: '20px' }} />
       </TransactionButton>
-      {showModal === true && (
-        <AddTransactionModal onCloseModal={onToggleModal} />
-      )}
+      {isModalOpen && <AddTransactionModal onCloseModal={handleClick} />}
     </>
   );
 };

@@ -5,24 +5,34 @@ import AddTransactionForm from '../addTransactionForm/addTransactionForm';
 import { Backdrop, Modal, CloseButton } from './addTransactionModal.styled';
 import { VscChromeClose } from 'react-icons/vsc';
 import Media from 'react-media';
+import { useDispatch } from 'react-redux';
+import { toggleModalOpen } from '../../../redux/userSlice';
 
 const modalRoot = document.querySelector('#modal-root');
 
-const AddTransactionModal = ({ onCloseModal }) => {
+const AddTransactionModal = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     window.addEventListener('keydown', onEscapeClose);
     return () => {
       window.removeEventListener('keydown', onEscapeClose);
     };
   });
+  const handleModalClose = () => dispatch(toggleModalOpen(false));
 
   const onEscapeClose = e => {
     if (e.code === 'Escape') {
-      onCloseModal();
+      dispatch(toggleModalOpen(false));
+    }
+  };
+  const onBackdropClick = e => {
+    if (e.target === e.currentTarget) {
+      dispatch(toggleModalOpen(false));
     }
   };
   return createPortal(
-    <Backdrop>
+    <Backdrop onClick={onBackdropClick}>
       <Modal>
         <Media
           queries={{
@@ -35,12 +45,12 @@ const AddTransactionModal = ({ onCloseModal }) => {
             <Fragment>
               {/* {matches.small && <p>I am small!</p>} */}
               {matches.medium && (
-                <CloseButton type="button" onClick={onCloseModal}>
+                <CloseButton type="button" onClick={handleModalClose}>
                   <VscChromeClose style={{ width: '16px', height: '16px' }} />
                 </CloseButton>
               )}
               {matches.large && (
-                <CloseButton type="button" onClick={onCloseModal}>
+                <CloseButton type="button" onClick={handleModalClose}>
                   <VscChromeClose style={{ width: '16px', height: '16px' }} />
                 </CloseButton>
               )}
@@ -48,7 +58,7 @@ const AddTransactionModal = ({ onCloseModal }) => {
           )}
         </Media>
 
-        <AddTransactionForm onCancel={onCloseModal} />
+        <AddTransactionForm onCancel={handleModalClose} />
       </Modal>
     </Backdrop>,
     modalRoot
