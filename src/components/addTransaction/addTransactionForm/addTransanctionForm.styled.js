@@ -125,6 +125,7 @@ export const CheckboxTextExpense = styled(CheckboxText)`
 export const SumAndDateWrapp = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-end;
     margin-bottom: 40px;
@@ -132,11 +133,23 @@ export const SumAndDateWrapp = styled.div`
   }
 `;
 
+export const SumWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  vertical-align: bottom;
+  overflow: visible;
+  position: relative;
+`; 
+
 export const DateWrap = styled.div`
   padding: 0 20px 0 20px;
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid var(--disabled-grey-text-color);
+  &:focus,
+  &:hover {
+    border-bottom: 1px solid var(--accent-color-blue);
+  }
 `;
 
 export const DatetimeInput = styled.input`
@@ -148,6 +161,10 @@ export const DatetimeInput = styled.input`
   font-size: 18px;
   line-height: 1.47;
   border: 0;
+  &:focus,
+  &:hover {
+    border-bottom: none;
+  }
 `;
 
 export const CalendarWrap = styled.div`
@@ -158,7 +175,8 @@ export const CalendarWrap = styled.div`
 
 export const SumField = styled(Field)`
   ${InputStyle}
-  display:block;
+  display: block;
+  position: static;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.47;
@@ -190,4 +208,11 @@ export const Textarea = styled.textarea`
   @media screen and (min-width: 768px) {
     width: 100%;
   }
+`;
+
+export const Error = styled.p`
+  color: red;
+  font-size: 10px;
+  position: absolute;
+  top: 30px;
 `;
