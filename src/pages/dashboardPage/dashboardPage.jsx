@@ -7,7 +7,7 @@ import {
   ContainerDashboard,
   Container,
   MainPage,
-} from './dashboardPage.styled.jsx';
+} from './dashboardPage.styled';
 import Dashboard from 'components/dashboard/dashboard';
 
 export function DashboardPage() {
