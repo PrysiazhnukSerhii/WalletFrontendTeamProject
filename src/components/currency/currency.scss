@@ -1,0 +1,185 @@
+@import '../../common/main.scss';
+@import-normalize;
+
+.loadSpinner {
+  display: flex;
+  justify-content: center;
+}
+
+.currencyContainer {
+  position: relative;
+  width: 280px;
+  height: 174px;
+  border-radius: 30px;
+  background-color: var(--accent-color-blue);
+
+  @media screen and (min-width: $MobileWidth) {
+    width: 280px;
+    height: 174px;
+  }
+  @media screen and (min-width: $TabletWidth) {
+    width: 336px;
+    height: 182px;
+  }
+  @media screen and (min-width: $DesktopWidth) {
+    width: 393px;
+    height: 347px;
+  }
+}
+
+.currencyTop {
+  width: 280px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 30px 30px 0px 0px;
+
+  @media screen and (min-width: $MobileWidth) {
+    width: 280px;
+    height: 50px;
+  }
+  @media screen and (min-width: $TabletWidth) {
+    width: 336px;
+    height: 50px;
+  }
+  @media screen and (min-width: $DesktopWidth) {
+    width: 393px;
+    height: 60px;
+  }
+}
+
+.currencyBg {
+  position: absolute;
+  bottom: 0;
+  width: 280px;
+  height: 93px;
+  background-image: url('../../images/bg-currencyRates/Vector7_mob.png');
+
+  @media screen and (min-width: $MobileWidth) {
+    width: 280px;
+    height: 93px;
+    background-image: url('../../images/bg-currencyRates/Vector7_mob.png');
+  }
+  @media screen and (min-width: $TabletWidth) {
+    width: 336px;
+    height: 119px;
+    background-image: url('../../images/bg-currencyRates/Vector7_tabl.png');
+  }
+  @media screen and (min-width: $DesktopWidth) {
+    width: 393px;
+    height: 134px;
+    background-image: url('../../images/bg-currencyRates/Vector7_desc.png');
+  }
+}
+
+.currencyTitleList {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.currencyTitleItem:nth-child(1) {
+  margin-left: 20px;
+
+  @media screen and (min-width: $MobileWidth) {
+    margin-left: 20px;
+  }
+  @media screen and (min-width: $TabletWidth) {
+    margin-left: 20px;
+  }
+  @media screen and (min-width: $DesktopWidth) {
+    margin-left: 44px;
+  }
+}
+
+.currencyTitleItem:nth-child(2) {
+  margin-left: 24px;
+
+  @media screen and (min-width: $MobileWidth) {
+    margin-left: 24px;
+  }
+  @media screen and (min-width: $TabletWidth) {
+    margin-left: 42px;
+  }
+  @media screen and (min-width: $DesktopWidth) {
+    margin-left: 40px;
+  }
+}
+
+.currencyTitleItem:nth-child(3) {
+  margin-left: 44px;
+
+  @media screen and (min-width: $MobileWidth) {
+    margin-left: 44px;
+  }
+  @media screen and (min-width: $TabletWidth) {
+    margin-left: 74px;
+  }
+  @media screen and (min-width: $DesktopWidth) {
+    margin-left: 72px;
+  }
+}
+
+.currencyTitle {
+  font-family: 'Circe';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  color: var(--primary-background-color);
+}
+
+.CurrencyField:not(:first-child) {
+  margin-top: 12px;
+
+  @media screen and (min-width: $MobileWidth) {
+    margin-top: 12px;
+  }
+  @media screen and (min-width: $TabletWidth) {
+    margin-top: 12px;
+  }
+  @media screen and (min-width: $DesktopWidth) {
+    margin-top: 24px;
+  }
+}
+
+.CurrencyField:first-child {
+  margin-top: 12px;
+
+  @media screen and (min-width: $MobileWidth) {
+    margin-top: 12px;
+  }
+  @media screen and (min-width: $TabletWidth) {
+    margin-top: 16px;
+  }
+  @media screen and (min-width: $DesktopWidth) {
+    margin-top: 20px;
+  }
+}
+
+.currencyFieldContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.currencyFieldItem {
+  font-family: 'Circe';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--secondary-text-color);
+}
+
+.currencyFieldItem:first-child {
+  margin-left: 20px;
+
+  @media screen and (min-width: $DesktopWidth) {
+    margin-left: 58px;
+  }
+}
+
+.currencyFieldItem:last-child {
+  margin-right: 20px;
+
+  @media screen and (min-width: $DesktopWidth) {
+    margin-right: 61px;
+  }
+}
