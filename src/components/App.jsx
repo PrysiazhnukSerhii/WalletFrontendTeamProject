@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+//import { useSelector } from 'react-redux';
 
-import PrivatRoutes from './protectedRoutes/privatRoutes';
+//import PrivatRoutes from './protectedRoutes/privatRoutes';
 import PublicRoutes from './protectedRoutes/publicRoutes';
 
 import LoginPage from '../pages/LoginPage';
@@ -19,7 +19,7 @@ export const App = () => {
           <Route path="/login" element={<LoginPage />} />
         </Route>
 
-        <Route element={<PrivatRoutes />}>
+        <Route>
           <Route path="/dashboard" element={<DashboardPage />}>
             <Route path="homeTab" element={<HomeTab />} />
             <Route path="diagramTab" element={<DiagramTab />} />

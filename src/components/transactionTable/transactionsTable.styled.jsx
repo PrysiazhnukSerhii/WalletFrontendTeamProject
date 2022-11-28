@@ -6,7 +6,6 @@ export const TableWrapper = styled.table`
   overflow: hidden scroll;
   margin: 0 auto;
   text-align: center;
-  background: blue;
   @media screen and (min-width: 768px) {
     max-width: 704px;
   }
@@ -98,8 +97,45 @@ export const DataItem = styled.td`
     
   }
   &:nth-child(6) {
-    width: 90px;    
+    width: 90px; 
+    margin-left: 10px;   
   }
   }
   
+`;
+
+export const DataMob = styled.ul`
+  border-radius: 10px;
+  border-left: 5px solid red;
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+  background-color: blue;
+`;
+
+export const HeadItemMob = styled.span`
+  display: block;
+  text-align: end;
+  max-width: 110px;
+
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+`;
+
+export const DataItemMob = styled.li`
+  display: flex;
+    flex-grow: 1;    
+    align-items: center;
+    &:not(:last-child) {
+      border-bottom: 1px solid #dcdcdf;
+    }
+  }
+  justify-content: space-between;
+  padding: 8px 10px;
+  height: 47px;
+  line-height: calc(24 / 16);  
+  font-weight: 400;
+  font-size: 16px;
 `;
