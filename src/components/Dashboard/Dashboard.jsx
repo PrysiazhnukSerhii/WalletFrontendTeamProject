@@ -1,10 +1,10 @@
-import Navigation from 'components/navigation/navigation';
 import Media from 'react-media';
-import Balance from 'components/balance/balance';
+import Navigation from '../navigation/navigation';
+import Balance from '../balance/balance';
 import { DashboardContainer, Wrapper } from './dashboard.styled';
-import Currency from 'components/currency/Currency';
+import Currency from '../currency/currency';
 
-const Dashboard = () => {
+export const Dashboard = () => {
   return (
     <Wrapper>
       <DashboardContainer>
@@ -15,4 +15,3 @@ const Dashboard = () => {
     </Wrapper>
   );
 };
-export default Dashboard;

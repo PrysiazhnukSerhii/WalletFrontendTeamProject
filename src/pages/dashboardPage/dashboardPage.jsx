@@ -1,4 +1,4 @@
-import { Header } from 'components/Header/Header';
+import { Header } from '../../components/Header/Header';
 import { Outlet } from 'react-router-dom';
 
 import Media from 'react-media';
@@ -7,8 +7,8 @@ import {
   ContainerDashboard,
   Container,
   MainPage,
-} from './dashboardPage.styled.jsx';
-import Dashboard from 'components/dashboard/dashboard';
+} from './dashboardPage.styled';
+import { Dashboard } from '../../components/dashboard/dashboard';
 
 export function DashboardPage() {
   return (
