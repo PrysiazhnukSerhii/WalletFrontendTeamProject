@@ -1,5 +1,5 @@
-import Navigation from 'components/navigation/navigation';
 import Media from 'react-media';
+import Navigation from '../navigation/navigation';
 import Balance from '../balance/balance';
 import { DashboardContainer, Wrapper } from './dashboard.styled';
 import Currency from '../currency/Currency';
