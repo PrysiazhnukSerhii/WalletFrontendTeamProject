@@ -1,5 +1,6 @@
 import { Header } from '../../components/Header/Header';
 import { Outlet } from 'react-router-dom';
+import { Currency } from '../../components/currency/Currency';
 
 import Media from 'react-media';
 import {
@@ -14,6 +15,7 @@ export function DashboardPage() {
   return (
     <>
       <Header />
+      <Currency />
       <MainPage>
         <Media
           query="(max-width: 767px)"
