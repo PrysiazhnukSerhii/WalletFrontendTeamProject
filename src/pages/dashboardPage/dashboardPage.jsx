@@ -44,11 +44,4 @@ export function DashboardPage() {
   );
 }
 
-// export function DashboardPage() {
-//   return (
-//     <div>
-//       <Header />
-//       <Outlet />
-//     </div>
-//   );
-// }
+
