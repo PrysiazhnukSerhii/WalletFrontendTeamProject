@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CurrencyField } from './CurrencyField';
+import { CurrencyField } from './currencyField';
 import './currency.scss';
 import axios from 'axios';
 import BarLoader from 'react-spinners/BarLoader';
