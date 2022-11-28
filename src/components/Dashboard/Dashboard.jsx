@@ -1,8 +1,8 @@
 import Navigation from 'components/navigation/navigation';
 import Media from 'react-media';
-import Balance from 'components/balance/balance';
+import Balance from '../balance/balance';
 import { DashboardContainer, Wrapper } from './dashboard.styled';
-import Currency from 'components/currency/Currency';
+import Currency from '../currency/Currency';
 
 const Dashboard = () => {
   return (
