@@ -146,9 +146,13 @@ export const DateWrap = styled.div`
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid var(--disabled-grey-text-color);
+  position: relative;
   &:focus,
   &:hover {
     border-bottom: 1px solid var(--accent-color-blue);
+  }
+  @media screen and (max-width: 768px) {
+    margin-bottom: 40px;
   }
 `;
 
@@ -215,4 +219,7 @@ export const Error = styled.p`
   font-size: 10px;
   position: absolute;
   top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

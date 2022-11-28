@@ -29,10 +29,9 @@ import { useCreateTransactionMutation } from 'redux/transactionsSlice';
 import Notiflix from 'notiflix';
 import sprite from '../../../images/svg/symbol-defs.svg';
 import { FiPlus, FiMinus } from 'react-icons/fi';
-import { style } from 'styled-system';
 
 Notiflix.Notify.init({
-  width: '400px',
+  width: 'auto',
   position: 'top-right',
   distance: '50px',
   borderRadius: '10px',
@@ -49,7 +48,7 @@ const TransactionSchema = Yup.object().shape({
     .typeError('Sum should be a number')
     .min(1, 'Sum value should be more than 1')
     .required('This field is requried'),
-  date: Yup.date().max(new Date(), "You can't make a transaction in future"),
+  date: Yup.date().max(new Date().toString(), "You can't make a transaction in future"),
   comment: Yup.string()
     .typeError('Should be a string')
     .min(0)
@@ -126,6 +125,7 @@ const AddTransactionForm = ({ onCancel }) => {
                 type="checkbox"
                 id="type"
                 name="type"
+                tabindex="-1"
                 onChange={() => {
                   setTransactionType(!transactionType);
                 }}
@@ -192,6 +192,7 @@ const AddTransactionForm = ({ onCancel }) => {
                     <use href={`${sprite}#icon-calendar`} />
                   </svg>
                 </CalendarWrap>
+                
               </DateWrap>
               
             </SumAndDateWrapp>
@@ -199,6 +200,7 @@ const AddTransactionForm = ({ onCancel }) => {
               id="comment"
               name="comment"
               placeholder="Comment"
+              tabindex="-1"
               onChange={handleChange}
             />
             <TransactionFormButton
