@@ -9,12 +9,17 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   financeData: null,
+  isModalOpen: false,
 };
 
 export const userSlice = createSlice({
   name: 'userInformation',
   initialState,
-  reducers: {},
+  reducers: {
+    toggleModalOpen: (state, action) => {
+      state.isModalOpen = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder.addMatcher(
       authApi.endpoints.signUpUser.matchFulfilled,
@@ -44,7 +49,7 @@ export const userSlice = createSlice({
     builder.addMatcher(
       authApi.endpoints.getUserInformation.matchFulfilled,
       (state, { payload }) => {
-        state.user = payload.user;
+        state.user = payload;
         state.isLoggedIn = true;
       }
     );
@@ -57,6 +62,7 @@ export const userSlice = createSlice({
   },
 });
 
+export const { toggleModalOpen } = userSlice.actions;
 export default userSlice.reducer;
 
 //------------------------persist-----------

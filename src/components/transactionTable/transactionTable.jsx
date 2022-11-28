@@ -11,6 +11,21 @@ import {
   HeadItemMob,
 } from './transactionsTable.styled';
 
+const fixDate = date => {
+  const dateString = new Date(date);
+  const day = dateString
+    .getDate()
+    .toString()
+    .padStart(2, '0');
+  const month = (dateString.getMonth() + 1).toString().padStart(2, '0');
+  const year = dateString
+    .getFullYear()
+    .toString()
+    .slice(2);
+
+  return `${day}.${month}.${year}`;
+};
+
 export function TransactionsTable() {
   const isMobile = useMedia('(max-width: 767px)');
   //const isNoMobile = useMedia('(min-width: 768px)');
@@ -29,61 +44,55 @@ export function TransactionsTable() {
               <TableHeadItem>Sum</TableHeadItem>
               <TableHeadItem>Balance</TableHeadItem>
             </TableHead>
-            <Data>
-              <DataItem>22.11.22</DataItem>
-              <DataItem>+</DataItem>
-              <DataItem style={{ textAlign: 'left' }}>Income</DataItem>
-              <DataItem style={{ textAlign: 'left' }}>salary</DataItem>
-              <DataItem style={{ textAlign: 'right', fontWeight: '700' }}>
-                0000000
-              </DataItem>
-              <DataItem style={{ textAlign: 'right' }}>00000000</DataItem>
-            </Data>
+            {transactions.map(
+              ({ id, date, type, category, comment, sum, balance }) => (
+                <Data key={id}>
+                  <DataItem>{fixDate(date)}</DataItem>
+                  <DataItem>{type}</DataItem>
+                  <DataItem style={{ textAlign: 'left' }}>{category}</DataItem>
+                  <DataItem style={{ textAlign: 'left' }}>{comment}</DataItem>
+                  <DataItem style={{ textAlign: 'right', fontWeight: '700' }}>
+                    {sum}
+                  </DataItem>
+                  <DataItem style={{ textAlign: 'right' }}>{balance}</DataItem>
+                </Data>
+              )
+            )}
           </>
         )}
       </TableWrapper>
       {isMobile && (
         <>
-          <DataMob>
-            <DataItemMob>
-              <HeadItemMob>Date</HeadItemMob>22.11.22
-            </DataItemMob>
-            <DataItemMob>
-              <HeadItemMob>Type</HeadItemMob>+
-            </DataItemMob>
-            <DataItemMob>
-              <HeadItemMob>Category</HeadItemMob>Car
-            </DataItemMob>
-            <DataItemMob>
-              <HeadItemMob>Comment</HeadItemMob>premium
-            </DataItemMob>
-            <DataItemMob>
-              <HeadItemMob>Sum</HeadItemMob>100.00
-            </DataItemMob>
-            <DataItemMob>
-              <HeadItemMob>Balance</HeadItemMob>300.00
-            </DataItemMob>
-          </DataMob>
-          <DataMob>
-            <DataItemMob>
-              <HeadItemMob>Date</HeadItemMob>22.11.22
-            </DataItemMob>
-            <DataItemMob>
-              <HeadItemMob>Type</HeadItemMob>+
-            </DataItemMob>
-            <DataItemMob>
-              <HeadItemMob>Category</HeadItemMob>Car
-            </DataItemMob>
-            <DataItemMob>
-              <HeadItemMob>Comment</HeadItemMob>premium
-            </DataItemMob>
-            <DataItemMob>
-              <HeadItemMob>Sum</HeadItemMob>200.00
-            </DataItemMob>
-            <DataItemMob>
-              <HeadItemMob>Balance</HeadItemMob>100.00
-            </DataItemMob>
-          </DataMob>
+          {transactions.map(
+            ({ id, date, type, category, comment, sum, balance }) => (
+              <DataMob key={id}>
+                <DataItemMob>
+                  <HeadItemMob>Date</HeadItemMob>
+                  {fixDate(date)}
+                </DataItemMob>
+                <DataItemMob>
+                  <HeadItemMob>Type</HeadItemMob>
+                  {type}
+                </DataItemMob>
+                <DataItemMob>
+                  <HeadItemMob>Category</HeadItemMob>
+                  {category}
+                </DataItemMob>
+                <DataItemMob>
+                  <HeadItemMob>Comment</HeadItemMob>
+                  {comment}
+                </DataItemMob>
+                <DataItemMob>
+                  <HeadItemMob>Sum</HeadItemMob>
+                  {sum}
+                </DataItemMob>
+                <DataItemMob>
+                  <HeadItemMob>Balance</HeadItemMob>
+                  {balance}
+                </DataItemMob>
+              </DataMob>
+            )
+          )}
         </>
       )}
     </>
