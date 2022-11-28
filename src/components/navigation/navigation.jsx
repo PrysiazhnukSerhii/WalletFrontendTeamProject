@@ -2,12 +2,12 @@ import { StyledNavLink, NavList, NavStyled } from './navigation.styled';
 
 import Media from 'react-media';
 
-import { ReactComponent as HomeIcon } from '../../images/svg/home.svg';
-import { ReactComponent as StatisticsIcon } from '../../images/svg/diagram.svg';
+// import { ReactComponent as HomeIcon } from '../../images/svg/home.svg';
+// import { ReactComponent as StatisticsIcon } from '../../images/svg/diagram.svg';
 import { ReactComponent as CurrencyIcon } from '../../images/svg/currency.svg';
 import { AiFillHome } from 'react-icons/ai';
 import sprite from '../../images/svg/symbol-defs.svg';
-import { height } from 'styled-system';
+// import { height } from 'styled-system';
 
 const Navigation = () => {
   return (
