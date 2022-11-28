@@ -7,10 +7,10 @@ import BarLoader from 'react-spinners/BarLoader';
 export const Currency = () => {
   const [rateUsd, setRateUsd] = useState(null);
   const [rateEur, setRateEur] = useState(null);
-  const [rateRub, setRateRub] = useState(0);
+  const [rateRub] = useState(0);
 
   const saveRates = data => {
-    data.filter(el => {
+    return data.filter(el => {
       if (el.currencyCodeA === 840 && el.currencyCodeB === 980) {
         const dataToSave = {
           rateBuy: el.rateBuy,
