@@ -1,13 +1,21 @@
+import { Header } from '../../components/Header/Header';
 import { Outlet } from 'react-router-dom';
-import { Header } from 'components/Header/Header';
-import { CurrencyRates } from 'components/currencyRates/CurrencyRates';
+import { Currency } from '../../components/currency/Currency';
+import Media from 'react-media';
+import {
+  Section,
+  ContainerDashboard,
+  Container,
+  MainPage,
+} from './dashboardPage.styled';
+import { Dashboard } from '../../components/dashboard/dashboard';
 
 export function DashboardPage() {
   return (
-    <div>
+    <>
       <Header />
-      <CurrencyRates />
+      <Currency />
       <Outlet />
-    </div>
+    </>
   );
 }

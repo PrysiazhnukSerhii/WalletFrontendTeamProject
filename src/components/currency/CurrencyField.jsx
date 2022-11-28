@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const CurrencyRatesField = ({ currency, purchaseValue, saleValue }) => {
+export const CurrencyField = ({ currency, purchaseValue, saleValue }) => {
   function minTwoDigits(n) {
     return (n < 10 ? '0' : '') + n;
   }
