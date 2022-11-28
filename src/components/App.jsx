@@ -27,13 +27,14 @@ export const App = () => {
         </Route>
 
         <Route element={<PrivatRoutes />}>
-          <Route path="/dashboard" element={<DashboardPage />}>
+          <Route path="/" element={<DashboardPage />}>
             <Route path="homeTab" element={<HomeTab />} />
             <Route path="diagramTab" element={<DiagramTab />} />
+            {/* <Route path="currency" element={<Currency />} /> */}
           </Route>
         </Route>
 
-        <Route path="*" element={<Navigate to="/login" />} />
+        <Route path="*" element={<Navigate to="login" />} />
       </Routes>
     </>
   );
