@@ -15,7 +15,6 @@ import { ReactComponent as UserIcon } from '../../icons/user.svg';
 
 import './RegistrationForm.scss';
 import '../MainButton/MainButton.scss';
-import { style } from 'styled-system';
 
 Notiflix.Notify.init({
   width: 'auto',
@@ -75,13 +74,13 @@ function RegistrationForm() {
     const passwordLength = password.length;
     let isLetter = isConsistLetters(password);
 
-    if (passwordLength >= 6 && passwordLength <= 14 && isLetter==false) {
+    if (passwordLength >= 6 && passwordLength <= 14 && isLetter===false) {
       return 'lowPasswordQuality'
     }
-    if (passwordLength >= 6 && passwordLength <= 10 && isLetter==true) {
+    if (passwordLength >= 6 && passwordLength <= 10 && isLetter===true) {
       return 'middlePasswordQuality'
     }
-    if (passwordLength > 10 && passwordLength <= 14 && isLetter==true) {
+    if (passwordLength > 10 && passwordLength <= 14 && isLetter===true) {
       return 'strongPasswordQuality'
     }
   }
