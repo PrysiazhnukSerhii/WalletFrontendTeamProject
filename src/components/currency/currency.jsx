@@ -10,7 +10,7 @@ export const Currency = () => {
   const [rateRub] = useState(0);
 
   const saveRates = data => {
-    return data.filter(el => {
+    data.forEach(el => {
       if (el.currencyCodeA === 840 && el.currencyCodeB === 980) {
         const dataToSave = {
           rateBuy: el.rateBuy,
