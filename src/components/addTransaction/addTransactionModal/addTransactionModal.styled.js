@@ -70,9 +70,6 @@ export const TransactionFormButton = styled.button`
     background-color: ${props =>
       props.primary ? '#20b091' : 'var(--secondary-background-color)'};
   }
-  &:disabled {
-    background-color: var(--disabled-grey-text-color);
-  }
 `;
 
 export const CloseButton = styled.button`
