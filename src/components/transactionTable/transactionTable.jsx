@@ -1,4 +1,5 @@
 import { useMedia } from 'react-use';
+import { fixDate } from 'helpers/fixDate';
 import { useGetTransactionsQuery } from '../../redux/transactionsSlice';
 import {
   TableWrapper,
@@ -10,21 +11,6 @@ import {
   DataItemMob,
   HeadItemMob,
 } from './transactionsTable.styled';
-
-const fixDate = date => {
-  const dateString = new Date(date);
-  const day = dateString
-    .getDate()
-    .toString()
-    .padStart(2, '0');
-  const month = (dateString.getMonth() + 1).toString().padStart(2, '0');
-  const year = dateString
-    .getFullYear()
-    .toString()
-    .slice(2);
-
-  return `${day}.${month}.${year}`;
-};
 
 export function TransactionsTable() {
   const isMobile = useMedia('(max-width: 767px)');
