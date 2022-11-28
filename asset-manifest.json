@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/WalletFrontendTeamProject/static/css/main.6e95bf1f.css",
-    "main.js": "/WalletFrontendTeamProject/static/js/main.9da4c1e1.js",
+    "main.css": "/WalletFrontendTeamProject/static/css/main.dc5703cd.css",
+    "main.js": "/WalletFrontendTeamProject/static/js/main.4c83337f.js",
     "static/media/rectangle@2x.png": "/WalletFrontendTeamProject/static/media/rectangle@2x.626f9fa321c18fbc683b.png",
     "static/media/rectangle.png": "/WalletFrontendTeamProject/static/media/rectangle.41d8a106947060338199.png",
     "static/media/frame-desctop@2x.png": "/WalletFrontendTeamProject/static/media/frame-desctop@2x.2ca36b55710b68ed178b.png",
@@ -9,14 +9,17 @@
     "static/media/frame-desctop.png": "/WalletFrontendTeamProject/static/media/frame-desctop.9ba04be8971316586062.png",
     "static/media/frame-tablet.png": "/WalletFrontendTeamProject/static/media/frame-tablet.fa07888e831f6341be4d.png",
     "static/media/symbol-defs.svg": "/WalletFrontendTeamProject/static/media/symbol-defs.b18d5d6435f780763692876f6910932e.svg",
+    "static/media/diagram.svg": "/WalletFrontendTeamProject/static/media/diagram.013378991d894f8da207cafbba18daa3.svg",
+    "static/media/home.svg": "/WalletFrontendTeamProject/static/media/home.d8e74f912191e3058eb5023d7d285f6a.svg",
+    "static/media/currency.svg": "/WalletFrontendTeamProject/static/media/currency.9bc0e13c69f0974f2c39471ce668fe43.svg",
     "index.html": "/WalletFrontendTeamProject/index.html",
     "static/media/lock.svg": "/WalletFrontendTeamProject/static/media/lock.3bbe02c58716c58be67c1037139f3eed.svg",
     "static/media/email.svg": "/WalletFrontendTeamProject/static/media/email.45f45e31938998f0163862f776a809a2.svg",
-    "main.6e95bf1f.css.map": "/WalletFrontendTeamProject/static/css/main.6e95bf1f.css.map",
-    "main.9da4c1e1.js.map": "/WalletFrontendTeamProject/static/js/main.9da4c1e1.js.map"
+    "main.dc5703cd.css.map": "/WalletFrontendTeamProject/static/css/main.dc5703cd.css.map",
+    "main.4c83337f.js.map": "/WalletFrontendTeamProject/static/js/main.4c83337f.js.map"
   },
   "entrypoints": [
-    "static/css/main.6e95bf1f.css",
-    "static/js/main.9da4c1e1.js"
+    "static/css/main.dc5703cd.css",
+    "static/js/main.4c83337f.js"
   ]
 }
