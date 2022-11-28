@@ -1,4 +1,4 @@
-/* import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CurrencyField } from './currencyField';
 import './currency.scss';
 import axios from 'axios';
@@ -99,4 +99,3 @@ export const Currency = () => {
     </>
   );
 };
- */

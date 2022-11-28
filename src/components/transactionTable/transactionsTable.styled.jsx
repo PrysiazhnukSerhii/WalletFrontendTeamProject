@@ -4,7 +4,7 @@ export const TableWrapper = styled.table`
   width: 100%;
   max-width: 320px;
   overflow: hidden scroll;
-  margin: 0 auto;
+
   text-align: center;
   @media screen and (min-width: 768px) {
     max-width: 704px;
@@ -12,8 +12,8 @@ export const TableWrapper = styled.table`
   @media screen and (min-width: 1280px) {
     max-width: 715px;
     max-height: 65vh;
+    margin-left: 289px;
     margin-top: 46px;
-    margin-left: 69px;
   }
 `;
 
@@ -39,13 +39,13 @@ export const TableHeadItem = styled.th`
     margin-right: 40px;
   }
   &:nth-child(3) {
-    margin-right: 75px;
+    margin-right: 85px;
   }
   &:nth-child(4) {
-    margin-right: 70px;
+    margin-right: 125px;
   }
   &:nth-child(5) {
-    margin-right: 23px;
+    margin-right: 43px;
   }
   }
 `;
@@ -87,30 +87,34 @@ export const DataItem = styled.td`
     }
     &:nth-child(3) {
       width: 80px;
-      margin-right: 50px;
+      margin-right: 60px;
     }
     &:nth-child(4) {
-      width: 80px;
+      width: 100px;
+      margin-right: 50px;
     }
     &:nth-child(5) {
     width: 80px;
+    margin-right: 10px;
     
   }
   &:nth-child(6) {
     width: 90px; 
-    margin-left: 10px;   
+    margin-left: 25px;   
   }
   }
   
 `;
 
 export const DataMob = styled.ul`
+  width: 234px;
+  margin: 0 auto;
   border-radius: 10px;
   border-left: 5px solid red;
   &:not(:last-child) {
     margin-bottom: 8px;
   }
-  background-color: blue;
+  background: #ffffff;
 `;
 
 export const HeadItemMob = styled.span`
