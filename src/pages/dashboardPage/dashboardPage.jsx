@@ -8,7 +8,7 @@ import {
   Container,
   MainPage,
 } from './dashboardPage.styled';
-import { Dashboard } from '../../components/dashboardFIX/dashboard';
+import { Dashboard } from '../../components/dashboardFIX/dashboardFix';
 
 export function DashboardPage() {
   return (
