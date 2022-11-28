@@ -6,7 +6,8 @@ import PublicRoutes from './protectedRoutes/publicRoutes';
 
 import LoginPage from '../pages/LoginPage';
 import { DashboardPage } from '../pages/dashboardPage/dashboardPage';
-import { RegistrationPage } from '../pages/registrationPage/registrationPage';
+import RegistrationPage from '../pages/registrationPage/index';
+//import { RegistrationPage } from '../pages/registrationPage/registrationPage';
 import { DiagramTab } from './diagramTab/diagramTab';
 import { HomeTab } from './homeTab/homeTab';
 
