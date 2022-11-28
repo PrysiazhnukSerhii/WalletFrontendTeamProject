@@ -8,8 +8,8 @@ import {
   Container,
   MainPage,
 } from './dashboardPage.styled';
-import { Dashboard } from '../../components/dashboardFIX/dashboardFix';
-
+import { Dashboard } from '../../components/dashboard/dashboard';
+// -----------------------
 export function DashboardPage() {
   return (
     <>
