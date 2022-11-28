@@ -14,11 +14,13 @@ import {
   CheckboxTextIncome,
   Title,
   SumAndDateWrapp,
+  SumWrap,
   CalendarWrap,
   DateWrap,
   SumField,
   Textarea,
   DatetimeInput,
+  Error
 } from './addTransanctionForm.styled';
 import { MySelect } from './addTransactionFormSelect/addTransactionFormSelect';
 import { TransactionFormButton } from '../addTransactionModal/addTransactionModal.styled';
@@ -29,7 +31,7 @@ import sprite from '../../../images/svg/symbol-defs.svg';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 
 Notiflix.Notify.init({
-  width: '400px',
+  width: 'auto',
   position: 'top-right',
   distance: '50px',
   borderRadius: '10px',
@@ -44,9 +46,9 @@ const TransactionSchema = Yup.object().shape({
     .required('Please indicate the type of your transaction'),
   sum: Yup.number()
     .typeError('Sum should be a number')
-    .min(1, 'Must be more than 1')
+    .min(1, 'Sum value should be more than 1')
     .required('This field is requried'),
-  date: Yup.date().max(new Date(), "You can't make a transaction in future"),
+  date: Yup.date().max(new Date().toString(), "You can't make a transaction in future"),
   comment: Yup.string()
     .typeError('Should be a string')
     .min(0)
@@ -123,6 +125,7 @@ const AddTransactionForm = ({ onCancel }) => {
                 type="checkbox"
                 id="type"
                 name="type"
+                tabindex="-1"
                 onChange={() => {
                   setTransactionType(!transactionType);
                 }}
@@ -142,25 +145,30 @@ const AddTransactionForm = ({ onCancel }) => {
                   )}
                 </CheckboxPoint>
               </CheckboxSlider>
-
+               {touched.type && errors.type && <Error>{errors.type}</Error>}
               <CheckboxTextIncome>Income</CheckboxTextIncome>
               <CheckboxTextExpense>Expense</CheckboxTextExpense>
             </CheckboxWrapp>
+
             {!transactionType && (
               <MySelect
                 name="category"
                 onChange={data => setFieldValue('category', data?.value)}
               />
-            )}
-            <SumAndDateWrapp>
-              {touched.sum && errors.sum && Notiflix.Notify.warning(errors.sum)}
-              <SumField
-                type="number"
-                id="sum"
-                name="sum"
-                placeholder="Sum: 0.00"
-              />
+            )
+            }
+            {touched.category && errors.category && <Error>{errors.category}</Error>}
 
+            <SumAndDateWrapp>
+              <SumWrap>
+                <SumField
+                  type="number"
+                  id="sum"
+                  name="sum"
+                  placeholder="Sum: 0.00"
+                />
+                {touched.sum && errors.sum && <Error>{errors.sum}</Error>}
+              </SumWrap>
               <DateWrap>
                 <Datetime
                   renderInput={props => <DatetimeInput {...props} />}
@@ -178,17 +186,21 @@ const AddTransactionForm = ({ onCancel }) => {
                     },
                   }}
                 />
+                {touched.date && errors.date && <Error>{errors.date}</Error>}
                 <CalendarWrap>
                   <svg width="18px" height="20px">
                     <use href={`${sprite}#icon-calendar`} />
                   </svg>
                 </CalendarWrap>
+                
               </DateWrap>
+              
             </SumAndDateWrapp>
             <Textarea
               id="comment"
               name="comment"
               placeholder="Comment"
+              tabindex="-1"
               onChange={handleChange}
             />
             <TransactionFormButton
