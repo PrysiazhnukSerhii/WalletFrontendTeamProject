@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import PrivatRoutes from './protectedRoutes/privatRoutes';
 import PublicRoutes from './protectedRoutes/publicRoutes';
 
-import LoginPage from '../pages/LoginPage';
+import LoginPage from '../pages/loginPage';
 import { DashboardPage } from '../pages/dashboardPage/dashboardPage';
 import RegistrationPage from '../pages/registrationPage/index';
 //import { RegistrationPage } from '../pages/registrationPage/registrationPage';

@@ -1,4 +1,4 @@
-import { Header } from '../../components/Header/Header';
+import { Header } from '../../components/header/header';
 import { Outlet } from 'react-router-dom';
 
 import Media from 'react-media';
@@ -9,7 +9,7 @@ import {
   MainPage,
 } from './dashboardPage.styled';
 import { Dashboard } from '../../components/dashboard/dashboard';
-// -----------------------
+
 export function DashboardPage() {
   return (
     <>
