@@ -11,7 +11,7 @@ import Logo from '../logo';
 import { ReactComponent as EmailIcon } from '../../icons/email.svg';
 import { ReactComponent as LockIcon } from '../../icons/lock.svg';
 
-import './loginForm.scss';
+// import './loginForm.scss';
 import '../mainButton/mainButton.scss';
 
 function LoginForm() {
@@ -47,7 +47,7 @@ function LoginForm() {
         validationSchema={validationsSchema}
       >
         {({ handleChange, handleBlur, values, isValid, dirty }) => (
-          <Form className="form">
+          <Form className="form-login">
             <div className="logo_wrapper">
               <Logo />
               <h1 className="Header__logo--text">Wallet</h1>
