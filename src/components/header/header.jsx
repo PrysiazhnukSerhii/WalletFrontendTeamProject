@@ -38,8 +38,21 @@ export const Header = () => {
       </Link>
 
       <UserMenuWrapper>
-        <UserName>{userName} name</UserName>
-        <Divider></Divider>
+        <UserName>{userName}</UserName>
+        <Media
+          queries={{
+            small: '(max-width: 767px)',
+            medium: '(min-width: 768px) and (max-width: 1199px)',
+            large: '(min-width: 1200px)',
+          }}
+        >
+          {matches => (
+            <Fragment>
+              {(matches.medium || matches.large) && <Divider></Divider>}
+            </Fragment>
+          )}
+        </Media>
+
         <LogoutBtn type="button" onClick={openModal}>
           <LogoExit>
             <use href={`${sprite}#icon-logout`} />
