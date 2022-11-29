@@ -7,6 +7,7 @@ import {
   DataItem,
   TableHead,
   Data,
+  DataSum,
   DataMob,
   DataItemMob,
   HeadItemMob,
@@ -14,50 +15,56 @@ import {
 
 export function TransactionsTable() {
   const isMobile = useMedia('(max-width: 767px)');
-  //const isNoMobile = useMedia('(min-width: 768px)');
   const { data: transactions } = useGetTransactionsQuery();
   const isShown = transactions !== undefined;
-  console.log(transactions);
   return (
     isShown && (
       <>
         <TableWrapper>
           {!isMobile && (
             <>
-              <TableHead>
-                <TableHeadItem>Date</TableHeadItem>
-                <TableHeadItem>Type</TableHeadItem>
-                <TableHeadItem>Category</TableHeadItem>
-                <TableHeadItem>Comment</TableHeadItem>
-                <TableHeadItem>Sum</TableHeadItem>
-                <TableHeadItem>Balance</TableHeadItem>
-              </TableHead>
-              {transactions.map(
-                ({ id, date, type, category, comment, sum, balance }) => (
-                  <Data key={id} type={type}>
-                    <DataItem>{fixDate(date)}</DataItem>
-                    <DataItem>{type === true ? '+' : '-'}</DataItem>
-                    <DataItem style={{ textAlign: 'left' }}>
-                      {category}
-                    </DataItem>
-                    <DataItem style={{ textAlign: 'left' }}>{comment}</DataItem>
-                    <DataItem style={{ textAlign: 'right', fontWeight: '700' }}>
-                      {sum}
-                    </DataItem>
-                    <DataItem style={{ textAlign: 'right' }}>
-                      {balance}
-                    </DataItem>
-                  </Data>
-                )
-              )}
+              <thead>
+                <TableHead>
+                  <TableHeadItem>Date</TableHeadItem>
+                  <TableHeadItem>Type</TableHeadItem>
+                  <TableHeadItem>Category</TableHeadItem>
+                  <TableHeadItem>Comment</TableHeadItem>
+                  <TableHeadItem>Sum</TableHeadItem>
+                  <TableHeadItem>Balance</TableHeadItem>
+                </TableHead>
+              </thead>
+              <tbody>
+                {transactions.map(
+                  ({ _id, date, type, category, comment, sum, balance }) => (
+                    <Data key={_id}>
+                      <DataItem>{fixDate(date)}</DataItem>
+                      <DataItem>{type === true ? '+' : '-'}</DataItem>
+                      <DataItem style={{ textAlign: 'left' }}>
+                        {category}
+                      </DataItem>
+                      <DataItem style={{ textAlign: 'left' }}>
+                        {comment}
+                      </DataItem>
+                      <DataItem
+                        style={{ textAlign: 'right', fontWeight: '700' }}
+                      >
+                        <DataSum type={type.toString()}>{sum}</DataSum>
+                      </DataItem>
+                      <DataItem style={{ textAlign: 'right' }}>
+                        {balance}
+                      </DataItem>
+                    </Data>
+                  )
+                )}
+              </tbody>
             </>
           )}
         </TableWrapper>
         {isMobile && (
           <>
             {transactions.map(
-              ({ id, date, type, category, comment, sum, balance }) => (
-                <DataMob key={id}>
+              ({ _id, date, type, category, comment, sum, balance }) => (
+                <DataMob key={_id} type={type.toString()}>
                   <DataItemMob>
                     <HeadItemMob>Date</HeadItemMob>
                     {fixDate(date)}
@@ -76,7 +83,7 @@ export function TransactionsTable() {
                   </DataItemMob>
                   <DataItemMob style={{ fontWeight: '700' }}>
                     <HeadItemMob>Sum</HeadItemMob>
-                    {sum}
+                    <DataSum type={type.toString()}>{sum}</DataSum>
                   </DataItemMob>
                   <DataItemMob>
                     <HeadItemMob>Balance</HeadItemMob>

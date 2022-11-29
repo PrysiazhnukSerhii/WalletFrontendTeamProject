@@ -74,7 +74,7 @@ position: relative;
 
 export const DataItem = styled.td`
   padding: 8px 10px;
-  color: black;
+  color: var(--primary-text-color);
   font-weight: 400;  
   font-size: 16px;  
     &:nth-child(1) {
@@ -106,11 +106,18 @@ export const DataItem = styled.td`
   
 `;
 
+export const DataSum = styled.span`
+  color: ${props =>
+    props.type === 'true'
+      ? 'var(--accent-color-grean)'
+      : 'var(--accent-color-red)'};
+`;
+
 export const DataMob = styled.ul`
   width: 234px;
   margin: 0 auto;
   border-radius: 10px;
-  border-left: 5px solid red;
+  border-left: 5px solid var(--accent-color-red);
   &:not(:last-child) {
     margin-bottom: 8px;
   }
