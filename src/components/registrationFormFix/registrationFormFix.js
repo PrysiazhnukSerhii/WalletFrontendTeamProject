@@ -6,15 +6,15 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import Notiflix from 'notiflix';
 
-import MyTextInput from '../MyTextInput';
-import MainButton from '../MainButton';
-import Logo from '../Logo';
+import MyTextInput from '../myTextInputFix';
+import MainButton from '../mainButtonFix';
+import Logo from '../logoFix';
 import { ReactComponent as EmailIcon } from '../../icons/email.svg';
 import { ReactComponent as LockIcon } from '../../icons/lock.svg';
 import { ReactComponent as UserIcon } from '../../icons/user.svg';
 
-import './RegistrationForm.scss';
-import '../MainButton/MainButton.scss';
+import './registrationFormFix.scss';
+import '../mainButtonFix/mainButtonFix.scss';
 
 Notiflix.Notify.init({
   width: 'auto',
@@ -37,11 +37,12 @@ function RegistrationForm() {
       .min(6, 'Password must be at least 6 characters long')
       .max(14, 'Password must be a maximum of 14 characters')
       .required('Mandatory field!'),
-    passwordConfirm: Yup.string('Confirm your password')
-      .required('Mandatory field!'),
+    passwordConfirm: Yup.string('Confirm your password').required(
+      'Mandatory field!'
+    ),
     name: Yup.string('Enter your name')
-      .min(1, "Name sould have at least 1 symbol")
-      .max(12, "12 symbols max for Name")
+      .min(1, 'Name sould have at least 1 symbol')
+      .max(12, '12 symbols max for Name'),
   });
 
   const handleRegister = ({ email, password, passwordConfirm, name }) => {
@@ -49,41 +50,39 @@ function RegistrationForm() {
     if (password === passwordConfirm) {
       register({ email, password, name }).then(e => {
         if (e.error) {
-        Notiflix.Notify.failure('Registration failed, please retry registartion');
-      }
+          Notiflix.Notify.failure(
+            'Registration failed, please retry registartion'
+          );
+        }
       });
-    }
-    else {
+    } else {
       Notiflix.Notify.failure('Check your password again');
     }
-    
   };
 
-  
-  const isConsistLetters = (password) => {
+  const isConsistLetters = password => {
     const letters = /[A-Za-z]/;
     if (letters.test(password)) {
       return true;
-      }
-    else {
-        return false;
-      }
+    } else {
+      return false;
     }
+  };
 
-  const checkingPasswordQuality = (password) => {
+  const checkingPasswordQuality = password => {
     const passwordLength = password.length;
     let isLetter = isConsistLetters(password);
 
-    if (passwordLength >= 6 && passwordLength <= 14 && isLetter===false) {
-      return 'lowPasswordQuality'
+    if (passwordLength >= 6 && passwordLength <= 14 && isLetter === false) {
+      return 'lowPasswordQuality';
     }
-    if (passwordLength >= 6 && passwordLength <= 10 && isLetter===true) {
-      return 'middlePasswordQuality'
+    if (passwordLength >= 6 && passwordLength <= 10 && isLetter === true) {
+      return 'middlePasswordQuality';
     }
-    if (passwordLength > 10 && passwordLength <= 14 && isLetter===true) {
-      return 'strongPasswordQuality'
+    if (passwordLength > 10 && passwordLength <= 14 && isLetter === true) {
+      return 'strongPasswordQuality';
     }
-  }
+  };
 
   return (
     <>
@@ -92,7 +91,7 @@ function RegistrationForm() {
           email: '',
           password: '',
           passwordConfirm: '',
-          name: ''
+          name: '',
         }}
         validateOnBlur
         onSubmit={handleRegister}

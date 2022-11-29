@@ -5,14 +5,14 @@ import { NavLink } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-import MyTextInput from '../MyTextInput';
-import MainButton from '../MainButton';
-import Logo from '../Logo';
+import MyTextInput from '../myTextInputFix';
+import MainButton from '../mainButtonFix';
+import Logo from '../logoFix';
 import { ReactComponent as EmailIcon } from '../../icons/email.svg';
 import { ReactComponent as LockIcon } from '../../icons/lock.svg';
 
-import './LoginForm.scss';
-import '../MainButton/MainButton.scss';
+import './loginFormFix.scss';
+import '../mainButtonFix/mainButtonFix.scss';
 
 function LoginForm() {
   let [login] = useLoginMutation();
