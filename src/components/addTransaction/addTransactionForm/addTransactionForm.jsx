@@ -1,9 +1,11 @@
 import React from 'react';
 import { Formik } from 'formik';
+import { TransactionSchema } from '../helpers/formikTransactionSchema';
 import { useState } from 'react';
-import * as Yup from 'yup';
 import 'react-datetime/css/react-datetime.css';
 import Datetime from 'react-datetime';
+import moment from 'moment';
+import { isValidDate } from '../helpers/checkValidDate';
 import { Oval } from 'react-loader-spinner';
 import {
   CheckboxWrapp,
@@ -20,7 +22,7 @@ import {
   SumField,
   Textarea,
   DatetimeInput,
-  Error
+  Error,
 } from './addTransanctionForm.styled';
 import { MySelect } from './addTransactionFormSelect/addTransactionFormSelect';
 import { TransactionFormButton } from '../addTransactionModal/addTransactionModal.styled';
@@ -40,36 +42,12 @@ Notiflix.Notify.init({
   fontSize: '23px',
 });
 
-const TransactionSchema = Yup.object().shape({
-  type: Yup.boolean()
-    .oneOf([true, false])
-    .required('Please indicate the type of your transaction'),
-  sum: Yup.number()
-    .typeError('Sum should be a number')
-    .min(1, 'Sum value should be more than 1')
-    .required('This field is requried'),
-  date: Yup.date().max(new Date().toString(), "You can't make a transaction in future"),
-  comment: Yup.string()
-    .typeError('Should be a string')
-    .min(0)
-    .max(200, 'Try to make your comment a bit shorter'),
-
-  category: Yup.string().oneOf([
-    'Main',
-    'Food',
-    'Auto',
-    'Development',
-    'Children',
-    'House',
-    'Education',
-    'Other',
-  ]),
-});
+const currentDate = moment().format('DD.MM.YYYY');
 
 const initialValues = {
   type: false,
   sum: '',
-  date: new Date(),
+  date: new Date().toString(),
   comment: '',
   category: '',
 };
@@ -86,14 +64,13 @@ const AddTransactionForm = ({ onCancel }) => {
         validationSchema={TransactionSchema}
         onSubmit={async values => {
           const { category, sum, comment, date } = values;
-         
           const newTransaction = {
             type: transactionType,
             category: category === '' ? 'Other' : category,
             sum: Number(sum),
             date: date,
-            month: Number(date.getMonth()) + 1,
-            year: Number(date.getFullYear()),
+            month: Number(moment(date).format('MM')),
+            year: Number(moment(date).format('YYYY')),
             comment: comment === '' ? 'No comment' : comment,
           };
           // console.log('newTransaction', newTransaction);
@@ -144,7 +121,7 @@ const AddTransactionForm = ({ onCancel }) => {
                   )}
                 </CheckboxPoint>
               </CheckboxSlider>
-               {touched.type && errors.type && <Error>{errors.type}</Error>}
+              {touched.type && errors.type && <Error>{errors.type}</Error>}
               <CheckboxTextIncome>Income</CheckboxTextIncome>
               <CheckboxTextExpense>Expense</CheckboxTextExpense>
             </CheckboxWrapp>
@@ -154,9 +131,10 @@ const AddTransactionForm = ({ onCancel }) => {
                 name="category"
                 onChange={data => setFieldValue('category', data?.value)}
               />
-            )
-            }
-            {touched.category && errors.category && <Error>{errors.category}</Error>}
+            )}
+            {touched.category && errors.category && (
+              <Error>{errors.category}</Error>
+            )}
 
             <SumAndDateWrapp>
               <SumWrap>
@@ -164,7 +142,7 @@ const AddTransactionForm = ({ onCancel }) => {
                   type="number"
                   id="sum"
                   name="sum"
-                  placeholder="Sum: 0.00"
+                  placeholder="0.00"
                 />
                 {touched.sum && errors.sum && <Error>{errors.sum}</Error>}
               </SumWrap>
@@ -175,10 +153,11 @@ const AddTransactionForm = ({ onCancel }) => {
                   closeOnSelect={true}
                   closeOnClickOutside={true}
                   name="date"
-                  initialValue={initialValues.date}
-                  dateFormat="DD-MM-YYYY"
+                  initialValue={currentDate}
+                  isValidDate={isValidDate}
+                  dateFormat="DD.MM.YYYY"
                   timeFormat={false}
-                  onChange={e => setFieldValue('date', new Date(e))}
+                  onChange={e => setFieldValue('date', new Date(e).toString())}
                   inputProps={{
                     onKeyDown: e => {
                       e.preventDefault();
@@ -191,9 +170,7 @@ const AddTransactionForm = ({ onCancel }) => {
                     <use href={`${sprite}#icon-calendar`} />
                   </svg>
                 </CalendarWrap>
-                
               </DateWrap>
-              
             </SumAndDateWrapp>
             <Textarea
               id="comment"
