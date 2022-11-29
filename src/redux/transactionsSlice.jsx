@@ -34,10 +34,10 @@ export const transactionsApi = createApi({
     }),
 
     getStatistics: builder.mutation({
-      query: statistics => ({
+      query: period => ({
         url: `/api/transactions/statistics`,
         method: 'POST',
-        body: statistics,
+        body: period,
       }),
       invalidatesTags: ['Transactions'],
     }),
