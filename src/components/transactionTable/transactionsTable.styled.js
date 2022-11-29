@@ -26,12 +26,12 @@ export const TableHead = styled.tr`
   }
 `;
 
-export const TableHeadItem = styled.th`   
+export const TableHeadItem = styled.th`
   padding: 10px;
   width: 50px;
-  &:nth-child(1) {    
+  &:nth-child(1) {
     margin-right: 45px;
-  } 
+  }
   &:nth-child(2) {
     margin-right: 40px;
   }
@@ -44,34 +44,33 @@ export const TableHeadItem = styled.th`
   &:nth-child(5) {
     margin-right: 23px;
   }
-  }
 `;
 
 export const Data = styled.tr`
-position: relative;
+  position: relative;
   display: flex;
   align-items: center;
   padding: 0px 7.5px;
   font-size: 16px;
-  height: 52px;  
-    &:not(:last-child) {
-      &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 10;
-        bottom: 0;
-        width: 680px;
-        border: 1px solid #dcdcdf;
-        box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
-      }
-    
+  height: 52px;
+  &:not(:last-child) {
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 10;
+      bottom: 0;
+      width: 680px;
+      border: 1px solid #dcdcdf;
+      box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+    }
+  }
 `;
 
 export const DataItem = styled.td`
   padding: 8px 10px;
   color: black;
-  font-weight: 400;  
+  font-weight: 400;
   font-size: 16px;
   @media screen and (min-width: 320px) {
     &:nth-child(1) {
@@ -90,12 +89,10 @@ export const DataItem = styled.td`
       width: 80px;
     }
     &:nth-child(5) {
-    width: 80px;
-    
-  }
-  &:nth-child(6) {
-    width: 90px;    
-  }
-  }
+      width: 80px;
+    }
+    &:nth-child(6) {
+      width: 90px;
+    }
   }
 `;

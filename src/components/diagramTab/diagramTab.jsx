@@ -2,8 +2,9 @@
 // В этом компоненте заключена логика подписки на redux store, получение оттуда всех нужных данных.
 // Реализация методов фильтрации данных.И данные куски состояния и методы прокинуть пропами в дочерние элементы Table и Chart
 
+import { Box } from 'components/Box';
 import { Chart } from 'components/chart/chart';
-import { Table } from 'components/table/table';
+import { Table } from 'components/table/table.jsx';
 import { useState } from 'react';
 
 const initialValues = {
@@ -87,16 +88,19 @@ export function DiagramTab() {
   console.log(selectedPeriod);
   return (
     <>
-      <h2>Statistics</h2>
-      <Chart statistics={statistics} />
-      <Table
-        month={month}
-        year={year}
-        initialValues={initialValues}
-        statistics={statistics}
-        onMonthChange={handleMonthChange}
-        onYearChange={handleYearChange}
-      />
+      <Box display="flex" p="32px">
+        <Chart statistics={statistics} />
+        <Box>
+          <Table
+            month={month}
+            year={year}
+            initialValues={initialValues}
+            statistics={statistics}
+            onMonthChange={handleMonthChange}
+            onYearChange={handleYearChange}
+          />
+        </Box>
+      </Box>
     </>
   );
 }

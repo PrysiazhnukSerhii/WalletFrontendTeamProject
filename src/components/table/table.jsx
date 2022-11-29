@@ -1,8 +1,21 @@
 // Верстка мобилка, планшет, десктоп
 // Stateless компонент получает массив для рендера и
 // методы для фильтрации на селекты
-import { Form, Field } from 'formik';
+
 import { Formik, ErrorMessage } from 'formik';
+import {
+  Total,
+  Tabrow,
+  TabHeader,
+  Tabl,
+  StyledForm,
+  StyledField,
+  TableHead,
+  TableHeadTr,
+  TableBody,
+  BodyTr,
+  BodyText,
+} from './table.styled';
 
 export function Table({
   month,
@@ -19,8 +32,8 @@ export function Table({
   return (
     <>
       <Formik initialValues={initialValues}>
-        <Form>
-          <Field
+        <StyledForm>
+          <StyledField
             name="month"
             as="select"
             placeholder="Month"
@@ -63,9 +76,9 @@ export function Table({
             <option key="12" value="12">
               December
             </option>
-          </Field>
+          </StyledField>
           <ErrorMessage name="month" />
-          <Field
+          <StyledField
             name="year"
             as="select"
             placeholder="Year"
@@ -77,36 +90,44 @@ export function Table({
                 {year}
               </option>
             ))}
-          </Field>
-        </Form>
+          </StyledField>
+        </StyledForm>
       </Formik>
-      <table>
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>Sum</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Tabl>
+        <TableHead>
+          <TableHeadTr>
+            <TabHeader>Category</TabHeader>
+            <TabHeader>Sum</TabHeader>
+          </TableHeadTr>
+        </TableHead>
+        <TableBody>
           {totalCategories.map(category => (
-            <tr key={category.id}>
-              <td>
-                <div
+            <BodyTr key={category.id}>
+              <Tabrow>
+                <p
                   style={{
                     backgroundColor: category.color,
                     width: '30px',
                     height: '30px',
                   }}
-                ></div>
-              </td>
-              <td>{category.title}</td>
-              <td>{category.total ? category.total : 0}</td>
-            </tr>
+                ></p>{' '}
+                <BodyText>{category.title}</BodyText>
+              </Tabrow>
+              <Tabrow></Tabrow>
+              <Tabrow>
+                <BodyText>{category.total ? category.total : 0}</BodyText>
+              </Tabrow>
+            </BodyTr>
           ))}
-        </tbody>
-      </table>
-      <p>{`Expenses: ${totalExpenses}`}</p>
-      <p>{`Income: ${totalIncome}`}</p>
+        </TableBody>
+      </Tabl>
+      <Total>
+        Expenses:
+        <span>{totalExpenses}</span>
+      </Total>
+      <Total>
+        Income: <span>{totalIncome}</span>{' '}
+      </Total>
     </>
   );
 }
