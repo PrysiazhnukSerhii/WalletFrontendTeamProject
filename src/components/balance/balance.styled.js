@@ -27,7 +27,7 @@ export const BalanceContainer = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-  width: 315px;
+  width: 395px;
   }
 `;
 

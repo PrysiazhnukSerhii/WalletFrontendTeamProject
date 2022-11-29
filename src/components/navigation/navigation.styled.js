@@ -12,15 +12,23 @@ export const StyledNavLink = styled(NavLink)`
            font-family: 'Poppins', sans-serif;
            font-weight: 400;
            color: var(--primary-text-color);
-         
-          
+
+         svg {
+             display: block;
+             height: 38px;
+             width: 38px;
+             border-radius: 6px;
+             background-color: var(--background-icons-color);
+             fill: var(--secondary-text-color);  
+             
+            @media screen and (min-width: 768px) {
+               width: 24px;
+               height: 24px;
+
+           }
+                  
          @media screen and (min-width: 768px) {
-          //  display: flex;
-          //  align-items: center;
-          //  gap: 17px;
-          //  font-size: 18px;
-          //  line-height: 1.5;
-         }
+                    
            &.active {
            font-weight: 700;
            & svg {
@@ -59,7 +67,7 @@ export const NavStyled = styled.nav`
     position: fixed;
     left: 0;
     right: 0;
-    top: 72px;
+    top: 100px;
   }
 `;
 

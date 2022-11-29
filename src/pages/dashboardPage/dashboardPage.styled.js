@@ -60,19 +60,7 @@ min-height: calc(100vh - 85px);
 
     @media screen and (min-width: 1280px) {
      
-      &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 0px;
-      height: calc(100vh - 85px);
-      left: 480px;
-      top: 0;
-     
-      border: 1px solid #e7e5f2;
-      box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
-        1px 0px 0px rgba(255, 255, 255, 0.6);
-    }
+      
 
         url(${ellipseDownDesktop}),
         url(${ellipseUpDesktop});
@@ -89,9 +77,11 @@ min-height: calc(100vh - 85px);
 
 export const Section = styled.section`
   min-height: calc(100vh - 85px);
-  background: linear-gradient(
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.4)
-  );
-  backdrop-filter: blur(25px);
+  @media screen and (min-width: 768px) {
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    );
+    backdrop-filter: blur(25px);
+  }
 `;
