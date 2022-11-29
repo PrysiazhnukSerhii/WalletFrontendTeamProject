@@ -1,7 +1,3 @@
-// Верстка мобилка, планшет, десктоп
-// react-chartjs-2 и chart.js разобраться и применить библиотеки
-// Stateless компонент получает информацию для рендера
-// Отображаемая сумма равна сумме всех расходов за выбранный период
 import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 

@@ -1,6 +1,3 @@
-// Верстка мобилка, планшет, десктоп
-// Stateless компонент получает массив для рендера и
-// методы для фильтрации на селекты
 import { Form, Field } from 'formik';
 import { Formik, ErrorMessage } from 'formik';
 import Notiflix from 'notiflix';

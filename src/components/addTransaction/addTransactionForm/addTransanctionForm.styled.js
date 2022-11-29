@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
-//import { colors } from 'react-select/dist/declarations/src/theme';
 
 export const Title = styled.h2`
   margin-bottom: 40px;
@@ -139,7 +138,7 @@ export const SumWrap = styled.div`
   vertical-align: bottom;
   overflow: visible;
   position: relative;
-`; 
+`;
 
 export const DateWrap = styled.div`
   padding: 0 20px 0 20px;
