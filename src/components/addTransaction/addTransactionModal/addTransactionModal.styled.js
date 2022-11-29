@@ -31,7 +31,7 @@ export const Modal = styled.div`
     top: 0;
     left: 0;
     width: 540px;
-    min-height: 500px;
+    min-height: 585px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -40,7 +40,6 @@ export const Modal = styled.div`
   }
   @media screen and (min-width: 1280px) {
     width: 500px;
-    min-height: 500px;
     border-radius: 20px;
   }
 `;
