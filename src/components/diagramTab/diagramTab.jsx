@@ -1,7 +1,4 @@
 import { Box } from 'components/Box';
-import { Chart } from 'components/chart/chart';
-import { Table } from 'components/table/table.jsx';
-import { useState } from 'react';
 
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';

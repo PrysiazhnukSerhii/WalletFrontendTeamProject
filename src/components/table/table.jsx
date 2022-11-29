@@ -13,8 +13,6 @@ import {
   BodyText,
 } from './table.styled';
 
-import { Form, Field } from 'formik';
-import { Formik, ErrorMessage } from 'formik';
 import Notiflix from 'notiflix';
 
 export function Table({
