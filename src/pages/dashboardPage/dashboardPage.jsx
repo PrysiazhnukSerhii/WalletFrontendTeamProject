@@ -1,4 +1,4 @@
-import { Header } from '../../components/Header/Header';
+import { Header } from '../../components/headerFix/headerFix';
 import { Outlet } from 'react-router-dom';
 
 import Media from 'react-media';
