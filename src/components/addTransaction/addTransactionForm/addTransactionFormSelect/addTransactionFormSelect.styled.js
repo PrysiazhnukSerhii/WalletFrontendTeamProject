@@ -5,6 +5,9 @@ export const selectStyles = {
     outline: 'none',
     border: 'none',
     marginBottom: '40px',
+    '@media screen and (max-width:767px)': {
+      width: '280px',
+    },
   }),
   valueContainer: (baseStyles, state) => ({
     ...baseStyles,

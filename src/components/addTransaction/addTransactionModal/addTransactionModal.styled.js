@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
 export const Backdrop = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   @media screen and (min-width: 768px) {
-    position: absolute;
-    top: 0;
-    left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
     background-color: rgba(0, 0, 0, 0.25);
   }
 `;
@@ -22,8 +22,9 @@ export const Modal = styled.div`
   padding: 20px 0 55px 0;
 
   @media screen and (max-width: 767px) {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    padding-top: 80px;
   }
   @media screen and (min-width: 768px) {
     position: absolute;
@@ -76,14 +77,15 @@ export const CloseButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   position: fixed;
   top: 20px;
   right: 20px;
   border-radius: 100%;
   background-color: var(--primary-background-color);
   border: 0;
+  transition: box-shadow 250ms linear;
   &:hover {
     box-shadow: 0px 0px 5px var(--accent-color-grean);
   }
