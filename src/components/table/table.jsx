@@ -1,7 +1,3 @@
-// Верстка мобилка, планшет, десктоп
-// Stateless компонент получает массив для рендера и
-// методы для фильтрации на селекты
-
 import { Formik, ErrorMessage } from 'formik';
 import {
   Total,
@@ -17,6 +13,10 @@ import {
   BodyText,
 } from './table.styled';
 
+import { Form, Field } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
+import Notiflix from 'notiflix';
+
 export function Table({
   month,
   year,
@@ -29,6 +29,9 @@ export function Table({
 
   const yearOptions = generateYearOptions(initialValues.year);
 
+  if (!totalExpenses && !totalIncome) {
+    Notiflix.Notify.warning('There are no transactions in the selected period');
+  }
   return (
     <>
       <Formik initialValues={initialValues}>
@@ -93,6 +96,7 @@ export function Table({
           </StyledField>
         </StyledForm>
       </Formik>
+
       <Tabl>
         <TableHead>
           <TableHeadTr>

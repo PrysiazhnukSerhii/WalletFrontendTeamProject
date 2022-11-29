@@ -56,7 +56,7 @@ export const userSlice = createSlice({
     builder.addMatcher(
       transactionsApi.endpoints.getStatistics.matchFulfilled,
       (state, { payload }) => {
-        return (state.financeData = payload[0]);
+        state.financeData = payload[0];
       }
     );
   },
