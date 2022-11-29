@@ -1,4 +1,4 @@
-import { TransactionsTable } from 'components/TransactionTable/transactionTable';
+import { TransactionsTable } from 'components/transactionTable/transactionTable';
 import AddTransactionButton from 'components/addTransaction/addTransactionButton/addTransactionButton';
 import Balance from 'components/balance/balance';
 import Media from 'react-media';
