@@ -1,6 +1,6 @@
 import { Header } from '../../components/header/header';
 import { Outlet } from 'react-router-dom';
-// import Media from 'react-media';
+
 
 import {
   Section,
@@ -15,16 +15,7 @@ export function DashboardPage() {
     <>
       <Header />
       <MainPage>
-        {/*        
-            <Container>
-              <ContainerDashboard>
-                <Dashboard />
-                <Outlet />
-              </ContainerDashboard>
-            </Container>
-         */}
-
-        <Section>
+          <Section>
           <Container>
             <ContainerDashboard>
               <Dashboard />
