@@ -1,14 +1,15 @@
 import React from 'react';
 import LoginForm from '../../components/loginForm';
-import './loginPage.scss';
+// import './loginPage.scss';
+import { PageWrapper, PageText } from './loginPage.styled';
 
 const LoginPage = () => {
   return (
     <div>
-      <div className="page_wrapper">
-        <p className="page_text">Finance App</p>
+      <PageWrapper>
+        <PageText>Finance App</PageText>
         <LoginForm />
-      </div>
+      </PageWrapper>
     </div>
   );
 };
