@@ -56,7 +56,7 @@ export const selectStyles = {
           ? '#ff6596'
           : 'black'
         : data.color,
-      cursor: isDisabled ? 'not-allowed' : 'default',
+      cursor: isDisabled ? 'not-allowed' : 'pointer',
 
       ':active': {
         ...styles[':active'],
@@ -73,7 +73,6 @@ export const selectStyles = {
       transition: 'color 250ms linear, background-color 250ms linear',
       fontSize: '18px',
       fontWeight: '400',
-      cursor: 'pointer',
     };
   },
 
