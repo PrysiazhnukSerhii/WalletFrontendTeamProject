@@ -1,14 +1,15 @@
 import React from 'react';
 import RegistrationForm from '../../components/registrationForm';
-import '../loginPage/loginPage';
+import '../registrationPage/registerPage.scss';
+import { ContainerWrapper, PageText } from './register.styled';
 
 const RegistrationPage = () => {
   return (
     <div>
-      <div className="page_wrapper">
-        <p className="page_text">Finance App</p>
+      <ContainerWrapper>
+        <PageText>Finance App</PageText>
         <RegistrationForm />
-      </div>
+      </ContainerWrapper>
     </div>
   );
 };
