@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
+import { style } from 'styled-system';
 
 export const Tabl = styled.table`
-  max-width: 395px;
   width: 100%;
   border-collapse: collapse;
   text-align: left;
@@ -10,15 +10,18 @@ export const Tabl = styled.table`
 
 export const StyledForm = styled(Form)`
   display: flex;
-  grid-gap: 20px;
   gap: 20px;
   margin-bottom: 20px;
   margin-left: 0;
   margin-right: auto;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 export const StyledField = styled(Field)`
-  width: 182px;
+  width: 100%;
   height: 50px;
   background-color: transparent;
   border: 1px solid #000000;
@@ -33,13 +36,16 @@ export const StyledField = styled(Field)`
 `;
 
 export const TabHeader = styled.th`
-  background-color: var(--primary-background-color);
   font-family: 'Circe';
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 27px;
-  padding: 0 28px 0 28px;
+  padding: 0 28px;
+
+  @media screen and (max-width: 767px) {
+    padding: 0 20px;
+  }
 `;
 
 export const TableHead = styled.thead`
@@ -51,15 +57,16 @@ export const TableHead = styled.thead`
 export const TableHeadTr = styled.tr`
   display: flex;
   justify-content: space-between;
-
   align-items: center;
   font-size: 18px;
   line-height: 27px;
-  padding: 0px 7.5px;
   border-radius: 30px;
-  width: 395px;
   height: 58px;
   background-color: var(--primary-background-color);
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 `;
 export const Tabrow = styled.td`
   display: inline-flex;
@@ -82,11 +89,15 @@ export const Total = styled.div`
 export const TableBody = styled.tbody``;
 
 export const BodyTr = styled.tr`
-  padding: 0 28px 0 28px;
+  padding: 0 28px;
   justify-content: space-between;
   display: flex;
   border-bottom: 1px solid #dcdcdf;
   box-shadow: 0px 1px 0px rgb(255 255 255 / 60%);
+
+  @media screen and (max-width: 767px) {
+    padding: 0 20px;
+  }
 `;
 export const BodyText = styled.span`
   padding: 0 0px 0 16px;
@@ -97,4 +108,30 @@ export const BodyText = styled.span`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+`;
+export const FieldContainer = styled.div`
+  position: relative;
+  width: 50%;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    transform: rotate(-135deg) translateY(-50%);
+    transform-origin: 0 0;
+  }
+`;
+
+export const TableContainer = styled.div`
+  flex-grow: 1;
 `;

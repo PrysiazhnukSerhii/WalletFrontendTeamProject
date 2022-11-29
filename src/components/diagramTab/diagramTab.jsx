@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { Chart } from 'components/chart/chart';
 import { Table } from 'components/table/table';
 import { useGetStatisticsMutation } from 'redux/transactionsSlice';
+import { StatisticsContainer } from './diagramTam.styled';
 
 const initialValues = {
   month: new Date().getMonth() + 1,
@@ -34,31 +35,29 @@ export function DiagramTab() {
 
   return (
     <>
-      <Box display="flex" p="32px">
-        <Chart statistics={statistics} />
-        <Box>
-          <h2>Statistics</h2>
-          {statistics && (
-            <>
-              {(statistics?.totalIncome || statistics?.totalExpenses) &&
-                (statistics?.totalExpenses ? (
-                  <Chart statistics={statistics} />
-                ) : (
-                  <p>There are no expenses in the selected period</p>
-                ))}
+      <StatisticsContainer>
+        <h2>Statistics</h2>
 
-              <Table
-                month={month}
-                year={year}
-                initialValues={initialValues}
-                statistics={statistics}
-                onMonthChange={handleMonthChange}
-                onYearChange={handleYearChange}
-              />
-            </>
-          )}
-        </Box>
-      </Box>
+        {statistics && (
+          <>
+            {(statistics?.totalIncome || statistics?.totalExpenses) &&
+              (statistics?.totalExpenses ? (
+                <Chart statistics={statistics} />
+              ) : (
+                <p>There are no expenses in the selected period</p>
+              ))}
+
+            <Table
+              month={month}
+              year={year}
+              initialValues={initialValues}
+              statistics={statistics}
+              onMonthChange={handleMonthChange}
+              onYearChange={handleYearChange}
+            />
+          </>
+        )}
+      </StatisticsContainer>
     </>
   );
 }

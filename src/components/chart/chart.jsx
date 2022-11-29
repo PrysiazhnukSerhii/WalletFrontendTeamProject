@@ -16,7 +16,7 @@ export function Chart({ statistics }) {
         ),
         backgroundColor: totalCategories.map(category => category.color),
         borderWidth: 0,
-        cutout: 100,
+        cutout: '65%',
       },
     ],
   };
@@ -30,8 +30,8 @@ export function Chart({ statistics }) {
       // }}
       >
         <Doughnut data={data} />
+        <ChartBalInfo>{` ₴ ${totalExpenses}`}</ChartBalInfo>
       </ChartWrapper>
-      <ChartBalInfo>{` ₴ ${totalExpenses}`}</ChartBalInfo>
     </>
   );
 }
