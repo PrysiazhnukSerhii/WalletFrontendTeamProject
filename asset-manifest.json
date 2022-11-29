@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/WalletFrontendTeamProject/static/css/main.bedd6c24.css",
-    "main.js": "/WalletFrontendTeamProject/static/js/main.31d1f1c1.js",
+    "main.css": "/WalletFrontendTeamProject/static/css/main.d2f8f8bd.css",
+    "main.js": "/WalletFrontendTeamProject/static/js/main.1c8e0fee.js",
     "static/media/rectangle@2x.png": "/WalletFrontendTeamProject/static/media/rectangle@2x.626f9fa321c18fbc683b.png",
     "static/media/rectangle.png": "/WalletFrontendTeamProject/static/media/rectangle.41d8a106947060338199.png",
     "static/media/frame-desctop@2x.png": "/WalletFrontendTeamProject/static/media/frame-desctop@2x.2ca36b55710b68ed178b.png",
@@ -14,11 +14,11 @@
     "static/media/lock.svg": "/WalletFrontendTeamProject/static/media/lock.3bbe02c58716c58be67c1037139f3eed.svg",
     "static/media/user.svg": "/WalletFrontendTeamProject/static/media/user.11edd4b5d444e5868e2fd5dd3defd0a9.svg",
     "static/media/email.svg": "/WalletFrontendTeamProject/static/media/email.45f45e31938998f0163862f776a809a2.svg",
-    "main.bedd6c24.css.map": "/WalletFrontendTeamProject/static/css/main.bedd6c24.css.map",
-    "main.31d1f1c1.js.map": "/WalletFrontendTeamProject/static/js/main.31d1f1c1.js.map"
+    "main.d2f8f8bd.css.map": "/WalletFrontendTeamProject/static/css/main.d2f8f8bd.css.map",
+    "main.1c8e0fee.js.map": "/WalletFrontendTeamProject/static/js/main.1c8e0fee.js.map"
   },
   "entrypoints": [
-    "static/css/main.bedd6c24.css",
-    "static/js/main.31d1f1c1.js"
+    "static/css/main.d2f8f8bd.css",
+    "static/js/main.1c8e0fee.js"
   ]
 }
