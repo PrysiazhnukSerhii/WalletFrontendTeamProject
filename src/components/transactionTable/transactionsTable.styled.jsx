@@ -117,7 +117,11 @@ export const DataMob = styled.ul`
   width: 234px;
   margin: 0 auto;
   border-radius: 10px;
-  border-left: 5px solid var(--accent-color-red);
+  border-left: 5px solid
+    ${props =>
+      props.type === 'true'
+        ? 'var(--accent-color-grean)'
+        : 'var(--accent-color-red)'};
   &:not(:last-child) {
     margin-bottom: 8px;
   }
