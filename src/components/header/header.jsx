@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { useState } from 'react';
-import Logo from '../Logo/Logo';
+import Logo from '../logo/logo';
 import sprite from '../../images/svg/symbol-defs.svg';
-import ModalLogOut from '../../components/ModalLogOut/ModalLogOut';
+import ModalLogOut from '../modalLogOut/modalLogOut';
 
 import { useSelector } from 'react-redux';
 
@@ -17,7 +17,7 @@ import {
   LogoutBtn,
   Link,
   Divider,
-} from './Header.styled';
+} from './header.styled';
 
 export const Header = () => {
   const userName = useSelector(state => state.userInformation.user.name);

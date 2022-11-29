@@ -1,8 +1,6 @@
-// Верстка мобилка, планшет, десктоп
-// Stateless компонент получает массив для рендера и
-// методы для фильтрации на селекты
 import { Form, Field } from 'formik';
 import { Formik, ErrorMessage } from 'formik';
+import Notiflix from 'notiflix';
 
 export function Table({
   month,
@@ -16,6 +14,9 @@ export function Table({
 
   const yearOptions = generateYearOptions(initialValues.year);
 
+  if (!totalExpenses && !totalIncome) {
+    Notiflix.Notify.warning('There are no transactions in the selected period');
+  }
   return (
     <>
       <Formik initialValues={initialValues}>
@@ -80,33 +81,37 @@ export function Table({
           </Field>
         </Form>
       </Formik>
-      <table>
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>Sum</th>
-          </tr>
-        </thead>
-        <tbody>
-          {totalCategories.map(category => (
-            <tr key={category.id}>
-              <td>
-                <div
-                  style={{
-                    backgroundColor: category.color,
-                    width: '30px',
-                    height: '30px',
-                  }}
-                ></div>
-              </td>
-              <td>{category.title}</td>
-              <td>{category.total ? category.total : 0}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <p>{`Expenses: ${totalExpenses}`}</p>
-      <p>{`Income: ${totalIncome}`}</p>
+      {(totalExpenses || totalIncome) && (
+        <>
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Sum</th>
+              </tr>
+            </thead>
+            <tbody>
+              {totalCategories.map(category => (
+                <tr key={category.id}>
+                  <td>
+                    <div
+                      style={{
+                        backgroundColor: category.color,
+                        width: '30px',
+                        height: '30px',
+                      }}
+                    ></div>
+                  </td>
+                  <td>{category.title}</td>
+                  <td>{category.total ? category.total : 0}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p>{`Expenses: ${totalExpenses}`}</p>
+          <p>{`Income: ${totalIncome}`}</p>
+        </>
+      )}
     </>
   );
 }
