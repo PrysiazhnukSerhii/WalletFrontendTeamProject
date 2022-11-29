@@ -11,7 +11,7 @@ import {
   TextModal,
   ModalButton,
   Overlay,
-} from './modalLogOut.styledFix';
+} from './modalLogOut.styled';
 import { Box } from 'components/Box';
 
 const modalRoot = document.querySelector('#modal-root');
