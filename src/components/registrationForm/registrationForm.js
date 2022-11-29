@@ -6,15 +6,15 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import Notiflix from 'notiflix';
 
-import MyTextInput from '../myTextInputFix';
-import MainButton from '../mainButtonFix';
-import Logo from '../logoFix';
+import MyTextInput from '../myTextInput';
+import MainButton from '../mainButton';
+import Logo from '../logo';
 import { ReactComponent as EmailIcon } from '../../icons/email.svg';
 import { ReactComponent as LockIcon } from '../../icons/lock.svg';
 import { ReactComponent as UserIcon } from '../../icons/user.svg';
 
-import './registrationFormFix.scss';
-import '../mainButtonFix/mainButtonFix.scss';
+import './registrationForm.scss';
+import '../mainButton/mainButton.scss';
 
 Notiflix.Notify.init({
   width: 'auto',
