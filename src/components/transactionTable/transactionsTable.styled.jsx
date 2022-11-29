@@ -12,7 +12,7 @@ export const TableWrapper = styled.table`
   @media screen and (min-width: 1280px) {
     max-width: 715px;
     max-height: 65vh;
-    margin-left: 289px;
+    margin-left: 69px;
     margin-top: 46px;
   }
 `;
