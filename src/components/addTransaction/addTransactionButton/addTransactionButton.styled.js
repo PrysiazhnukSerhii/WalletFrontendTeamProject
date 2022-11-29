@@ -13,8 +13,12 @@ export const TransactionButton = styled.button`
   right: 20px;
   border: 0;
   box-shadow: 0 10px 10px -7px #24cca7;
+  transition: background-color 250ms linear;
   @media (min-width: 768px) {
     bottom: 40px;
     right: 40px;
+  }
+  &:hover {
+    background-color: #20b091;
   }
 `;
