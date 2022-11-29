@@ -146,11 +146,12 @@ export const DateWrap = styled.div`
   flex-direction: row;
   border-bottom: 1px solid var(--disabled-grey-text-color);
   position: relative;
+  transition: border 250ms linear;
   &:focus,
   &:hover {
     border-bottom: 1px solid var(--accent-color-blue);
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     margin-bottom: 40px;
   }
 `;
