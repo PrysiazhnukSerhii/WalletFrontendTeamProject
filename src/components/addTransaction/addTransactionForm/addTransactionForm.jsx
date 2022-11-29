@@ -86,8 +86,7 @@ const AddTransactionForm = ({ onCancel }) => {
         validationSchema={TransactionSchema}
         onSubmit={async values => {
           const { category, sum, comment, date } = values;
-          // console.log('Values', values);
-
+         
           const newTransaction = {
             type: transactionType,
             category: category === '' ? 'Other' : category,
