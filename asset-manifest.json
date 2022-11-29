@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/WalletFrontendTeamProject/static/css/main.bedd6c24.css",
-    "main.js": "/WalletFrontendTeamProject/static/js/main.b606e39d.js",
+    "main.js": "/WalletFrontendTeamProject/static/js/main.55790d8e.js",
     "static/media/rectangle@2x.png": "/WalletFrontendTeamProject/static/media/rectangle@2x.626f9fa321c18fbc683b.png",
     "static/media/rectangle.png": "/WalletFrontendTeamProject/static/media/rectangle.41d8a106947060338199.png",
     "static/media/frame-desctop@2x.png": "/WalletFrontendTeamProject/static/media/frame-desctop@2x.2ca36b55710b68ed178b.png",
@@ -15,10 +15,10 @@
     "static/media/user.svg": "/WalletFrontendTeamProject/static/media/user.11edd4b5d444e5868e2fd5dd3defd0a9.svg",
     "static/media/email.svg": "/WalletFrontendTeamProject/static/media/email.45f45e31938998f0163862f776a809a2.svg",
     "main.bedd6c24.css.map": "/WalletFrontendTeamProject/static/css/main.bedd6c24.css.map",
-    "main.b606e39d.js.map": "/WalletFrontendTeamProject/static/js/main.b606e39d.js.map"
+    "main.55790d8e.js.map": "/WalletFrontendTeamProject/static/js/main.55790d8e.js.map"
   },
   "entrypoints": [
     "static/css/main.bedd6c24.css",
-    "static/js/main.b606e39d.js"
+    "static/js/main.55790d8e.js"
   ]
 }
