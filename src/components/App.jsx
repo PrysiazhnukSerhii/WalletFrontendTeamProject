@@ -7,9 +7,10 @@ import PublicRoutes from './protectedRoutes/publicRoutes';
 import LoginPage from '../pages/loginPage';
 import { DashboardPage } from '../pages/dashboardPage/dashboardPage';
 import RegistrationPage from '../pages/registrationPage/index';
-//import { RegistrationPage } from '../pages/registrationPage/registrationPage';
+// import { RegistrationPage } from '../pages/registrationPage/registrationPage';
 import { DiagramTab } from './diagramTab/diagramTab';
 import { HomeTab } from './homeTab/homeTab';
+import { CurrencyPage } from '../pages/currencyPage/currencyPage';
 
 import { IsLoggedIn } from './isLoggedIn/isLoggedIn';
 
@@ -31,7 +32,7 @@ export const App = () => {
           <Route path="/dashboard" element={<DashboardPage />}>
             <Route path="homeTab" element={<HomeTab />} />
             <Route path="diagramTab" element={<DiagramTab />} />
-            {/* <Route path="currency" element={<Currency />} /> .*/}
+            <Route path="currency" element={<CurrencyPage />} />
           </Route>
         </Route>
 

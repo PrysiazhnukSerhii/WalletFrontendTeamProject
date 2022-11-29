@@ -3,7 +3,7 @@ import { useGetUserInformationQuery } from 'redux/authSlice';
 
 const Balance = () => {
   const { data } = useGetUserInformationQuery();
-  // console.log(data, 'Yea');
+
   return (
     <BalanceContainer>
       <BalanceText>your balance</BalanceText>
