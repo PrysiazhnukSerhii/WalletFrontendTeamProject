@@ -43,7 +43,6 @@ const AddTransactionModal = () => {
         >
           {matches => (
             <Fragment>
-              {/* {matches.small && <p>I am small!</p>} */}
               {matches.medium && (
                 <CloseButton type="button" onClick={handleModalClose}>
                   <VscChromeClose style={{ width: '16px', height: '16px' }} />

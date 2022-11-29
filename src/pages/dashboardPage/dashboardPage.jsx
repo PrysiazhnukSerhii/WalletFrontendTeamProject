@@ -9,7 +9,7 @@ import {
   MainPage,
 } from './dashboardPage.styled';
 import { Dashboard } from '../../components/dashboard/dashboard';
-// -----------------------
+
 export function DashboardPage() {
   return (
     <>
