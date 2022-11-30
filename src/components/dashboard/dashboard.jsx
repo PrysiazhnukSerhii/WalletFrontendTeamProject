@@ -11,7 +11,10 @@ export const Dashboard = () => {
         <Navigation />
         <Media query="(min-width: 768px)" render={() => <Balance />} />
       </DashboardContainer>
-      <Media query="(min-width: 768px)" render={() => <Currency />} />
+      <Media
+        query="(min-width: 768px)"
+        render={() => <Currency />}
+      />
     </Wrapper>
   );
 };
