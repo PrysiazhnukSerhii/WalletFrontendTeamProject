@@ -67,14 +67,14 @@ const AddTransactionForm = ({ onCancel }) => {
           const newTransaction = {
             type: transactionType,
             category: category === '' ? 'Other' : category,
-            sum: Number(sum).toFixed(2),
+            sum: Number(sum.toFixed(2)),
             date: date,
             month: Number(moment(date).format('MM')),
             year: Number(moment(date).format('YYYY')),
             comment: comment === '' ? 'No comment' : comment,
           };
           try {
-            await addTransaction(newTransaction);
+            await addTransaction(newTransaction).then(res => console.log(res));
             onCancel();
             Notiflix.Notify.success('New transaction added success');
           } catch (error) {
