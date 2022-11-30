@@ -67,7 +67,7 @@ const AddTransactionForm = ({ onCancel }) => {
           const newTransaction = {
             type: transactionType,
             category: category === '' ? 'Other' : category,
-            sum: sum.toFixed(2),
+            sum: Number(sum.toFixed(2)),
             date: date,
             month: Number(moment(date).format('MM')),
             year: Number(moment(date).format('YYYY')),
