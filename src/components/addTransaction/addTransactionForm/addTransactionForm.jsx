@@ -145,7 +145,7 @@ const AddTransactionForm = ({ onCancel }) => {
                   placeholder="Amount 0.00"
                   // step="0.01"
                   // pattern="^\d*(\.\d{0,2})?$"
-                   step=".10"
+                  step=".10"
                 />
                 {/* <AmountLable htmlFor="sum">Amount</AmountLable> */}
                 {touched.sum && errors.sum && <Error>{errors.sum}</Error>}
@@ -179,7 +179,6 @@ const AddTransactionForm = ({ onCancel }) => {
               id="comment"
               name="comment"
               placeholder="Comment"
-              tabIndex="-1"
               onChange={handleChange}
             />
             <TransactionFormButton
