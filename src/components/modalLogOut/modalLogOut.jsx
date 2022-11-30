@@ -39,7 +39,7 @@ function ModalLogOut({ onClickClose }) {
 
   return createPortal(
     <Backdrop>
-      <Overlay className="overlay" onClick={onClickClose}></Overlay>
+      <Overlay onClick={onClickClose}></Overlay>
       <Modal>
         <CloseButton type="button" onClick={onClickClose}>
           <VscChromeClose style={{ width: '16px', height: '16px' }} />
