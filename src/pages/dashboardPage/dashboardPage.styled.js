@@ -22,9 +22,9 @@ export const Container = styled.div`
            width: 100%;
             
 
-           @media screen and (min-width: 480px) {
-           width: 480px;
-           }
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
 
            @media screen and (min-width: 768px) {
              padding: 0px 32px;

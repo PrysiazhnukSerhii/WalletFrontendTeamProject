@@ -141,7 +141,7 @@ export const SumWrap = styled.div`
 `;
 
 export const DateWrap = styled.div`
-  padding: 0 20px 0 20px;
+  padding: 0 0 0 20px;
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid var(--disabled-grey-text-color);
@@ -158,7 +158,6 @@ export const DateWrap = styled.div`
 
 export const DatetimeInput = styled.input`
   ${InputStyle}
-  width: 100%;
   padding: 0;
   text-align: left;
   outline: none;
@@ -169,11 +168,18 @@ export const DatetimeInput = styled.input`
   &:hover {
     border-bottom: none;
   }
+  width: 260px;
+  @media screen and (min-width: 768px) {
+    width: 160px;
+  }
 `;
 
 export const CalendarWrap = styled.div`
   width: 24px;
   height: 24px;
+  pointer-events: none;
+  position: absolute;
+  right: 20px;
   //border-bottom: 1px solid var(--disabled-grey-text-color);
 `;
 
@@ -223,3 +229,15 @@ export const Error = styled.p`
   align-items: center;
   justify-content: center;
 `;
+
+// export const AmountLable = styled.label`
+// display: none;
+// position: absolute;
+//   left: 20px;
+//   ${SumWrap}:focus &,
+//   ${SumWrap}:hover & {
+//     transform: translateY(-120%);
+//     display: block;
+//     // position: absolute;
+//   }
+// `;
