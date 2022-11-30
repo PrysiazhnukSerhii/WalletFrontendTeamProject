@@ -154,6 +154,7 @@
   position: absolute;
   transition: 0.4s;
   border: 3px solid rgb(198, 33, 21);
+  background-color: rgb(198, 33, 21);
   @media screen and (min-width: 320px) {
     top: 365px;
     width: 290px;
@@ -169,6 +170,7 @@
   position: absolute;
   transition: 1.5s;
   border: 3px solid rgb(234, 199, 124);
+  background-color: rgb(234, 199, 124);
   @media screen and (min-width: 320px) {
     top: 365px;
     width: 290px;
@@ -183,6 +185,7 @@
   position: absolute;
   transition: 1.5s;
   border: 3px solid #24cca7;
+  background-color: #24cca7;
 
   @media screen and (min-width: 320px) {
     top: 365px;

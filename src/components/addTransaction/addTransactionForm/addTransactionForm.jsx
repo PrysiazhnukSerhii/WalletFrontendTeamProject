@@ -20,6 +20,7 @@ import {
   CalendarWrap,
   DateWrap,
   SumField,
+  TextAreaWrap,
   Textarea,
   DatetimeInput,
   Error,
@@ -82,7 +83,7 @@ const AddTransactionForm = ({ onCancel }) => {
                   : Notiflix.Notify.failure('Something went wrong');
               }
               onCancel();
-              Notiflix.Notify.success('New transaction added success');
+              Notiflix.Notify.success('New transaction added successfully');
             })
             .catch(error => {
               onCancel();
@@ -177,12 +178,16 @@ const AddTransactionForm = ({ onCancel }) => {
                 </CalendarWrap>
               </DateWrap>
             </SumAndDateWrapp>
-            <Textarea
-              id="comment"
-              name="comment"
-              placeholder="Comment"
-              onChange={handleChange}
-            />
+            <TextAreaWrap>
+              <Textarea
+                id="comment"
+                name="comment"
+                placeholder="Comment"
+                onChange={handleChange}
+              />
+              {touched.comment && errors.comment && <Error>{errors.comment}</Error>}
+            </TextAreaWrap>
+            
             <TransactionFormButton
               primary
               type="submit"
