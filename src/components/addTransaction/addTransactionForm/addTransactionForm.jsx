@@ -84,7 +84,10 @@ const AddTransactionForm = ({ onCancel }) => {
               onCancel();
               Notiflix.Notify.success('New transaction added success');
             })
-            .catch(error => Notiflix.Notify.failure('Something went wrong'));
+            .catch(error => {
+              onCancel();
+              Notiflix.Notify.failure('Something went wrong');
+            });
         }}
       >
         {({
