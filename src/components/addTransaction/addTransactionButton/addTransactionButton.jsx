@@ -14,9 +14,11 @@ const AddTransactionButton = () => {
   };
   return (
     <>
-      <TransactionButton type="button" onClick={handleClick}>
-        <FiPlus style={{ width: '20px', height: '20px' }} />
-      </TransactionButton>
+      {!isModalOpen && (
+        <TransactionButton type="button" onClick={handleClick}>
+          <FiPlus style={{ width: '20px', height: '20px' }} />
+        </TransactionButton>
+      )}
       {isModalOpen && <AddTransactionModal onCloseModal={handleClick} />}
     </>
   );

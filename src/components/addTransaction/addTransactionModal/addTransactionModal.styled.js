@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
 export const Backdrop = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
   width: 100%;
   height: 100%;
-  @media screen and (min-width: 768px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+
+  @media screen and (max-width: 767px) {
+    background-color: var(--primary-background-color);
   }
 `;
 
@@ -18,20 +19,19 @@ export const Modal = styled.div`
   display: flex;
   justify-content: center;
   background-color: var(--primary-background-color);
-  z-index: 10;
   padding: 20px 0 55px 0;
+  min-height: 585px;
 
   @media screen and (max-width: 767px) {
     width: 100%;
-    height: 100%;
     padding-top: 80px;
+    padding-bottom: 80px;
   }
   @media screen and (min-width: 768px) {
     position: absolute;
     top: 0;
     left: 0;
     width: 540px;
-    min-height: 585px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

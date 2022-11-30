@@ -67,15 +67,14 @@ const AddTransactionForm = ({ onCancel }) => {
           const newTransaction = {
             type: transactionType,
             category: category === '' ? 'Other' : category,
-            sum: Number(sum).toFixed(2),
+            sum: Number(sum.toFixed(2)),
             date: date,
             month: Number(moment(date).format('MM')),
             year: Number(moment(date).format('YYYY')),
             comment: comment === '' ? 'No comment' : comment,
           };
-          // console.log('newTransaction', newTransaction);
           try {
-            await addTransaction(newTransaction);
+            await addTransaction(newTransaction).then(res => console.log(res));
             onCancel();
             Notiflix.Notify.success('New transaction added success');
           } catch (error) {
@@ -143,11 +142,8 @@ const AddTransactionForm = ({ onCancel }) => {
                   id="sum"
                   name="sum"
                   placeholder="Amount 0.00"
-                  // step="0.01"
-                  // pattern="^\d*(\.\d{0,2})?$"
-                   step=".10"
+                  step=".10"
                 />
-                {/* <AmountLable htmlFor="sum">Amount</AmountLable> */}
                 {touched.sum && errors.sum && <Error>{errors.sum}</Error>}
               </SumWrap>
               <DateWrap>
@@ -179,7 +175,6 @@ const AddTransactionForm = ({ onCancel }) => {
               id="comment"
               name="comment"
               placeholder="Comment"
-              tabIndex="-1"
               onChange={handleChange}
             />
             <TransactionFormButton
