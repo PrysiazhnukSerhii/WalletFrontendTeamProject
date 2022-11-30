@@ -1,14 +1,14 @@
 import { BalanceContainer, BalanceText, BalanceStyled } from './balance.styled';
-import { useGetUserInformationQuery } from 'redux/authSlice';
+import { useSelector } from 'react-redux';
 
 const Balance = () => {
-  const { data } = useGetUserInformationQuery();
-  console.log(data);
+  let balance = useSelector(state => state.userInformation.user.balance);
+
   return (
     <BalanceContainer>
       <BalanceText>your balance</BalanceText>
       <BalanceStyled>
-        &#8372; <b>{data}</b>
+        &#8372; <b>{balance}</b>
       </BalanceStyled>
     </BalanceContainer>
   );

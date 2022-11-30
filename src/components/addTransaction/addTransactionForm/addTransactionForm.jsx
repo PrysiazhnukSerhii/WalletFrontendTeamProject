@@ -67,21 +67,27 @@ const AddTransactionForm = ({ onCancel }) => {
           const newTransaction = {
             type: transactionType,
             category: category === '' ? 'Other' : category,
-            sum: Number(sum.toFixed(2)),
+            sum: Number(sum),
             date: date,
             month: Number(moment(date).format('MM')),
             year: Number(moment(date).format('YYYY')),
             comment: comment === '' ? 'No comment' : comment,
           };
-          try {
-            await addTransaction(newTransaction).then(res => console.log(res));
-            onCancel();
-            Notiflix.Notify.success('New transaction added success');
-          } catch (error) {
-            onCancel();
-            Notiflix.Notify.failure('Something went wrong');
-            console.log(error.message);
-          }
+          await addTransaction(newTransaction)
+            .then(res => {
+              if (res.error) {
+                onCancel();
+                return res.error.data.message === 'You spend too much!'
+                  ? Notiflix.Notify.failure('You spend too much!')
+                  : Notiflix.Notify.failure('Something went wrong');
+              }
+              onCancel();
+              Notiflix.Notify.success('New transaction added success');
+            })
+            .catch(error => {
+              onCancel();
+              Notiflix.Notify.failure('Something went wrong');
+            });
         }}
       >
         {({
