@@ -1,9 +1,6 @@
 import { StyledNavLink, NavList, NavStyled } from './navigation.styled';
-
+import sprite from '../../images/svg/symbol-defs.svg';
 import Media from 'react-media';
-
-import { ReactComponent as CurrencyIcon } from '../../images/svg/currency.svg';
-import { ReactComponent as HomeIcon } from '../../images/svg/home.svg';
 
 const Navigation = () => {
   return (
@@ -11,13 +8,18 @@ const Navigation = () => {
       <NavList>
         <li>
           <StyledNavLink to="homeTab" aria-label="home">
-            <HomeIcon />
+            <svg>
+              <use href={`${sprite}#icon-home`} />
+            </svg>
             <Media query="(min-width: 768px)" render={() => <p>Home</p>} />
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="diagramTab" aria-label="diagramTab">
-            <CurrencyIcon />
+            <svg>
+              <use href={`${sprite}#icon-diagrama`} />
+            </svg>
+            {/* <CurrencyIcon /> */}
             <Media
               query="(min-width: 768px)"
               render={() => <p>Statistics</p>}
@@ -29,7 +31,9 @@ const Navigation = () => {
             query="(max-width: 767px)"
             render={() => (
               <StyledNavLink to="currency" aria-label="currency">
-                <CurrencyIcon />
+                <svg>
+                  <use href={`${sprite}#icon-currency`} />
+                </svg>
               </StyledNavLink>
             )}
           />

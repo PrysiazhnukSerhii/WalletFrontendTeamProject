@@ -74,7 +74,7 @@ const AddTransactionForm = ({ onCancel }) => {
             comment: comment === '' ? 'No comment' : comment,
           };
           try {
-            await addTransaction(newTransaction);
+            await addTransaction(newTransaction).then(res => console.log(res));
             onCancel();
             Notiflix.Notify.success('New transaction added success');
           } catch (error) {
