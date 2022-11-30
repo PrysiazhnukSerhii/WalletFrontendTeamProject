@@ -15,8 +15,11 @@ const AddTransactionModal = () => {
 
   useEffect(() => {
     window.addEventListener('keydown', onEscapeClose);
+    document.body.style.overflow = 'hidden';
+
     return () => {
       window.removeEventListener('keydown', onEscapeClose);
+      document.body.style.overflow = 'auto';
     };
   });
   const handleModalClose = () => dispatch(toggleModalOpen(false));
