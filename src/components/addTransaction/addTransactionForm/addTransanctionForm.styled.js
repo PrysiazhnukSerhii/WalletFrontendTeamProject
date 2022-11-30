@@ -42,6 +42,7 @@ const InputStyle = `
   transition: border 250ms linear;
   line-height: 1.47;
   color: var(--primary-text-color);
+  cursor: pointer;
   &::placeholder {
     color:#bdbdbd;
   }
@@ -57,6 +58,7 @@ export const CheckboxWrapp = styled.label`
   flex-direction: row;
   align-items: center;
   margin-bottom: 20px;
+  cursor: pointer;
 `;
 
 export const CheckboxInput = styled(Field)`
@@ -228,15 +230,3 @@ export const Error = styled.p`
   align-items: center;
   justify-content: center;
 `;
-
-// export const AmountLable = styled.label`
-// display: none;
-// position: absolute;
-//   left: 20px;
-//   ${SumWrap}:focus &,
-//   ${SumWrap}:hover & {
-//     transform: translateY(-120%);
-//     display: block;
-//     // position: absolute;
-//   }
-// `;
