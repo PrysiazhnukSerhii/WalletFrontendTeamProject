@@ -23,14 +23,16 @@ export const Modal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  right: 8px;
-  bottom: 83px;
-
+  padding-top: 20px;
   background-color: var(--primary-background-color);
   z-index: 10;
+
   @media screen and (max-width: 767px) {
     width: 100vw;
     height: 100vh;
+    bottom: 0;
+    right: 0;
+    padding-top: 60px;
   }
   @media screen and (min-width: 768px) {
     width: 450px;
@@ -88,7 +90,7 @@ export const CloseButton = styled.button`
   }
 `;
 export const TextModal = styled.div`
-  margin: 20px 0 20px 0;
+  margin: 0 0 20px;
   height: 40px;
   font-family: 'Poppins';
   font-weight: 400;

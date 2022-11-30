@@ -16,27 +16,24 @@ export const ContainerDashboard = styled.div`
 `;
 
 export const Container = styled.div`
-           margin-left: auto;
-           margin-right: auto;
-           padding: 0px 20px;
-             width: 280px;
-           }
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 20px;
 
-           @media screen and (min-width: 480px) {
-           width: 480px;
-           }
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
 
-           @media screen and (min-width: 768px) {
-             padding: 0px 32px;
-             width: 704px;
-           }
+  @media screen and (min-width: 768px) {
+    padding: 0px 32px;
+    width: 704px;
+  }
 
-           @media screen and (min-width: 1280px) {
-            padding: 0px 16px;
-             width: 1248px;
-           }
-         }
-       `;
+  @media screen and (min-width: 1280px) {
+    padding: 0px 16px;
+    width: 1248px;
+  }
+`;
 
 export const MainPage = styled.main`
 background-color: var(--secondary-background-color);
