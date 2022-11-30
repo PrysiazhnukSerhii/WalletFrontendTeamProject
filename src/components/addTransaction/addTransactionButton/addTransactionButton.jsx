@@ -11,12 +11,15 @@ const AddTransactionButton = () => {
 
   const handleClick = () => {
     dispatch(toggleModalOpen(true));
+    document.body.style.overflow = 'hidden';
   };
   return (
     <>
-      <TransactionButton type="button" onClick={handleClick}>
-        <FiPlus style={{ width: '20px', height: '20px' }} />
-      </TransactionButton>
+      {!isModalOpen && (
+        <TransactionButton type="button" onClick={handleClick}>
+          <FiPlus style={{ width: '20px', height: '20px' }} />
+        </TransactionButton>
+      )}
       {isModalOpen && <AddTransactionModal onCloseModal={handleClick} />}
     </>
   );

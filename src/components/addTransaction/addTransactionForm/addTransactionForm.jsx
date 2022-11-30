@@ -101,7 +101,7 @@ const AddTransactionForm = ({ onCancel }) => {
                 type="checkbox"
                 id="type"
                 name="type"
-                tabindex="-1"
+                tabIndex="-1"
                 onChange={() => {
                   setTransactionType(!transactionType);
                 }}
@@ -176,7 +176,6 @@ const AddTransactionForm = ({ onCancel }) => {
               id="comment"
               name="comment"
               placeholder="Comment"
-              tabindex="-1"
               onChange={handleChange}
             />
             <TransactionFormButton
