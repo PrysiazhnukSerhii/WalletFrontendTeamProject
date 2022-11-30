@@ -1,5 +1,4 @@
 import { Formik, ErrorMessage } from 'formik';
-import { Box } from 'components/Box';
 import {
   Total,
   Tabrow,

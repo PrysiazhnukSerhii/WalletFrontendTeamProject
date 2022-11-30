@@ -1,5 +1,3 @@
-import { Box } from 'components/Box';
-
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 // import Notiflix from 'notiflix';
