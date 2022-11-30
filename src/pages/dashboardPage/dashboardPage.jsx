@@ -1,7 +1,7 @@
 import { Header } from '../../components/header/header';
 import { Outlet } from 'react-router-dom';
 
-import Media from 'react-media';
+
 import {
   Section,
   ContainerDashboard,
@@ -15,30 +15,14 @@ export function DashboardPage() {
     <>
       <Header />
       <MainPage>
-        <Media
-          query="(max-width: 767px)"
-          render={() => (
-            <Container>
-              <ContainerDashboard>
-                <Dashboard />
-              </ContainerDashboard>
+          <Section>
+          <Container>
+            <ContainerDashboard>
+              <Dashboard />
               <Outlet />
-            </Container>
-          )}
-        />
-        <Media
-          query="(min-width: 768px)"
-          render={() => (
-            <Section>
-              <Container>
-                <ContainerDashboard>
-                  <Dashboard />
-                  <Outlet />
-                </ContainerDashboard>
-              </Container>
-            </Section>
-          )}
-        />
+            </ContainerDashboard>
+          </Container>
+        </Section>
       </MainPage>
     </>
   );
