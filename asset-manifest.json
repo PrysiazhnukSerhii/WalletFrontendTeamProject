@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.cfe8d87a.css",
-    "main.js": "/static/js/main.fe171636.js",
+    "main.js": "/static/js/main.f9e50781.js",
     "static/media/rectangle@2x.png": "/static/media/rectangle@2x.626f9fa321c18fbc683b.png",
     "static/media/rectangle.png": "/static/media/rectangle.41d8a106947060338199.png",
     "static/media/dasktop-2x.png": "/static/media/dasktop-2x.c99d6c103227db6d19d3.png",
@@ -11,16 +11,17 @@
     "static/media/frame-tablet.png": "/static/media/frame-tablet.fa07888e831f6341be4d.png",
     "static/media/frame-tabl.png": "/static/media/frame-tabl.4f3bfb2d6200fb94d9bc.png",
     "static/media/symbol-defs.svg": "/static/media/symbol-defs.c71017a69a46195bb780c62645f45b5d.svg",
-    "static/media/currency.svg": "/static/media/currency.9bc0e13c69f0974f2c39471ce668fe43.svg",
+    "static/media/home.svg": "/static/media/home.ae0667fadd9763f0dff81be84cb9da54.svg",
+    "static/media/currency.svg": "/static/media/currency.10798e2d0074b2d098cc93adffe3e466.svg",
     "index.html": "/index.html",
     "static/media/lock.svg": "/static/media/lock.3bbe02c58716c58be67c1037139f3eed.svg",
     "static/media/user.svg": "/static/media/user.11edd4b5d444e5868e2fd5dd3defd0a9.svg",
     "static/media/email.svg": "/static/media/email.45f45e31938998f0163862f776a809a2.svg",
     "main.cfe8d87a.css.map": "/static/css/main.cfe8d87a.css.map",
-    "main.fe171636.js.map": "/static/js/main.fe171636.js.map"
+    "main.f9e50781.js.map": "/static/js/main.f9e50781.js.map"
   },
   "entrypoints": [
     "static/css/main.cfe8d87a.css",
-    "static/js/main.fe171636.js"
+    "static/js/main.f9e50781.js"
   ]
 }
