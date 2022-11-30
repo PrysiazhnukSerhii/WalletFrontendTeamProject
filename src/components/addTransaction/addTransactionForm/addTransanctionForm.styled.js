@@ -177,7 +177,7 @@ export const DatetimeInput = styled.input`
 export const CalendarWrap = styled.div`
   width: 24px;
   height: 24px;
-  pointer-events:none;
+  pointer-events: none;
   position: absolute;
   right: 20px;
   //border-bottom: 1px solid var(--disabled-grey-text-color);
@@ -207,10 +207,6 @@ export const SumField = styled(Field)`
   &[type='number'] {
     -moz-appearance: textfield;
   }
-  // &${AmountLable}:focus,
-  // &${AmountLable}:hover {
-  //   display: block;
-  // }
 `;
 
 export const Textarea = styled.textarea`
@@ -235,7 +231,7 @@ export const Error = styled.p`
 `;
 
 // export const AmountLable = styled.label`
-// display: none;  
+// display: none;
 // position: absolute;
 //   left: 20px;
 //   ${SumWrap}:focus &,

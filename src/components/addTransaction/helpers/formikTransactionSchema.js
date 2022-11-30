@@ -8,17 +8,16 @@ export const TransactionSchema = Yup.object().shape({
     .typeError('Sum should be a number')
     .positive()
     .min(1, 'Sum value should be more than 1')
-    .max(1000000000, "Can't confirm so big sum -looks like we will have a problems with law")
-    .test(
-    "is-decimal",
-    "Decimal part - 2 digit",
-    (val) => {
-      if (val != undefined) {
+    .max(
+      1000000000,
+      "Can't confirm so big sum -looks like we will have a problems with law"
+    )
+    .test('is-decimal', 'Decimal part - 2 digit', val => {
+      if (val !== undefined) {
         return patternTwoDigisAfterComma.test(val);
       }
       return true;
-    }
-  )
+    })
     .required('This field is requried'),
   comment: Yup.string()
     .typeError('Should be a string')
