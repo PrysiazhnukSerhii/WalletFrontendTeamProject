@@ -22,7 +22,7 @@ export const TransactionSchema = Yup.object().shape({
   comment: Yup.string()
     .typeError('Should be a string')
     .min(0)
-    .max(200, 'Try to make your comment a bit shorter'),
+    .max(30, 'Try to make your comment a bit shorter - 30 symbols maximum'),
 
   category: Yup.string().oneOf([
     'Main',
