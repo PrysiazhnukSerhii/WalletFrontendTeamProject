@@ -11,7 +11,6 @@ const AddTransactionButton = () => {
 
   const handleClick = () => {
     dispatch(toggleModalOpen(true));
-    document.body.style.overflow = 'hidden';
   };
   return (
     <>
