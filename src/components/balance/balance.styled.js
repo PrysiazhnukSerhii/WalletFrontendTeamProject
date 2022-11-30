@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const BalanceContainer = styled.div`
+  display: block;
   background-color: var(--secondary-text-color);
   border-radius: 30px;
    margin-bottom: 32px;

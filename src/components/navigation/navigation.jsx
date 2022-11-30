@@ -19,7 +19,7 @@ const Navigation = () => {
             <svg>
               <use href={`${sprite}#icon-diagrama`} />
             </svg>
-            {/* <CurrencyIcon /> */}
+
             <Media
               query="(min-width: 768px)"
               render={() => <p>Statistics</p>}

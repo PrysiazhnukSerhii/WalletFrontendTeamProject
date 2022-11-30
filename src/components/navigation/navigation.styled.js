@@ -57,6 +57,7 @@ export const NavStyled = styled.nav`
     left: 0;
     right: 0;
     top: 12px;
+    z-index: 5;
   }
 `;
 
