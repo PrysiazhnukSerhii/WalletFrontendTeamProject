@@ -20,30 +20,31 @@ export const StyledNavLink = styled(NavLink)`
     height: 38px;
     width: 38px;
     border-radius: 6px;
-    padding: 8px;
-
-    background-color: var(--background-icons-color);
-    fill: var(--secondary-text-color);
+    fill: var(--background-icons-color);
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
 
     @media screen and (min-width: 768px) {
       width: 24px;
       height: 24px;
-      padding: 5px;
     }
   }
   &.active {
     font-weight: 700;
+
     & svg {
-      filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
-      background-color: var(--accent-color-blue);
+      fill: var(--accent-color-blue);
+      filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
     }
   }
   &:hover {
     transform: scale(1.05);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     & svg {
-      background-color: var(--accent-color-blue);
-      filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
-      transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      fill: var(--accent-color-blue);
+      filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
+      transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
         border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
