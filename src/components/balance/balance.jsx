@@ -1,5 +1,5 @@
 import { BalanceContainer, BalanceText, BalanceStyled } from './balance.styled';
-import { useGetUserInformationQuery } from 'redux/authSlice';
+// import { useGetUserInformationQuery } from 'redux/authSlice';
 
 const Balance = () => {
   // const { data } = useGetUserInformationQuery();
