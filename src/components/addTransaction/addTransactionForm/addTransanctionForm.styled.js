@@ -209,11 +209,16 @@ export const SumField = styled(Field)`
     -moz-appearance: textfield;
   }
 `;
+export const TextAreaWrap = styled.div`
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
+`
 
 export const Textarea = styled.textarea`
   ${InputStyle}
   box-sizing: border-box;
-  margin-bottom: 40px;
+  //margin-bottom: 40px;
   resize: none;
   font-size: 18px;
   @media screen and (min-width: 768px) {
@@ -225,7 +230,9 @@ export const Error = styled.p`
   color: red;
   font-size: 10px;
   position: absolute;
-  top: 30px;
+  //top: 30px;
+  left: 0px;
+  bottom: -10px;
   display: flex;
   align-items: center;
   justify-content: center;
