@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
-import { style } from 'styled-system';
 
 export const Tabl = styled.table`
   width: 100%;
