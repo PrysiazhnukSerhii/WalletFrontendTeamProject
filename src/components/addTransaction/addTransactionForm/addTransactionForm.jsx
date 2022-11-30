@@ -73,7 +73,6 @@ const AddTransactionForm = ({ onCancel }) => {
             year: Number(moment(date).format('YYYY')),
             comment: comment === '' ? 'No comment' : comment,
           };
-          // console.log('newTransaction', newTransaction);
           try {
             await addTransaction(newTransaction);
             onCancel();
@@ -143,11 +142,8 @@ const AddTransactionForm = ({ onCancel }) => {
                   id="sum"
                   name="sum"
                   placeholder="Amount 0.00"
-                  // step="0.01"
-                  // pattern="^\d*(\.\d{0,2})?$"
                   step=".10"
                 />
-                {/* <AmountLable htmlFor="sum">Amount</AmountLable> */}
                 {touched.sum && errors.sum && <Error>{errors.sum}</Error>}
               </SumWrap>
               <DateWrap>
