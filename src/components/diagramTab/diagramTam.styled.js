@@ -15,10 +15,13 @@ export const StatisticsContainer = styled.div`
   h2 {
     width: 100%;
     margin-bottom: 20px;
-    font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
     line-height: 45px;
+  }
+
+  p {
+    width: 100%;
   }
 `;
