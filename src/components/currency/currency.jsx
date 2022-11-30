@@ -1,6 +1,14 @@
 import { useEffect, useState } from 'react';
 import { CurrencyField } from './currencyField';
-import './currency.scss';
+import {
+  LoadSpinner,
+  CurrencyContainer,
+  CurrencyTop,
+  CurrencyBg,
+  CurrencyTitleList,
+  CurrencyTitle,
+  CurrencyTitleItem,
+} from './carrency.styled.js';
 import axios from 'axios';
 import BarLoader from 'react-spinners/BarLoader';
 
@@ -55,23 +63,23 @@ export const Currency = () => {
 
   return (
     <>
-      <div className="currencyContainer">
-        <div className="currencyTop">
-          <ul className="currencyTitleList">
-            <li className="currencyTitleItem">
-              <p className="currencyTitle">Currency</p>
-            </li>
-            <li className="currencyTitleItem">
-              <p className="currencyTitle">Purchase</p>
-            </li>
-            <li className="currencyTitleItem">
-              <p className="currencyTitle">Sale</p>
-            </li>
-          </ul>
-        </div>
-        <div className="loadSpinner">
+      <CurrencyContainer>
+        <CurrencyTop>
+          <CurrencyTitleList>
+            <CurrencyTitleItem>
+              <CurrencyTitle>Currency</CurrencyTitle>
+            </CurrencyTitleItem>
+            <CurrencyTitleItem>
+              <CurrencyTitle>Purchase</CurrencyTitle>
+            </CurrencyTitleItem>
+            <CurrencyTitleItem>
+              <CurrencyTitle>Sale</CurrencyTitle>
+            </CurrencyTitleItem>
+          </CurrencyTitleList>
+        </CurrencyTop>
+        <LoadSpinner>
           <BarLoader color="#36d7b7" width={220} loading={!rateUsd?.rateBuy} />
-        </div>
+        </LoadSpinner>
         {rateUsd?.rateBuy && (
           <div>
             <ul>
@@ -94,8 +102,8 @@ export const Currency = () => {
           </div>
         )}
 
-        <div className="currencyBg"></div>
-      </div>
+        <CurrencyBg></CurrencyBg>
+      </CurrencyContainer>
     </>
   );
 };
