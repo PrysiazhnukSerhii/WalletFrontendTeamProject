@@ -174,7 +174,6 @@ export const DatetimeInput = styled.input`
 export const CalendarWrap = styled.div`
   width: 24px;
   height: 24px;
-  //border-bottom: 1px solid var(--disabled-grey-text-color);
 `;
 
 export const SumField = styled(Field)`

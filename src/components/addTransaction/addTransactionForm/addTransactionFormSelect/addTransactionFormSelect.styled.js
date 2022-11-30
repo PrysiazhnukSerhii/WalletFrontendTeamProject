@@ -17,6 +17,7 @@ export const selectStyles = {
     border: 'none',
     outline: 'none',
     borderBottom: '1px solid var(--disabled-grey-text-color)',
+    transition: 'border 250ms linear',
     boxShadow: 'none',
     borderRadius: '0',
     cursor: 'pointer',
