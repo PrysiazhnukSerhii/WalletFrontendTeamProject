@@ -67,7 +67,7 @@ const AddTransactionForm = ({ onCancel }) => {
           const newTransaction = {
             type: transactionType,
             category: category === '' ? 'Other' : category,
-            sum: Number(sum),
+            sum: Number(sum).toFixed(2),
             date: date,
             month: Number(moment(date).format('MM')),
             year: Number(moment(date).format('YYYY')),
@@ -142,8 +142,12 @@ const AddTransactionForm = ({ onCancel }) => {
                   type="number"
                   id="sum"
                   name="sum"
-                  placeholder="0.00"
+                  placeholder="Amount 0.00"
+                  // step="0.01"
+                  // pattern="^\d*(\.\d{0,2})?$"
+                  step=".10"
                 />
+                {/* <AmountLable htmlFor="sum">Amount</AmountLable> */}
                 {touched.sum && errors.sum && <Error>{errors.sum}</Error>}
               </SumWrap>
               <DateWrap>
@@ -164,7 +168,6 @@ const AddTransactionForm = ({ onCancel }) => {
                     },
                   }}
                 />
-                {touched.date && errors.date && <Error>{errors.date}</Error>}
                 <CalendarWrap>
                   <svg width="18px" height="20px">
                     <use href={`${sprite}#icon-calendar`} />
