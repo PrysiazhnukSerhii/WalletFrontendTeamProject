@@ -16,24 +16,27 @@ export const ContainerDashboard = styled.div`
 `;
 
 export const Container = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0px 20px;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 0px 20px;
+           width: 100%;
+            
 
   @media screen and (min-width: 480px) {
     width: 480px;
   }
 
-  @media screen and (min-width: 768px) {
-    padding: 0px 32px;
-    width: 704px;
-  }
+           @media screen and (min-width: 768px) {
+             padding: 0px 32px;
+             width: 768px;
+           }
 
-  @media screen and (min-width: 1280px) {
-    padding: 0px 16px;
-    width: 1248px;
-  }
-`;
+           @media screen and (min-width: 1280px) {
+             width: 1280px;
+             padding: 0px 16px;
+           }
+         }
+       `;
 
 export const MainPage = styled.main`
 background-color: var(--secondary-background-color);
@@ -57,19 +60,7 @@ min-height: calc(100vh - 85px);
 
     @media screen and (min-width: 1280px) {
      
-      &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 0px;
-      height: calc(100vh - 85px);
-      left: 480px;
-      top: 0;
-     
-      border: 1px solid #e7e5f2;
-      box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
-        1px 0px 0px rgba(255, 255, 255, 0.6);
-    }
+      
 
         url(${ellipseDownDesktop}),
         url(${ellipseUpDesktop});
@@ -91,4 +82,5 @@ export const Section = styled.section`
     rgba(255, 255, 255, 0.4)
   );
   backdrop-filter: blur(25px);
+  background-size: cover;
 `;
