@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Chart } from 'components/chart/chart';
@@ -17,11 +18,24 @@ export function DiagramTab() {
 
   const [getStatistics, { isSuccess }] = useGetStatisticsMutation();
 
+  Notiflix.Notify.merge({
+    timeout: 4000,
+    width: '300 px',
+    useIcon: true,
+    fontSize: '12px',
+    distance: '90px',
+    clickToClose: true,
+  });
   useEffect(() => {
-    getStatistics({ month, year });
+    getStatistics({ month, year }).then(({ data }) => {
+      const { totalExpenses, totalIncome } = data[0];
+      if (!totalExpenses && !totalIncome) {
+        Notiflix.Notify.warning(
+          'There are no transactions in the selected period'
+        );
+      }
+    });
   }, [month, year, getStatistics]);
-
-  console.log(statistics);
 
   const handleMonthChange = e => {
     setMonth(Number(e.currentTarget.value));

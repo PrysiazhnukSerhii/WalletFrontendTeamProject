@@ -15,8 +15,6 @@ import {
   TableContainer,
 } from './table.styled';
 
-import Notiflix from 'notiflix';
-
 export function Table({
   month,
   year,
@@ -29,12 +27,6 @@ export function Table({
   const { totalExpenses, totalIncome, totalCategories } = statistics;
 
   const yearOptions = generateYearOptions(initialValues.year);
-  Notiflix.Notify.merge({
-    timeout: 4000,
-    width: '300 px',
-    useIcon: true,
-    fontSize: '12px',
-  });
 
   return (
     <>
@@ -105,12 +97,7 @@ export function Table({
             </FieldContainer>
           </StyledForm>
         </Formik>
-
-        {isSuccess && !totalExpenses && !totalIncome ? (
-          Notiflix.Notify.warning(
-            'There are no transactions in the selected period'
-          )
-        ) : (
+        {isSuccess && !totalExpenses && !totalIncome ? null : (
           <Tabl>
             <TableHead>
               <TableHeadTr>
