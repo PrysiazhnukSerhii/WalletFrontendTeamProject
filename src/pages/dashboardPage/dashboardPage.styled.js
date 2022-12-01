@@ -16,6 +16,7 @@ export const ContainerDashboard = styled.div`
 `;
 
 export const Container = styled.div`
+
            margin-left: auto;
            margin-right: auto;
            padding: 0px 20px;
@@ -76,6 +77,9 @@ min-height: calc(100vh - 85px);
      `;
 
 export const Section = styled.section`
+  @media screen and (max-width: 768px) {
+    padding-top: 128px;
+  }
   padding-bottom: 30px;
   min-height: calc(100vh - 85px);
   background: linear-gradient(
