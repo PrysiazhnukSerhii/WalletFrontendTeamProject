@@ -51,7 +51,7 @@ function LoginForm() {
           <Form className="form-login">
             <div className="logo_wrapper">
               <Logo />
-              <h1 className="Header__logo--text">Wallet</h1>
+              <h1 className="logo_text">Wallet</h1>
             </div>
 
             <div className="container_input">
