@@ -113,15 +113,9 @@ export function Table({
 }
 
 function generateCurrentMonth(month, options) {
-  let currentMonth = null;
+  let currentMonth = options.filter(e => e.value === month);
 
-  const mapMonth = options.map(e => {
-    if (e.value === month) {
-      currentMonth = e.name;
-    }
-  });
-
-  return currentMonth;
+  return currentMonth[0].name;
 }
 
 function generateYearOptions(currentYear) {
