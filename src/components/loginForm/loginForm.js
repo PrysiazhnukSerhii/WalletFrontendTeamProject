@@ -4,6 +4,7 @@ import { useLoginMutation } from '../../redux/authSlice';
 import { NavLink } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import Notiflix from 'notiflix';
 
 import MyTextInput from '../myTextInput';
 import MainButton from '../mainButton';
@@ -11,7 +12,6 @@ import Logo from '../logo';
 import { ReactComponent as EmailIcon } from '../../icons/email.svg';
 import { ReactComponent as LockIcon } from '../../icons/lock.svg';
 
-// import './loginForm.scss';
 import '../mainButton/mainButton.scss';
 
 function LoginForm() {
@@ -30,7 +30,8 @@ function LoginForm() {
   const handleLogin = ({ email, password }) => {
     login({ email, password }).then(e => {
       if (e.error) {
-        return alert(`This user:${email} was not found `);
+        Notiflix.Notify.failure(e.error.data.message);
+        return;
       }
     });
   };
