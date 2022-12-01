@@ -42,7 +42,7 @@ export function Table({
   ];
 
   const yearOptions = generateYearOptions(initialValues.year);
-  let currentMonth = generateCurrentMonth(month, options);
+  const currentMonth = generateCurrentMonth(month, options);
 
   return (
     <>
@@ -112,10 +112,10 @@ export function Table({
   );
 }
 
-function generateCurrentMonth(month) {
+function generateCurrentMonth(month, options) {
   let currentMonth = null;
 
-  options.map(e => {
+  const mapMonth = options.map(e => {
     if (e.value === month) {
       currentMonth = e.name;
     }
