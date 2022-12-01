@@ -112,7 +112,7 @@ export function Table({
   );
 }
 
-function generateCurrentMonth(month, options) {
+function generateCurrentMonth(month) {
   let currentMonth = null;
 
   options.map(e => {
