@@ -1,13 +1,21 @@
 import { useEffect, useState } from 'react';
 import { CurrencyField } from './currencyField';
-import './currency.scss';
+import {
+  LoadSpinner,
+  CurrencyContainer,
+  CurrencyTop,
+  CurrencyBg,
+  CurrencyTitleList,
+  CurrencyTitle,
+  CurrencyTitleItem,
+} from './carrency.styled.js';
 import axios from 'axios';
 import BarLoader from 'react-spinners/BarLoader';
 
 export const Currency = () => {
   const [rateUsd, setRateUsd] = useState(null);
   const [rateEur, setRateEur] = useState(null);
-  const [rateRub] = useState(0);
+  const [rateGbp, setRateGbp] = useState(null);
 
   const saveRates = data => {
     data.forEach(el => {
@@ -24,6 +32,13 @@ export const Currency = () => {
           rateSell: el.rateSell,
         };
         setRateEur(dataToSave);
+      }
+      if (el.currencyCodeA === 826 && el.currencyCodeB === 980) {
+        const dataToSave = {
+          rateBuy: el.rateCross,
+          rateSell: el.rateCross,
+        };
+        setRateGbp(dataToSave);
       }
     });
   };
@@ -55,23 +70,23 @@ export const Currency = () => {
 
   return (
     <>
-      <div className="currencyContainer">
-        <div className="currencyTop">
-          <ul className="currencyTitleList">
-            <li className="currencyTitleItem">
-              <p className="currencyTitle">Currency</p>
-            </li>
-            <li className="currencyTitleItem">
-              <p className="currencyTitle">Purchase</p>
-            </li>
-            <li className="currencyTitleItem">
-              <p className="currencyTitle">Sale</p>
-            </li>
-          </ul>
-        </div>
-        <div className="loadSpinner">
+      <CurrencyContainer>
+        <CurrencyTop>
+          <CurrencyTitleList>
+            <CurrencyTitleItem>
+              <CurrencyTitle>Currency</CurrencyTitle>
+            </CurrencyTitleItem>
+            <CurrencyTitleItem>
+              <CurrencyTitle>Purchase</CurrencyTitle>
+            </CurrencyTitleItem>
+            <CurrencyTitleItem>
+              <CurrencyTitle>Sale</CurrencyTitle>
+            </CurrencyTitleItem>
+          </CurrencyTitleList>
+        </CurrencyTop>
+        <LoadSpinner>
           <BarLoader color="#36d7b7" width={220} loading={!rateUsd?.rateBuy} />
-        </div>
+        </LoadSpinner>
         {rateUsd?.rateBuy && (
           <div>
             <ul>
@@ -86,16 +101,16 @@ export const Currency = () => {
                 saleValue={rateEur?.rateSell}
               />
               <CurrencyField
-                currency="RUB"
-                purchaseValue={rateRub}
-                saleValue={rateRub}
+                currency="GBP"
+                purchaseValue={rateGbp?.rateBuy}
+                saleValue={rateGbp?.rateSell}
               />
             </ul>
           </div>
         )}
 
-        <div className="currencyBg"></div>
-      </div>
+        <CurrencyBg></CurrencyBg>
+      </CurrencyContainer>
     </>
   );
 };

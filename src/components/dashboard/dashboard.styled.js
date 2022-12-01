@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
       position: absolute;
       width: 0px;
       // height: calc(100vh - 60px);
-      left: 480px;
+      left: 463px;
       top: 0;
       bottom: 0;
 

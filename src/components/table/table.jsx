@@ -26,7 +26,23 @@ export function Table({
 }) {
   const { totalExpenses, totalIncome, totalCategories } = statistics;
 
+  const options = [
+    { name: 'January', value: 1 },
+    { name: 'February', value: 2 },
+    { name: 'March', value: 3 },
+    { name: 'April', value: 4 },
+    { name: 'May', value: 5 },
+    { name: 'June', value: 6 },
+    { name: 'July', value: 7 },
+    { name: 'August', value: 8 },
+    { name: 'September', value: 9 },
+    { name: 'October', value: 10 },
+    { name: 'November', value: 11 },
+    { name: 'December', value: 12 },
+  ];
+
   const yearOptions = generateYearOptions(initialValues.year);
+  let currentMonth = generateCurrentMonth(month, options);
 
   return (
     <>
@@ -35,65 +51,22 @@ export function Table({
           <StyledForm>
             <FieldContainer>
               <StyledField
-                name="month"
-                as="select"
-                placeholder="Month"
-                value={month}
+                options={options}
+                labelField="name"
+                valueField="value"
                 onChange={onMonthChange}
-              >
-                <option key="1" value="1">
-                  January
-                </option>
-                <option key="2" value="2">
-                  February
-                </option>
-                <option key="3" value="3">
-                  March
-                </option>
-                <option key="4" value="4">
-                  April
-                </option>
-                <option key="5" value="5">
-                  May
-                </option>
-                <option key="6" value="6">
-                  June
-                </option>
-                <option key="7" value="7">
-                  July
-                </option>
-                <option key="8" value="8">
-                  August
-                </option>
-                <option key="9" value="9">
-                  September
-                </option>
-                <option key="10" value="10">
-                  October
-                </option>
-                <option key="11" value="11">
-                  November
-                </option>
-                <option key="12" value="12">
-                  December
-                </option>
-              </StyledField>
+                placeholder={currentMonth}
+              />
             </FieldContainer>
             <ErrorMessage name="month" />
             <FieldContainer>
               <StyledField
-                name="year"
-                as="select"
-                placeholder="Year"
-                value={year}
+                options={yearOptions.map(year => ({ value: year }))}
+                labelField="value"
+                valueField="value"
+                placeholder={year}
                 onChange={onYearChange}
-              >
-                {yearOptions.map(year => (
-                  <option key={year} value={year}>
-                    {year}
-                  </option>
-                ))}
-              </StyledField>
+              ></StyledField>
             </FieldContainer>
           </StyledForm>
         </Formik>
@@ -137,6 +110,18 @@ export function Table({
       </TableContainer>
     </>
   );
+}
+
+function generateCurrentMonth(month, options) {
+  let currentMonth = null;
+
+  options.map(e => {
+    if (e.value === month) {
+      currentMonth = e.name;
+    }
+  });
+
+  return currentMonth;
 }
 
 function generateYearOptions(currentYear) {

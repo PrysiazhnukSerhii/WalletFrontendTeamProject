@@ -20,6 +20,7 @@ import {
   CalendarWrap,
   DateWrap,
   SumField,
+  TextAreaWrap,
   Textarea,
   DatetimeInput,
   Error,
@@ -73,15 +74,21 @@ const AddTransactionForm = ({ onCancel }) => {
             year: Number(moment(date).format('YYYY')),
             comment: comment === '' ? 'No comment' : comment,
           };
-          try {
-            await addTransaction(newTransaction).then(res => console.log(res));
-            onCancel();
-            Notiflix.Notify.success('New transaction added success');
-          } catch (error) {
-            onCancel();
-            Notiflix.Notify.failure('Something went wrong');
-            console.log(error.message);
-          }
+          await addTransaction(newTransaction)
+            .then(res => {
+              if (res.error) {
+                onCancel();
+                return res.error.data.message === 'You spend too much!'
+                  ? Notiflix.Notify.failure('You spend too much!')
+                  : Notiflix.Notify.failure('Something went wrong');
+              }
+              onCancel();
+              Notiflix.Notify.success('New transaction added successfully');
+            })
+            .catch(error => {
+              onCancel();
+              Notiflix.Notify.failure('Something went wrong');
+            });
         }}
       >
         {({
@@ -171,12 +178,16 @@ const AddTransactionForm = ({ onCancel }) => {
                 </CalendarWrap>
               </DateWrap>
             </SumAndDateWrapp>
-            <Textarea
-              id="comment"
-              name="comment"
-              placeholder="Comment"
-              onChange={handleChange}
-            />
+            <TextAreaWrap>
+              <Textarea
+                id="comment"
+                name="comment"
+                placeholder="Comment"
+                onChange={handleChange}
+              />
+              {touched.comment && errors.comment && <Error>{errors.comment}</Error>}
+            </TextAreaWrap>
+            
             <TransactionFormButton
               primary
               type="submit"

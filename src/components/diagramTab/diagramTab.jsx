@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Chart } from 'components/chart/chart';
 import { Table } from 'components/table/table';
 import { useGetStatisticsMutation } from 'redux/transactionsSlice';
-import { StatisticsContainer } from './diagramTam.styled';
+import { StatisticsContainer } from './diagramTab.styled';
 
 const initialValues = {
   month: new Date().getMonth() + 1,
@@ -38,10 +38,11 @@ export function DiagramTab() {
   }, [month, year, getStatistics]);
 
   const handleMonthChange = e => {
-    setMonth(Number(e.currentTarget.value));
+    console.log(e);
+    setMonth(Number(e[0].value));
   };
   const handleYearChange = e => {
-    setYear(Number(e.currentTarget.value));
+    setYear(Number(e[0].value));
   };
 
   return (
