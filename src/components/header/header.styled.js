@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const HeaderStyled = styled.header`
+  height: 60px;
   padding: 15px 20px;
   margin-left: auto;
   margin-right: auto;
@@ -12,6 +13,7 @@ export const HeaderStyled = styled.header`
 
   @media screen and (min-width: 480px) {
     width: 480px;
+    height: 80px;
   }
 
   @media screen and (min-width: 768px) {
@@ -85,8 +87,14 @@ export const LogoutBtn = styled.button`
 export const LogoText = styled.span`
   font-family: 'Poppins';
   font-weight: 700;
-  font-size: 30px;
-  line-height: 45px;
-  margin-left: 20px;
+  font-size: 20px;
+  line-height: 35px;
+  margin-left: 16px;
   color: var(--primary-text-color);
+
+  @media screen and (min-width: 767px) {
+    line-height: 45px;
+    font-size: 30px;
+    margin-left: 20px;
+  }
 `;

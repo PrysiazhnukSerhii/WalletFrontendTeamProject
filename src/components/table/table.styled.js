@@ -6,6 +6,7 @@ export const Tabl = styled.table`
   width: 100%;
   border-collapse: collapse;
   text-align: left;
+  margin-bottom: 16px;
 `;
 
 export const StyledForm = styled(Form)`
@@ -98,14 +99,19 @@ export const Tabrow = styled.td`
 export const Total = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 15px 10px 15px 20px;
+  padding: 0px 30px 15px 30px;
   font-family: 'Circe';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
 `;
-
+export const TotalExpenses = styled.span`
+  color: #ff6596;
+`;
+export const TotalIncome = styled.span`
+  color: #24cca7;
+`;
 export const TableBody = styled.tbody``;
 
 export const BodyTr = styled.tr`

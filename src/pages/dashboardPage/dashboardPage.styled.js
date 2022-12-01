@@ -78,7 +78,7 @@ min-height: calc(100vh - 85px);
 
 export const Section = styled.section`
   @media screen and (max-width: 768px) {
-    padding-top: 68px;
+    padding-top: 96px;
   }
   padding-bottom: 30px;
   min-height: calc(100vh - 85px);
