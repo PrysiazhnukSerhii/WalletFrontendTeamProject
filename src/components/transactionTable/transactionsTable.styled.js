@@ -120,7 +120,8 @@ export const DataSum = styled.span`
 `;
 
 export const DataMob = styled.ul`
-  width: 234px;
+  width: 280px;
+  padding: 12px 20px;
   margin: 0 auto;
   border-radius: 10px;
   border-left: 5px solid
@@ -154,8 +155,7 @@ export const DataItemMob = styled.li`
     }
   }
 
-  justify-content: space-between;
-  padding: 8px 10px;
+  justify-content: space-between;  
   height: 47px;
   line-height: calc(24 / 16);
   ;
