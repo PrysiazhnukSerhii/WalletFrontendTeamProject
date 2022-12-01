@@ -122,7 +122,7 @@ export const DataSum = styled.span`
 export const DataMob = styled.ul`
   width: 280px;
   padding: 12px 20px;
-  margin: 0 auto;
+
   border-radius: 10px;
   border-left: 5px solid
     ${props =>
@@ -130,7 +130,7 @@ export const DataMob = styled.ul`
         ? 'var(--accent-color-grean)'
         : 'var(--accent-color-red)'};
   &:not(:last-child) {
-    margin-bottom: 8px;
+    margin: 0 auto 8px;
   }
   background: #ffffff;
 `;
