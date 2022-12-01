@@ -22,13 +22,7 @@ export function Chart({ statistics }) {
   };
   return (
     <>
-      <ChartWrapper
-      // style={{
-      //   margin: 8,
-      //   width: '288px',
-      //   heigth: '288px',
-      // }}
-      >
+      <ChartWrapper>
         <Doughnut data={data} />
         <ChartBalInfo>{` ₴ ${totalExpenses}`}</ChartBalInfo>
       </ChartWrapper>

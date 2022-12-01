@@ -24,14 +24,18 @@ export function Table({
   statistics,
   onMonthChange,
   onYearChange,
+  isSuccess,
 }) {
   const { totalExpenses, totalIncome, totalCategories } = statistics;
 
   const yearOptions = generateYearOptions(initialValues.year);
+  Notiflix.Notify.merge({
+    timeout: 4000,
+    width: '300 px',
+    useIcon: true,
+    fontSize: '12px',
+  });
 
-  if (!totalExpenses && !totalIncome) {
-    Notiflix.Notify.warning('There are no transactions in the selected period');
-  }
   return (
     <>
       <TableContainer>
@@ -102,40 +106,46 @@ export function Table({
           </StyledForm>
         </Formik>
 
-        <Tabl>
-          <TableHead>
-            <TableHeadTr>
-              <TabHeader>Category</TabHeader>
-              <TabHeader>Sum</TabHeader>
-            </TableHeadTr>
-          </TableHead>
-          <TableBody>
-            {totalCategories.map(category => (
-              <BodyTr key={category.id}>
-                <Tabrow>
-                  <p
-                    style={{
-                      backgroundColor: category.color,
-                      width: '30px',
-                      height: '30px',
-                    }}
-                  ></p>{' '}
-                  <BodyText>{category.title}</BodyText>
-                </Tabrow>
-                <Tabrow></Tabrow>
-                <Tabrow>
-                  <BodyText>{category.total ? category.total : 0}</BodyText>
-                </Tabrow>
-              </BodyTr>
-            ))}
-          </TableBody>
-        </Tabl>
+        {isSuccess && !totalExpenses && !totalIncome ? (
+          Notiflix.Notify.warning(
+            'There are no transactions in the selected period'
+          )
+        ) : (
+          <Tabl>
+            <TableHead>
+              <TableHeadTr>
+                <TabHeader>Category</TabHeader>
+                <TabHeader>Sum</TabHeader>
+              </TableHeadTr>
+            </TableHead>
+            <TableBody>
+              {totalCategories.map(category => (
+                <BodyTr key={category.id}>
+                  <Tabrow>
+                    <p
+                      style={{
+                        backgroundColor: category.color,
+                        width: '30px',
+                        height: '30px',
+                      }}
+                    ></p>
+                    <BodyText>{category.title}</BodyText>
+                  </Tabrow>
+                  <Tabrow></Tabrow>
+                  <Tabrow>
+                    <BodyText>{category.total ? category.total : 0}</BodyText>
+                  </Tabrow>
+                </BodyTr>
+              ))}
+            </TableBody>
+          </Tabl>
+        )}
         <Total>
           Expenses:
           <span>{totalExpenses}</span>
         </Total>
         <Total>
-          Income: <span>{totalIncome}</span>{' '}
+          Income: <span>{totalIncome}</span>
         </Total>
       </TableContainer>
     </>
