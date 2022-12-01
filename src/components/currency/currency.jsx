@@ -8,7 +8,7 @@ import {
   CurrencyTitleList,
   CurrencyTitle,
   CurrencyTitleItem,
-} from './carrency.styled.js';
+} from './currency.styled.js';
 import axios from 'axios';
 import BarLoader from 'react-spinners/BarLoader';
 
