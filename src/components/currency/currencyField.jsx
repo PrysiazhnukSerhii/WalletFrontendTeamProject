@@ -3,7 +3,7 @@ import {
   CurrencyFieldWrap,
   CurrencyFieldContainer,
   CurrencyFieldItem,
-} from './carrency.styled';
+} from './currency.styled';
 
 export const CurrencyField = ({ currency, purchaseValue, saleValue }) => {
   function minTwoDigits(n) {
