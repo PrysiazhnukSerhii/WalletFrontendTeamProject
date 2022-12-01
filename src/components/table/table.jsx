@@ -27,8 +27,6 @@ export function Table({
 }) {
   const { totalExpenses, totalIncome, totalCategories } = statistics;
 
-  const yearOptions = generateYearOptions(initialValues.year);
-
   const options = [
     { name: 'January', value: 1 },
     { name: 'February', value: 2 },
@@ -44,6 +42,9 @@ export function Table({
     { name: 'December', value: 12 },
   ];
 
+  const yearOptions = generateYearOptions(initialValues.year);
+  let currentMonth = generateCurrentMonth(month, options);
+
   if (!totalExpenses && !totalIncome) {
     Notiflix.Notify.warning('There are no transactions in the selected period');
   }
@@ -58,7 +59,7 @@ export function Table({
                 labelField="name"
                 valueField="value"
                 onChange={onMonthChange}
-                placeholder="Month"
+                placeholder={currentMonth}
               />
             </FieldContainer>
             <ErrorMessage name="month" />
@@ -67,7 +68,7 @@ export function Table({
                 options={yearOptions.map(year => ({ value: year }))}
                 labelField="value"
                 valueField="value"
-                placeholder="Year"
+                placeholder={year}
                 onChange={onYearChange}
               ></StyledField>
             </FieldContainer>
@@ -112,6 +113,18 @@ export function Table({
       </TableContainer>
     </>
   );
+}
+
+function generateCurrentMonth(month, options) {
+  let currentMonth = null;
+
+  options.map(e => {
+    if (e.value === month) {
+      currentMonth = e.name;
+    }
+  });
+
+  return currentMonth;
 }
 
 function generateYearOptions(currentYear) {

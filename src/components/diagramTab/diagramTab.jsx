@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Chart } from 'components/chart/chart';
 import { Table } from 'components/table/table';
 import { useGetStatisticsMutation } from 'redux/transactionsSlice';
-import { StatisticsContainer } from './diagramTam.styled';
+import { StatisticsContainer } from './diagramTab.styled';
 
 const initialValues = {
   month: new Date().getMonth() + 1,
