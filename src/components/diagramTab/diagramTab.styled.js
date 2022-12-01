@@ -5,9 +5,10 @@ export const StatisticsContainer = styled.div`
   flex-wrap: wrap;
   flex-grow: 1;
   padding-top: 32px;
-  @media screen and (max-width: 767px) {
-    padding-top: 80px;
+  @media screen and (max-width: 768px) {
+    padding-top: 0;
   }
+
   @media screen and (min-width: 1279px) {
     margin-left: 138px;
   }
