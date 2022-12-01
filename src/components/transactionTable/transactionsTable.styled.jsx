@@ -77,6 +77,8 @@ export const DataItem = styled.td`
   color: var(--primary-text-color);
   font-weight: 400;  
   font-size: 16px;  
+  overflow: hidden;
+  text-overflow: ellipsis;
     &:nth-child(1) {
       width: 50px;
       margin-right: 30px;
@@ -142,7 +144,7 @@ export const HeadItemMob = styled.span`
 export const DataItemMob = styled.li`
   display: flex;
     flex-grow: 1;    
-    align-items: center;
+    align-items: center;        
     &:not(:last-child) {
       border-bottom: 1px solid #dcdcdf;
     }

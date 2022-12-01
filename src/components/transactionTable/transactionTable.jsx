@@ -79,7 +79,15 @@ export function TransactionsTable() {
                   </DataItemMob>
                   <DataItemMob>
                     <HeadItemMob>Comment</HeadItemMob>
-                    {comment}
+                    <span
+                      style={{
+                        width: '80px',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                      }}
+                    >
+                      {comment}
+                    </span>
                   </DataItemMob>
                   <DataItemMob style={{ fontWeight: '700' }}>
                     <HeadItemMob>Sum</HeadItemMob>
