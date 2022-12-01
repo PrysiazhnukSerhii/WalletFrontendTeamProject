@@ -7,13 +7,13 @@ export const TableWrapper = styled.table`
 
   text-align: center;
   @media screen and (min-width: 768px) {
+    margin: 0 auto;
     max-width: 704px;
   }
   @media screen and (min-width: 1280px) {
     max-width: 715px;
     max-height: 65vh;
     margin-left: 69px;
-    margin-top: 46px;
   }
 `;
 
@@ -23,7 +23,6 @@ export const TableHead = styled.tr`
   font-size: 18px;
   line-height: 27px;
   height: 58px;
-
   padding: 0px 7.5px;
   border-radius: 30px;
   background-color: white;
@@ -80,8 +79,8 @@ export const DataItem = styled.td`
   font-size: 16px;
   @media screen and (min-width: 320px) {
     &:nth-child(1) {
-      width: 50px;
-      margin-right: 30px;
+      width: 70px;
+      margin-right: 10px;
     }
     &:nth-child(2) {
       width: 80px;
@@ -106,6 +105,13 @@ export const DataItem = styled.td`
   }
 `;
 
+export const DataComment = styled.span`
+  width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+`;
+
 export const DataSum = styled.span`
   color: ${props =>
     props.type === 'true'
@@ -114,8 +120,9 @@ export const DataSum = styled.span`
 `;
 
 export const DataMob = styled.ul`
-  width: 234px;
-  margin: 0 auto;
+  width: 280px;
+  padding: 12px 20px;
+
   border-radius: 10px;
   border-left: 5px solid
     ${props =>
@@ -123,7 +130,7 @@ export const DataMob = styled.ul`
         ? 'var(--accent-color-grean)'
         : 'var(--accent-color-red)'};
   &:not(:last-child) {
-    margin-bottom: 8px;
+    margin: 0 auto 8px;
   }
   background: #ffffff;
 `;
@@ -141,16 +148,15 @@ export const HeadItemMob = styled.span`
 
 export const DataItemMob = styled.li`
   display: flex;
-  flex-grow: 1;
-  align-items: center;
-  &:not(:last-child) {
-    border-bottom: 1px solid #dcdcdf;
+    flex-grow: 1;    
+    align-items: center;
+    &:not(:last-child) {
+      border-bottom: 1px solid #dcdcdf;
+    }
   }
 
-  justify-content: space-between;
-  padding: 8px 10px;
+  justify-content: space-between;  
   height: 47px;
   line-height: calc(24 / 16);
-  font-weight: 400;
-  font-size: 16px;
+  ;
 `;
