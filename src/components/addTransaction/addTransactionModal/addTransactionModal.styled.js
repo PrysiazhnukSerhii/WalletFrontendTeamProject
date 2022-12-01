@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
 export const Backdrop = styled.div`
-  @media screen and (min-width: 768px) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+
+  @media screen and (max-width: 767px) {
+    background-color: var(--primary-background-color);
   }
 `;
 
@@ -18,19 +19,19 @@ export const Modal = styled.div`
   display: flex;
   justify-content: center;
   background-color: var(--primary-background-color);
-  z-index: 10;
   padding: 20px 0 55px 0;
+  min-height: 585px;
 
   @media screen and (max-width: 767px) {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   @media screen and (min-width: 768px) {
     position: absolute;
     top: 0;
     left: 0;
     width: 540px;
-    min-height: 500px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -39,7 +40,6 @@ export const Modal = styled.div`
   }
   @media screen and (min-width: 1280px) {
     width: 500px;
-    min-height: 500px;
     border-radius: 20px;
   }
 `;
@@ -76,14 +76,15 @@ export const CloseButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   position: fixed;
   top: 20px;
   right: 20px;
   border-radius: 100%;
   background-color: var(--primary-background-color);
   border: 0;
+  transition: box-shadow 250ms linear;
   &:hover {
     box-shadow: 0px 0px 5px var(--accent-color-grean);
   }

@@ -42,6 +42,7 @@ const InputStyle = `
   transition: border 250ms linear;
   line-height: 1.47;
   color: var(--primary-text-color);
+  cursor: pointer;
   &::placeholder {
     color:#bdbdbd;
   }
@@ -57,6 +58,7 @@ export const CheckboxWrapp = styled.label`
   flex-direction: row;
   align-items: center;
   margin-bottom: 20px;
+  cursor: pointer;
 `;
 
 export const CheckboxInput = styled(Field)`
@@ -141,23 +143,23 @@ export const SumWrap = styled.div`
 `;
 
 export const DateWrap = styled.div`
-  padding: 0 20px 0 20px;
+  padding: 0 0 0 20px;
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid var(--disabled-grey-text-color);
   position: relative;
+  transition: border 250ms linear;
   &:focus,
   &:hover {
     border-bottom: 1px solid var(--accent-color-blue);
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     margin-bottom: 40px;
   }
 `;
 
 export const DatetimeInput = styled.input`
   ${InputStyle}
-  width: 100%;
   padding: 0;
   text-align: left;
   outline: none;
@@ -168,12 +170,18 @@ export const DatetimeInput = styled.input`
   &:hover {
     border-bottom: none;
   }
+  width: 260px;
+  @media screen and (min-width: 768px) {
+    width: 160px;
+  }
 `;
 
 export const CalendarWrap = styled.div`
   width: 24px;
   height: 24px;
-  //border-bottom: 1px solid var(--disabled-grey-text-color);
+  pointer-events: none;
+  position: absolute;
+  right: 20px;
 `;
 
 export const SumField = styled(Field)`
@@ -201,11 +209,16 @@ export const SumField = styled(Field)`
     -moz-appearance: textfield;
   }
 `;
+export const TextAreaWrap = styled.div`
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
+`
 
 export const Textarea = styled.textarea`
   ${InputStyle}
   box-sizing: border-box;
-  margin-bottom: 40px;
+  //margin-bottom: 40px;
   resize: none;
   font-size: 18px;
   @media screen and (min-width: 768px) {
@@ -217,7 +230,9 @@ export const Error = styled.p`
   color: red;
   font-size: 10px;
   position: absolute;
-  top: 30px;
+  //top: 30px;
+  left: 0px;
+  bottom: -10px;
   display: flex;
   align-items: center;
   justify-content: center;

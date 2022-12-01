@@ -1,10 +1,6 @@
 import { StyledNavLink, NavList, NavStyled } from './navigation.styled';
-
-import Media from 'react-media';
-
-import { ReactComponent as CurrencyIcon } from '../../images/svg/currency.svg';
-import { AiFillHome } from 'react-icons/ai';
 import sprite from '../../images/svg/symbol-defs.svg';
+import Media from 'react-media';
 
 const Navigation = () => {
   return (
@@ -12,18 +8,18 @@ const Navigation = () => {
       <NavList>
         <li>
           <StyledNavLink to="homeTab" aria-label="home">
-            <AiFillHome fill="#fff" padding="2px" />
-
+            <svg>
+              <use href={`${sprite}#icon-home`} />
+            </svg>
             <Media query="(min-width: 768px)" render={() => <p>Home</p>} />
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="diagramTab" aria-label="diagramTab">
-            <div style={{ width: '38px', height: '38px' }}>
-              <svg width="26px" height="14px">
-                <use href={`${sprite}#icon-diagrama`} />
-              </svg>
-            </div>
+            <svg>
+              <use href={`${sprite}#icon-diagrama`} />
+            </svg>
+
             <Media
               query="(min-width: 768px)"
               render={() => <p>Statistics</p>}
@@ -35,7 +31,9 @@ const Navigation = () => {
             query="(max-width: 767px)"
             render={() => (
               <StyledNavLink to="currency" aria-label="currency">
-                <CurrencyIcon />
+                <svg>
+                  <use href={`${sprite}#icon-currency`} />
+                </svg>
               </StyledNavLink>
             )}
           />

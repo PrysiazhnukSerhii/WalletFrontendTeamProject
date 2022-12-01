@@ -5,6 +5,9 @@ export const selectStyles = {
     outline: 'none',
     border: 'none',
     marginBottom: '40px',
+    '@media screen and (max-width:767px)': {
+      width: '280px',
+    },
   }),
   valueContainer: (baseStyles, state) => ({
     ...baseStyles,
@@ -14,6 +17,7 @@ export const selectStyles = {
     border: 'none',
     outline: 'none',
     borderBottom: '1px solid var(--disabled-grey-text-color)',
+    transition: 'border 250ms linear',
     boxShadow: 'none',
     borderRadius: '0',
     cursor: 'pointer',
@@ -35,19 +39,44 @@ export const selectStyles = {
   menuList: (baseStyles, state) => ({
     ...baseStyles,
   }),
-  option: (baseStyles, state) => ({
-    ...baseStyles,
-    fontSize: '18px',
-    fontWeight: '400',
-    color: '#000',
-    cursor: 'pointer',
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
-    ':hover': {
-      color: 'var(--accent-color-red)',
-      backgroundColor: 'white',
-    },
-    transition: 'color 250ms linear',
-  }),
+  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+    const color = '#fff';
+    return {
+      ...styles,
+      backgroundColor: isDisabled
+        ? undefined
+        : isSelected
+        ? data.color
+        : isFocused
+        ? color
+        : undefined,
+      color: isDisabled
+        ? '#ccc'
+        : isSelected
+        ? color
+          ? '#ff6596'
+          : 'black'
+        : data.color,
+      cursor: isDisabled ? 'not-allowed' : 'pointer',
+
+      ':active': {
+        ...styles[':active'],
+        backgroundColor: !isDisabled
+          ? isSelected
+            ? data.color
+            : color
+          : undefined,
+      },
+      ':hover': {
+        color: 'var(--accent-color-red)',
+        backgroundColor: 'white',
+      },
+      transition: 'color 250ms linear, background-color 250ms linear',
+      fontSize: '18px',
+      fontWeight: '400',
+    };
+  },
+
   indicatorSeparator: (baseStyles, state) => ({
     ...baseStyles,
     display: 'none',

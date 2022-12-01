@@ -29,12 +29,13 @@ export const TableHead = styled.tr`
   background-color: white;
 `;
 
-export const TableHeadItem = styled.th`   
+export const TableHeadItem = styled.th`
   padding: 10px;
-  width: 50px;  
-  &:nth-child(1) {    
+
+  width: 50px;
+  &:nth-child(1) {
     margin-right: 45px;
-  } 
+  }
   &:nth-child(2) {
     margin-right: 40px;
   }
@@ -47,38 +48,39 @@ export const TableHeadItem = styled.th`
   &:nth-child(5) {
     margin-right: 43px;
   }
-  }
 `;
 
 export const Data = styled.tr`
-position: relative;
+  position: relative;
   display: flex;
   align-items: center;
   padding: 0px 7.5px;
   font-size: 16px;
   line-height: 24px;
-  height: 52px;  
-    &:not(:last-child) {
-      &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 10;
-        bottom: 0;
-        width: 680px;
-        border: 1px solid #dcdcdf;
-        box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
-      }
-    
+  height: 52px;
+  &:not(:last-child) {
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 10;
+      bottom: 0;
+      width: 680px;
+      border: 1px solid #dcdcdf;
+      box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+    }
+  }
 `;
 
 export const DataItem = styled.td`
   padding: 8px 10px;
+
   color: var(--primary-text-color);
-  font-weight: 400;  
-  font-size: 16px;  
+  font-weight: 400;
+  font-size: 16px;
   overflow: hidden;
   text-overflow: ellipsis;
+  @media screen and (min-width: 320px) {
     &:nth-child(1) {
       width: 50px;
       margin-right: 30px;
@@ -96,16 +98,14 @@ export const DataItem = styled.td`
       margin-right: 50px;
     }
     &:nth-child(5) {
-    width: 80px;
-    margin-right: 10px;
-    
+      width: 80px;
+      margin-right: 10px;
+    }
+    &:nth-child(6) {
+      width: 90px;
+      margin-left: 25px;
+    }
   }
-  &:nth-child(6) {
-    width: 90px; 
-    margin-left: 25px;   
-  }
-  }
-  
 `;
 
 export const DataSum = styled.span`
@@ -144,15 +144,16 @@ export const HeadItemMob = styled.span`
 export const DataItemMob = styled.li`
   display: flex;
     flex-grow: 1;    
-    align-items: center;        
+    align-items: center;
     &:not(:last-child) {
       border-bottom: 1px solid #dcdcdf;
     }
   }
+
   justify-content: space-between;
   padding: 8px 10px;
   height: 47px;
-  line-height: calc(24 / 16);  
+  line-height: calc(24 / 16);
   font-weight: 400;
   font-size: 16px;
 `;
