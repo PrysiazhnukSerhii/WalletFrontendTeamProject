@@ -7,7 +7,7 @@ import BarLoader from 'react-spinners/BarLoader';
 export const Currency = () => {
   const [rateUsd, setRateUsd] = useState(null);
   const [rateEur, setRateEur] = useState(null);
-  const [rateRub] = useState(0);
+  const [rateGbp, setRateGbp] = useState(null);
 
   const saveRates = data => {
     data.forEach(el => {
@@ -24,6 +24,13 @@ export const Currency = () => {
           rateSell: el.rateSell,
         };
         setRateEur(dataToSave);
+      }
+      if (el.currencyCodeA === 826 && el.currencyCodeB === 980) {
+        const dataToSave = {
+          rateBuy: el.rateCross,
+          rateSell: el.rateCross,
+        };
+        setRateGbp(dataToSave);
       }
     });
   };
@@ -86,9 +93,9 @@ export const Currency = () => {
                 saleValue={rateEur?.rateSell}
               />
               <CurrencyField
-                currency="RUB"
-                purchaseValue={rateRub}
-                saleValue={rateRub}
+                currency="GBP"
+                purchaseValue={rateGbp?.rateBuy}
+                saleValue={rateGbp?.rateSell}
               />
             </ul>
           </div>
