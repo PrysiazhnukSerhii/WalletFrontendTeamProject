@@ -44,14 +44,7 @@ export function TransactionsTable() {
                         {category}
                       </DataItem>
                       <DataItem style={{ textAlign: 'left' }}>
-                        <span
-                          style={{
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                          }}
-                        >
-                          {comment}
-                        </span>
+                        <DataComment>{comment}</DataComment>
                       </DataItem>
                       <DataItem
                         style={{ textAlign: 'right', fontWeight: '700' }}

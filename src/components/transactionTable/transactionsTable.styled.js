@@ -158,6 +158,5 @@ export const DataItemMob = styled.li`
   padding: 8px 10px;
   height: 47px;
   line-height: calc(24 / 16);
-  font-weight: 400;
-  font-size: 16px;
+  ;
 `;
