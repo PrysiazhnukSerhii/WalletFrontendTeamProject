@@ -8,6 +8,7 @@ import {
   TableHead,
   Data,
   DataSum,
+  DataComment,
   DataMob,
   DataItemMob,
   HeadItemMob,
@@ -43,7 +44,7 @@ export function TransactionsTable() {
                         {category}
                       </DataItem>
                       <DataItem style={{ textAlign: 'left' }}>
-                        {comment}
+                        <DataComment>{comment}</DataComment>
                       </DataItem>
                       <DataItem
                         style={{ textAlign: 'right', fontWeight: '700' }}
@@ -79,7 +80,7 @@ export function TransactionsTable() {
                   </DataItemMob>
                   <DataItemMob>
                     <HeadItemMob>Comment</HeadItemMob>
-                    {comment}
+                    <DataComment>{comment}</DataComment>
                   </DataItemMob>
                   <DataItemMob style={{ fontWeight: '700' }}>
                     <HeadItemMob>Sum</HeadItemMob>
