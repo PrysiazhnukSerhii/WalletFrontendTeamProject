@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const transactionsApi = createApi({
   reducerPath: 'transactionsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3001',
+    baseUrl: 'https://wallet-backend-team-project.herokuapp.com',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().userInformation.token;
       if (token) {
@@ -15,7 +15,9 @@ export const transactionsApi = createApi({
   tagTypes: ['Transactions'],
   endpoints: builder => ({
     getTransactions: builder.query({
-      query: () => `/api/transactions`,
+      query: page => {
+        return `/api/transactions?page=${page + 1}`;
+      },
       providesTags: ['Transactions'],
     }),
 
