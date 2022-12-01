@@ -1,6 +1,7 @@
 import { useMedia } from 'react-use';
 import { fixDate } from 'helpers/fixDate';
 import { useGetTransactionsQuery } from '../../redux/transactionsSlice';
+import { PaginatedItems } from '../pagination/pagination';
 import {
   TableWrapper,
   TableHeadItem,
@@ -16,7 +17,7 @@ import {
 
 export function TransactionsTable() {
   const isMobile = useMedia('(max-width: 767px)');
-  const { data } = useGetTransactionsQuery();
+  const { data } = useGetTransactionsQuery(2);
 
   if (!data) {
     return;
@@ -64,6 +65,7 @@ export function TransactionsTable() {
           </>
         )}
       </TableWrapper>
+      <PaginatedItems itemsPerPage={4} />
       {isMobile && (
         <>
           {transactions.map(
