@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
+import { Select } from 'react-dropdown-select';
 
 export const Tabl = styled.table`
   width: 100%;
@@ -19,19 +20,39 @@ export const StyledForm = styled(Form)`
   }
 `;
 
-export const StyledField = styled(Field)`
-  width: 100%;
-  height: 50px;
-  background-color: transparent;
-  border: 1px solid #000000;
-  border-radius: 30px;
-  font-family: 'Circe';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  padding: 0 20px 0 20px;
+export const StyledField = styled(Select)`
+  &.react-dropdown-select {
+    position: relative;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 30px;
+    font-family: 'Circe';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0 20px 0 20px;
+    color: #000;
 
-  color: #000000;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-top: 1px solid;
+      border-left: 1px solid;
+      transform: rotate(-135deg) translateY(-50%);
+      transform-origin: 0 0;
+    }
+  }
+
+  .react-dropdown-select-dropdown-handle {
+    position: absolute;
+    visibility: hidden;
+  }
 `;
 
 export const TabHeader = styled.th`
@@ -114,20 +135,6 @@ export const FieldContainer = styled.div`
 
   @media screen and (max-width: 767px) {
     width: 100%;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-top: 1px solid;
-    border-left: 1px solid;
-    transform: rotate(-135deg) translateY(-50%);
-    transform-origin: 0 0;
   }
 `;
 

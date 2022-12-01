@@ -25,10 +25,11 @@ export function DiagramTab() {
   console.log(statistics);
 
   const handleMonthChange = e => {
-    setMonth(Number(e.currentTarget.value));
+    console.log(e);
+    setMonth(Number(e[0].value));
   };
   const handleYearChange = e => {
-    setYear(Number(e.currentTarget.value));
+    setYear(Number(e[0].value));
   };
 
   return (
@@ -38,12 +39,11 @@ export function DiagramTab() {
 
         {statistics && (
           <>
-            {(statistics?.totalIncome || statistics?.totalExpenses) &&
-              (statistics?.totalExpenses ? (
-                <Chart statistics={statistics} />
-              ) : (
-                <p>There are no expenses in the selected period</p>
-              ))}
+            {statistics?.totalExpenses ? (
+              <Chart statistics={statistics} />
+            ) : (
+              <p>There are no expenses in the selected period</p>
+            )}
 
             <Table
               month={month}

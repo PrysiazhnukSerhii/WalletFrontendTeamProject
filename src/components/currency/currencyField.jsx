@@ -1,4 +1,9 @@
 import React from 'react';
+import {
+  CurrencyFieldWrap,
+  CurrencyFieldContainer,
+  CurrencyFieldItem,
+} from './carrency.styled';
 
 export const CurrencyField = ({ currency, purchaseValue, saleValue }) => {
   function minTwoDigits(n) {
@@ -8,12 +13,12 @@ export const CurrencyField = ({ currency, purchaseValue, saleValue }) => {
   const sale = minTwoDigits(saleValue.toFixed(2));
   const purchase = minTwoDigits(purchaseValue.toFixed(2));
   return (
-    <div className="CurrencyField">
-      <li className="currencyFieldContainer">
-        <p className="currencyFieldItem">{currency}</p>
-        <p className="currencyFieldItem">{purchase}</p>
-        <p className="currencyFieldItem">{sale}</p>
-      </li>
-    </div>
+    <CurrencyFieldWrap>
+      <CurrencyFieldContainer>
+        <CurrencyFieldItem>{currency}</CurrencyFieldItem>
+        <CurrencyFieldItem>{purchase}</CurrencyFieldItem>
+        <CurrencyFieldItem>{sale}</CurrencyFieldItem>
+      </CurrencyFieldContainer>
+    </CurrencyFieldWrap>
   );
 };
