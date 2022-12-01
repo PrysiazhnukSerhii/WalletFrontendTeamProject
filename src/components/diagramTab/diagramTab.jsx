@@ -22,10 +22,7 @@ export function DiagramTab() {
     getStatistics({ month, year });
   }, [month, year, getStatistics]);
 
-  console.log(statistics);
-
   const handleMonthChange = e => {
-    console.log(e);
     setMonth(Number(e[0].value));
   };
   const handleYearChange = e => {
