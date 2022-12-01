@@ -43,7 +43,7 @@ export function Table({
   ];
 
   const yearOptions = generateYearOptions(initialValues.year);
-  let currentMonth = generateCurrentMonth(month, options);
+  const currentMonth = generateCurrentMonth(month, options);
 
   if (!totalExpenses && !totalIncome) {
     Notiflix.Notify.warning('There are no transactions in the selected period');
@@ -115,7 +115,7 @@ export function Table({
   );
 }
 
-function generateCurrentMonth(month) {
+function generateCurrentMonth(month, options) {
   let currentMonth = null;
 
   options.map(e => {
