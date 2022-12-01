@@ -115,7 +115,7 @@ export function Table({
 function generateCurrentMonth(month, options) {
   let currentMonth = null;
 
-  options.map(e => {
+  const mapMonth = options.map(e => {
     if (e.value === month) {
       currentMonth = e.name;
     }
