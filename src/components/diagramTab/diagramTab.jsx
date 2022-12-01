@@ -38,7 +38,6 @@ export function DiagramTab() {
   }, [month, year, getStatistics]);
 
   const handleMonthChange = e => {
-    console.log(e);
     setMonth(Number(e[0].value));
   };
   const handleYearChange = e => {
