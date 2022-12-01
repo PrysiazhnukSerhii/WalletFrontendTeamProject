@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Form, Field } from 'formik';
+import { Form } from 'formik';
 import { Select } from 'react-dropdown-select';
 
 export const Tabl = styled.table`
