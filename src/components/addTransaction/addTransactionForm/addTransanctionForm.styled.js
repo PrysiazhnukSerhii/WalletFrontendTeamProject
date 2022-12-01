@@ -140,6 +140,9 @@ export const SumWrap = styled.div`
   vertical-align: bottom;
   overflow: visible;
   position: relative;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 40px;
+  }
 `;
 
 export const DateWrap = styled.div`
@@ -191,9 +194,9 @@ export const SumField = styled(Field)`
   font-size: 18px;
   font-weight: 700;
   line-height: 1.47;
-  @media screen and (max-width: 767px) {
-    margin-bottom: 40px;
-  }
+  // @media screen and (max-width: 767px) {
+  //   margin-bottom: 40px;
+  // }
   @media screen and (min-width: 768px) {
     width: 180px;
     text-align: center;
