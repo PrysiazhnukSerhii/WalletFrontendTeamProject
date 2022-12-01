@@ -76,6 +76,7 @@ min-height: calc(100vh - 85px);
      `;
 
 export const Section = styled.section`
+  padding-bottom: 30px;
   min-height: calc(100vh - 85px);
   background: linear-gradient(
     rgba(255, 255, 255, 0.4),
