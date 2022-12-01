@@ -6,9 +6,10 @@ export const ChartWrapper = styled.div`
   position: relative;
 
   @media screen and (max-width: 767px) {
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     height: auto;
-    margin: 0 0 32px;
+    margin-bottom: 32px;
   }
 `;
 
