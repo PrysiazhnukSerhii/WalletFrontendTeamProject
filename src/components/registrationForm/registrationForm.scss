@@ -138,6 +138,10 @@
   align-items: center;
 }
 
+.passwordWrapper{
+  position: relative;
+}
+
 // .passwordChecking{
 //   display: block;
 //   position: relative;
@@ -156,13 +160,15 @@
   border: 3px solid rgb(198, 33, 21);
   background-color: rgb(198, 33, 21);
   @media screen and (min-width: 320px) {
-    top: 365px;
+    // top: 365px;
+    top: 30px;
     width: 290px;
   }
 
   @media screen and (min-width: 768px) {
-    top: 275px;
-    width: 85%;
+    // top: 275px;
+    top: 30px;
+    width: 100%;
   }
 }
 
@@ -172,12 +178,12 @@
   border: 3px solid rgb(234, 199, 124);
   background-color: rgb(234, 199, 124);
   @media screen and (min-width: 320px) {
-    top: 365px;
+    top: 30px;
     width: 290px;
   }
   @media screen and (min-width: 768px) {
-    top: 275px;
-    width: 85%;
+    top: 30px;
+    width: 100%;
   }
 }
 
@@ -188,12 +194,12 @@
   background-color: #24cca7;
 
   @media screen and (min-width: 320px) {
-    top: 365px;
+    top: 30px;
     width: 290px;
   }
 
   @media screen and (min-width: 768px) {
-    top: 275px;
-    width: 85%;
+    top: 30px;
+    width: 100%;
   }
 }
