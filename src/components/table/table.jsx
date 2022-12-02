@@ -13,6 +13,8 @@ import {
   BodyText,
   FieldContainer,
   TableContainer,
+  TotalExpenses,
+  TotalIncome,
 } from './table.styled';
 
 export function Table({
@@ -102,10 +104,10 @@ export function Table({
         )}
         <Total>
           Expenses:
-          <span>{totalExpenses}</span>
+          <TotalExpenses>{totalExpenses}</TotalExpenses>
         </Total>
         <Total>
-          Income: <span>{totalIncome}</span>
+          Income: <TotalIncome>{totalIncome}</TotalIncome>
         </Total>
       </TableContainer>
     </>

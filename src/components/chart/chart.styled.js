@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 export const ChartWrapper = styled.div`
-  width: 288px;
-  height: 288px;
+  width: 280px;
+  height: 280px;
   margin-right: 32px;
   position: relative;
 
@@ -10,6 +10,16 @@ export const ChartWrapper = styled.div`
     margin-right: auto;
     height: auto;
     margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    height: 336px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 288px;
+    height: 288px;
   }
 `;
 
