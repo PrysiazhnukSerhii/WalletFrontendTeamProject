@@ -1,6 +1,5 @@
 import { useMedia } from 'react-use';
 import { useState } from 'react';
-import ReactPaginate from 'react-paginate';
 import { fixDate } from 'helpers/fixDate';
 import { useGetTransactionsQuery } from '../../redux/transactionsSlice';
 import { PaginatedItems } from '../pagination/pagination';
@@ -17,7 +16,7 @@ import {
   DataItemMob,
   HeadItemMob,
 } from './transactionsTable.styled';
-import './pagination.css';
+
 export function TransactionsTable() {
   const isMobile = useMedia('(max-width: 767px)');
   const [itemOffset, setItemOffset] = useState(0);
@@ -32,10 +31,6 @@ export function TransactionsTable() {
   const itemsPerPage = 5;
   const pageCount = Math.ceil(length / itemsPerPage);
   // зробити що коли менше нуля кількість сторінок то не рендерить пагінацію
-
-  const handlePageClick = event => {
-    setItemOffset(event.selected);
-  };
 
   return (
     <>
@@ -78,34 +73,6 @@ export function TransactionsTable() {
         )}
       </TableWrapper>
 
-      <ReactPaginate
-        breakLabel="..."
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel={'← Previous'}
-        nextLabel={'Next →'}
-        renderOnZeroPageCount={null}
-        containerClassName={'pagination'}
-        previousLinkClassName={'pagination__link'}
-        nextLinkClassName={'pagination__link'}
-        disabledClassName={'pagination__link--disabled'}
-        activeClassName={'pagination__link--active'}
-      />
-
-      {/*        
-        marginPagesDisplayed={2}
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        containerClassName="pagination"
-        activeClassName="active" */}
-
       {isMobile && (
         <>
           {transactions.map(
@@ -139,6 +106,10 @@ export function TransactionsTable() {
             )
           )}
         </>
+      )}
+
+      {pageCount > 1 && (
+        <PaginatedItems pageCount={pageCount} setItemOffset={setItemOffset} />
       )}
     </>
   );

@@ -1,6 +1,6 @@
+import { Suspense } from 'react';
 import { Header } from '../../components/header/header';
 import { Outlet } from 'react-router-dom';
-
 
 import {
   Section,
@@ -15,11 +15,13 @@ export function DashboardPage() {
     <>
       <Header />
       <MainPage>
-          <Section>
+        <Section>
           <Container>
             <ContainerDashboard>
               <Dashboard />
-              <Outlet />
+              <Suspense fallback={null}>
+                <Outlet />
+              </Suspense>
             </ContainerDashboard>
           </Container>
         </Section>
