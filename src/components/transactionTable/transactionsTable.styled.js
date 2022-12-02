@@ -53,10 +53,11 @@ export const Data = styled.tr`
   position: relative;
   display: flex;
   align-items: center;
+  word-wrap: break-word;
   padding: 0px 7.5px;
   font-size: 16px;
   line-height: 24px;
-  height: 52px;
+  min-height: 52px;
   &:not(:last-child) {
     &::after {
       content: '';
