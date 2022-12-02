@@ -1,8 +1,7 @@
 import { Formik, ErrorMessage } from 'formik';
 import Notiflix from 'notiflix';
-// import { useEffect } from 'react';
 import { useGetStatisticsMutation } from 'redux/transactionsSlice';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyledForm, StyledField, FieldContainer } from './selectors.styled';
 
 const initialValues = {
@@ -14,9 +13,6 @@ export function Selectors() {
   const [month, setMonth] = useState(initialValues.month);
   const [year, setYear] = useState(initialValues.year);
 
-  // useEffect(() => {
-  //   handlePeriodChange({ month, year });
-  // }, [month, year, handlePeriodChange]);
   const [getStatistics] = useGetStatisticsMutation();
 
   Notiflix.Notify.merge({
@@ -27,9 +23,9 @@ export function Selectors() {
     distance: '90px',
     clickToClose: true,
   });
-  const handlePeriodChange = period => {
-    console.log(period);
-    getStatistics(period).then(({ data }) => {
+
+  useEffect(() => {
+    getStatistics({ month, year }).then(({ data }) => {
       const { totalExpenses, totalIncome } = data[0];
       if (!totalExpenses && !totalIncome) {
         Notiflix.Notify.warning(
@@ -37,14 +33,13 @@ export function Selectors() {
         );
       }
     });
-  };
+  }, [month, year, getStatistics]);
+
   const handleMonthChange = e => {
     setMonth(Number(e[0].value));
-    handlePeriodChange({ month, year });
   };
   const handleYearChange = e => {
     setYear(Number(e[0].value));
-    handlePeriodChange({ month, year });
   };
 
   const options = [
