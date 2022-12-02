@@ -27,3 +27,7 @@ export const StatisticsContainer = styled.div`
     width: 100%;
   }
 `;
+
+export const TableContainer = styled.div`
+  flex-grow: 1;
+`;
