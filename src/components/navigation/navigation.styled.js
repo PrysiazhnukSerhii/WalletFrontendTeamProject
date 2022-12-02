@@ -21,7 +21,6 @@ export const StyledNavLink = styled(NavLink)`
     width: 38px;
     border-radius: 6px;
     fill: var(--background-icons-color);
-    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
 
     @media screen and (min-width: 768px) {
       width: 24px;
@@ -33,7 +32,6 @@ export const StyledNavLink = styled(NavLink)`
 
     & svg {
       fill: var(--accent-color-blue);
-      filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
     }
   }
   &:hover {
