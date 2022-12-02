@@ -74,3 +74,5 @@ export function DiagramTab() {
     </>
   );
 }
+
+export default DiagramTab;

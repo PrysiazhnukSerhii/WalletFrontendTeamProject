@@ -6,7 +6,7 @@ export const BalanceContainer = styled.div`
   border-radius: 30px;
   margin-bottom: 32px;
   padding: 11px 32px;
-  width: 280px;
+  width: 290px;
 
   margin-right: auto;
   margin-left: auto;

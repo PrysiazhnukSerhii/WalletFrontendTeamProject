@@ -13,3 +13,5 @@ export const HomeTab = () => {
     </HomeWrapper>
   );
 };
+
+export default HomeTab;

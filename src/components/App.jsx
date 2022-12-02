@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -7,14 +8,13 @@ import PublicRoutes from './protectedRoutes/publicRoutes';
 import LoginPage from '../pages/loginPage';
 import { DashboardPage } from '../pages/dashboardPage/dashboardPage';
 import RegistrationPage from '../pages/registrationPage/index';
-// import { RegistrationPage } from '../pages/registrationPage/registrationPage';
-import { DiagramTab } from './diagramTab/diagramTab';
-import { HomeTab } from './homeTab/homeTab';
+
 import { CurrencyPage } from '../pages/currencyPage/currencyPage';
 
 import { IsLoggedIn } from './isLoggedIn/isLoggedIn';
 
-import React from 'react';
+const HomeTab = lazy(() => import('./homeTab/homeTab'));
+const DiagramTab = lazy(() => import('./diagramTab/diagramTab'));
 
 export const App = () => {
   let token = useSelector(state => state.userInformation.token);
