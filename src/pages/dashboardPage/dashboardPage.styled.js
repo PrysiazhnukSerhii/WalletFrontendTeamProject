@@ -77,7 +77,7 @@ min-height: calc(100vh - 85px);
      `;
 
 export const Section = styled.section`
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     padding-top: 68px;
   }
   padding-bottom: 30px;
@@ -86,6 +86,9 @@ export const Section = styled.section`
     rgba(255, 255, 255, 0.4),
     rgba(255, 255, 255, 0.4)
   );
-  backdrop-filter: blur(25px);
-  background-size: cover;
+
+  @media screen and (min-width: 768px) {
+    backdrop-filter: blur(25px);
+    background-size: cover;
+  }
 `;

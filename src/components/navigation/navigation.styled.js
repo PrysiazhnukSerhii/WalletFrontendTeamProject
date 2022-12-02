@@ -54,7 +54,7 @@ export const NavStyled = styled.nav`
     position: fixed;
     left: 0;
     right: 0;
-    top: 12px;
+    top: 72px;
     z-index: 5;
   }
 `;
