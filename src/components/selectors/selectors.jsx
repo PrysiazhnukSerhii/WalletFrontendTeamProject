@@ -4,14 +4,9 @@ import { useGetStatisticsMutation } from 'redux/transactionsSlice';
 import { useEffect, useState } from 'react';
 import { StyledForm, StyledField, FieldContainer } from './selectors.styled';
 
-const initialValues = {
-  month: new Date().getMonth() + 1,
-  year: new Date().getFullYear(),
-};
-
 export function Selectors() {
-  const [month, setMonth] = useState(initialValues.month);
-  const [year, setYear] = useState(initialValues.year);
+  const [month, setMonth] = useState(new Date().getMonth() + 1);
+  const [year, setYear] = useState(new Date().getFullYear());
 
   const [getStatistics] = useGetStatisticsMutation();
 
@@ -57,12 +52,12 @@ export function Selectors() {
     { name: 'December', value: 12 },
   ];
 
-  const yearOptions = generateYearOptions(initialValues.year);
+  const yearOptions = generateYearOptions(new Date().getFullYear());
   const currentMonth = generateCurrentMonth(month, options);
 
   return (
     <>
-      <Formik initialValues={initialValues}>
+      <Formik>
         <StyledForm>
           <FieldContainer>
             <StyledField
