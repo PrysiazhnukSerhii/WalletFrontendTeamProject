@@ -11,6 +11,10 @@ export const TransactionButton = styled.button`
   border: 0;
   box-shadow: 0 10px 10px -7px #24cca7;
   transition: background-color 250ms linear;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
   @media (max-width: 768px) {
     position: sticky;
     bottom: 20px;
