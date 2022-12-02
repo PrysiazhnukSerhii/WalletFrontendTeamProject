@@ -15,7 +15,9 @@ export const transactionsApi = createApi({
   tagTypes: ['Transactions'],
   endpoints: builder => ({
     getTransactions: builder.query({
-      query: () => `/api/transactions`,
+      query: page => {
+        return `/api/transactions?page=${page + 1}`;
+      },
       providesTags: ['Transactions'],
     }),
 
