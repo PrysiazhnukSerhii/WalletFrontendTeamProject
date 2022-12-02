@@ -32,6 +32,8 @@ export const StyledNavLink = styled(NavLink)`
 
     & svg {
       fill: var(--accent-color-blue);
+
+      filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
     }
   }
   &:hover {
@@ -41,7 +43,8 @@ export const StyledNavLink = styled(NavLink)`
       border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     & svg {
       fill: var(--accent-color-blue);
-      filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
+      // filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
+      // filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
       transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
         border 250ms cubic-bezier(0.4, 0, 0.2, 1);
