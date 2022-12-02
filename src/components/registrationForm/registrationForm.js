@@ -120,6 +120,7 @@ function RegistrationForm() {
                 className="input"
               />
 
+              <div className='passwordWrapper'>
               <MyTextInput
                 label={<LockIcon width={16} height={21} />}
                 type="password"
@@ -130,7 +131,8 @@ function RegistrationForm() {
                 placeholder="Password"
                 className="input"
               />
-              <div className={checkingPasswordQuality(values.password)}></div>
+                <div className={checkingPasswordQuality(values.password)}></div>
+              </div>
 
               <MyTextInput
                 label={<LockIcon width={16} height={21} />}
