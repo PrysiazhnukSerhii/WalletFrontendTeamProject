@@ -18,6 +18,7 @@ export const transactionsApi = createApi({
       query: page => {
         return `/api/transactions?page=${page + 1}`;
       },
+      keepUnusedDataFor: 3,
       providesTags: ['Transactions'],
     }),
 

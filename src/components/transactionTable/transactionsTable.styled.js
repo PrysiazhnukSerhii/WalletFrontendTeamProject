@@ -120,7 +120,7 @@ export const DataSum = styled.span`
 `;
 
 export const DataMob = styled.ul`
-  width: 280px;
+  width: 290px;
   padding: 12px 20px;
 
   border-radius: 10px;
