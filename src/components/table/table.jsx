@@ -12,12 +12,15 @@ import {
   TotalIncome,
 } from './table.styled';
 
-export function Table({ statistics, isSuccess }) {
+export function Table({ statistics }) {
+  if (!statistics) {
+    return null;
+  }
   const { totalExpenses, totalIncome, totalCategories } = statistics;
 
   return (
     <>
-      {isSuccess && !totalExpenses && !totalIncome ? null : (
+      {!totalExpenses && !totalIncome ? null : (
         <Tabl>
           <TableHead>
             <TableHeadTr>
