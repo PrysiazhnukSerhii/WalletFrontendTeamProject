@@ -19,13 +19,12 @@ export function DiagramTab() {
   const [getStatistics, { isSuccess }] = useGetStatisticsMutation();
 
   Notiflix.Notify.merge({
-    timeout: 50000,
-    width: '400 px',
+    timeout: 4000,
+    width: '300 px',
     useIcon: true,
     fontSize: '12px',
     distance: '90px',
     clickToClose: true,
-    position: 'right-center',
   });
   useEffect(() => {
     getStatistics({ month, year }).then(({ data }) => {
