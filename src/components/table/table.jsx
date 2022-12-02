@@ -32,8 +32,9 @@ export function Table({ statistics, isSuccess }) {
                   <p
                     style={{
                       backgroundColor: category.color,
-                      width: '30px',
-                      height: '30px',
+                      width: '24px',
+                      height: '24px',
+                      borderRadius: '2px',
                     }}
                   ></p>
                   <BodyText>{category.title}</BodyText>

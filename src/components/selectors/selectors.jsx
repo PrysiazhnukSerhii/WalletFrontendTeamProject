@@ -1,5 +1,5 @@
 import { Formik, ErrorMessage } from 'formik';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useState } from 'react';
 import { StyledForm, StyledField, FieldContainer } from './selectors.styled';
 
@@ -8,19 +8,21 @@ const initialValues = {
   year: new Date().getFullYear(),
 };
 
-export function Selectors({ onChange }) {
+export function Selectors({ handlePeriodChange }) {
   const [month, setMonth] = useState(initialValues.month);
   const [year, setYear] = useState(initialValues.year);
 
-  useEffect(() => {
-    onChange({ month, year });
-  }, [month, year, onChange]);
+  // useEffect(() => {
+  //   handlePeriodChange({ month, year });
+  // }, [month, year, handlePeriodChange]);
 
   const handleMonthChange = e => {
     setMonth(Number(e[0].value));
+    handlePeriodChange({ month, year });
   };
   const handleYearChange = e => {
     setYear(Number(e[0].value));
+    handlePeriodChange({ month, year });
   };
 
   const options = [

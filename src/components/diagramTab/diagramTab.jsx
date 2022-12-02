@@ -21,6 +21,7 @@ export function DiagramTab() {
   });
 
   const handlePeriodChange = period => {
+    console.log(period);
     getStatistics(period).then(({ data }) => {
       const { totalExpenses, totalIncome } = data[0];
       if (!totalExpenses && !totalIncome) {
@@ -45,7 +46,7 @@ export function DiagramTab() {
               )
             ) : null}
             <TableContainer>
-              <Selectors onChange={handlePeriodChange} />
+              <Selectors handlePeriodChange={handlePeriodChange} />
               <Table statistics={statistics} isSuccess={isSuccess} />
             </TableContainer>
           </>
