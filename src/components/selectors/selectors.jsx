@@ -1,5 +1,7 @@
 import { Formik, ErrorMessage } from 'formik';
+import Notiflix from 'notiflix';
 // import { useEffect } from 'react';
+import { useGetStatisticsMutation } from 'redux/transactionsSlice';
 import { useState } from 'react';
 import { StyledForm, StyledField, FieldContainer } from './selectors.styled';
 
@@ -8,14 +10,34 @@ const initialValues = {
   year: new Date().getFullYear(),
 };
 
-export function Selectors({ handlePeriodChange }) {
+export function Selectors() {
   const [month, setMonth] = useState(initialValues.month);
   const [year, setYear] = useState(initialValues.year);
 
   // useEffect(() => {
   //   handlePeriodChange({ month, year });
   // }, [month, year, handlePeriodChange]);
+  const [getStatistics] = useGetStatisticsMutation();
 
+  Notiflix.Notify.merge({
+    timeout: 4000,
+    width: '300 px',
+    useIcon: true,
+    fontSize: '12px',
+    distance: '90px',
+    clickToClose: true,
+  });
+  const handlePeriodChange = period => {
+    console.log(period);
+    getStatistics(period).then(({ data }) => {
+      const { totalExpenses, totalIncome } = data[0];
+      if (!totalExpenses && !totalIncome) {
+        Notiflix.Notify.warning(
+          'There are no transactions in the selected period'
+        );
+      }
+    });
+  };
   const handleMonthChange = e => {
     setMonth(Number(e[0].value));
     handlePeriodChange({ month, year });
