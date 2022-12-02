@@ -4,12 +4,13 @@ export const StatisticsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
-  padding-top: 32px;
+
   @media screen and (max-width: 768px) {
     padding-top: 0;
   }
 
   @media screen and (min-width: 1279px) {
+    padding-top: 30px;
     margin-left: 138px;
   }
 

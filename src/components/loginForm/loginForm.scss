@@ -32,16 +32,15 @@
 
 .logo_wrapper {
   display: flex;
-  align-items: center;
   justify-content: center;
   margin-bottom: 50px;
+  align-items: baseline;
 }
 
 .container_google {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   margin-bottom: 15px;
 }
 

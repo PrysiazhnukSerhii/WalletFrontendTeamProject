@@ -17,6 +17,8 @@ export const PageWrapper = styled.div`
   @media (min-width: 768px) {
     width: 768px;
     height: 1024px;
+    // width: 100vw;
+    // height: 100vh;
 
     background-image: url(${desktop}), url(${ellipseUp}), url(${frameTabl});
 
@@ -27,6 +29,9 @@ export const PageWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     width: 1280px;
     height: 720px;
+    // width: 100vw;
+    //height: 100vh;
+
 
     background-image: url(${desktopImg}), url(${ellipDesk}), url(${frameDask});
 
