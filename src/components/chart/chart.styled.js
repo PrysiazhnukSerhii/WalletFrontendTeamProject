@@ -2,7 +2,6 @@ import styled from 'styled-components';
 export const ChartWrapper = styled.div`
   width: 280px;
   height: 280px;
-  margin-right: 32px;
   position: relative;
 
   @media screen and (max-width: 767px) {
