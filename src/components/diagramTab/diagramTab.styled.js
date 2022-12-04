@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 export const StatisticsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-grow: 1;
-
   @media screen and (max-width: 768px) {
     padding-top: 0;
   }
@@ -24,6 +20,37 @@ export const StatisticsContainer = styled.div`
   }
 
   p {
-    width: 100%;
+    @media screen and (max-width: 767px) {
+      margin-bottom: 16px;
+    }
+  }
+`;
+
+export const TableContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    margin-left: auto;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    margin-left: auto;
+  }
+`;
+
+export const StatisticsWrapper = styled.div`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: end;
+    margin-left: auto;
+    min-width: 704px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    min-width: 715px;
   }
 `;
